@@ -1,9 +1,9 @@
 import nibabel as nib
 import numpy as np
 import pandas as pd
+import dimensionality_reduction as dr
 
-
-def scalarization(data, regime, q_1=0.1, q_2=0.9):
+def scalarization_1(data, regime, q_1=0.1, q_2=0.9):
     """
     Convert time series for each voxel to scalar value.
 
@@ -28,6 +28,46 @@ def scalarization(data, regime, q_1=0.1, q_2=0.9):
         return quantiles_distance(data, q_1, q_2)
     else:
         raise Exception("Invalid regime.")
+
+
+def scalarization_2(file_name, regime, q_1=0.1, q_2=0.9):
+    """
+    Convert time series for each voxel to scalar value.
+
+    :param file_name: string, name of input file.
+    :param regime: numeric, regime of function; 0 - mean, 1 - median, 2 -standard derivation, 3 - variance,
+    4 - difference between the maximum and minimum, 5 - difference between quantiles.
+    :param q_1: numeric, level of quantile 1.
+    :param q_2:numeric, level of quantile 2.
+    :return: ndarray, array of scalars.
+    """
+    img = nib.load(file_name)
+    data = img.get_fdata()
+    data = dr._4D_to_2D(data)
+    return scalarization_1(data, regime, q_1, q_2)
+
+
+def scalarization_3(file_names, file_name, regime, q_1=0.1, q_2=0.9):
+    """
+    Convert time series for each voxel to scalar value and save them to file.
+
+    :param file_names: list of strings, names of input files.
+    :param file_name: string, name of output file.
+    :param regime: numeric, regime of function; 0 - mean, 1 - median, 2 -standard derivation, 3 - variance,
+    4 - difference between the maximum and minimum, 5 - difference between quantiles.
+    :param q_1: numeric, level of quantile 1.
+    :param q_2:numeric, level of quantile 2.
+    :return: ndarray, array of scalars.
+    """
+    data = scalarization_2(file_names[0], regime)
+    size = len(file_names)
+    for i in range(1, size):
+        data += np.add(scalarization_2(file_names[i], regime, q_1, q_2), data)
+    for i in range(size):
+        data[i] /= size
+
+    np.savetxt(file_name, data)
+    return data
 
 
 def mean(data):
@@ -89,4 +129,6 @@ def quantiles_distance(data, q_1, q_2):
     :param data: ndarray, array of arrays that contain voxel's values at different time.
     :return: ndarray, difference between the quantiles of voxel's values.
     """
-    return np.quantile(data, q_2) - np.quantile(data, q_1)
+    return np.quantile(data, q_2, axis=1) - np.quantile(data, q_1, axis=1)
+
+
