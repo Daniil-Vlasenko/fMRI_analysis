@@ -13,6 +13,8 @@ import synolitic
 
 
 
+
+
 # file_name1 = "../processed_data/sub-01_ses-perceptionTraining01_task-perception_run-01_bold_preproc_10_10_10.nii"
 # file_name2 = "../processed_data/output.txt"
 # img = nib.load("../processed_data/sub-01_ses-perceptionTraining01_task-perception_run-01_bold_preproc_10_10_10.nii")
