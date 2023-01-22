@@ -3,14 +3,31 @@ import numpy as np
 import pandas as pd
 
 
-def set_generation(input_file, output_file):
+def scalarization(data, regime, q_1=0.1, q_2=0.9):
     """
-    Generate or extend the file that contain values of voxels.
+    Convert time series for each voxel to scalar value.
 
-    :param input_file: string, name of input .nii file.
-    :param output_file: string, name of output .txt file.
-    :return:
+    :param data: ndarray, array of arrays that contain voxel's values at different time.
+    :param regime: numeric, regime of function; 0 - mean, 1 - median, 2 -standard derivation, 3 - variance,
+    4 - difference between the maximum and minimum, 5 - difference between quantiles.
+    :param q_1: numeric, level of quantile 1.
+    :param q_2:numeric, level of quantile 2.
+    :return: ndarray, array of scalars.
     """
+    if regime == 0:
+        return mean(data)
+    elif regime == 1:
+        return median(data)
+    elif regime == 2:
+        return sd(data)
+    elif regime == 3:
+        return var(data)
+    elif regime == 4:
+        return max_min_distance(data)
+    elif regime == 5:
+        return quantiles_distance(data, q_1, q_2)
+    else:
+        raise Exception("Invalid regime.")
 
 
 def mean(data):
