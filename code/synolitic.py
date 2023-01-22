@@ -3,6 +3,7 @@ import numpy as np
 import pandas as pd
 import dimensionality_reduction as dr
 
+
 def scalarization_1(data, regime, q_1=0.1, q_2=0.9):
     """
     Convert time series for each voxel to scalar value.
