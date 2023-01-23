@@ -1,4 +1,5 @@
 import nilearn.image as image
+import nibabel as nib
 import numpy as np
 
 
@@ -14,6 +15,28 @@ def dimensionality_reduction_1(img_input, n):
     for i in range(3):
         img_input_affine[i][i] = n * np.sign(img_input_affine[i][i])
     return image.resample_img(img_input, img_input_affine)
+
+
+def dimensionality_reduction_2(iput_files, n):
+    """
+    Dimensionality reduction by downsample iput_files's grid to n millimeters per voxel.
+
+    :param iput_files: strings, paths of niimg-like object.
+    :param n: int, number of millimeters per voxel.
+    :return:
+    """
+    for i in iput_files:
+        img = image.load_img(i)
+        affine = img.affine.copy()
+        print(i)
+        print(affine)
+        for j in range(3):
+            affine[j][j] = n * np.sign(affine[j][j])
+        new_img = image.resample_img(img, affine)
+        path_array = i.split("/")
+        new_path = "../processed_data/dimensionality_reduction_1/" + path_array[5] + "/" + path_array[6] + "/" + \
+                   path_array[8]
+        nib.save(new_img, new_path)
 
 
 def _4D_to_2D(data):
