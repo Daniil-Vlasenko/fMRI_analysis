@@ -7,24 +7,23 @@ import scipy.stats as stat
 import pearson_spearman as cor
 import igraph as ig
 import synolitic
+import data
+
+print(len(data.imagery))
+print(len(data.perception))
+print(len(data.imagery_test))
+print(len(data.perception_test))
+print(len(data.imagery_training))
+print(len(data.perception_training))
+
+for i in data.all_files:
+    open(i)
 
 
 
 
 
 
-
-
-# file_name1 = "../processed_data/sub-01_ses-perceptionTraining01_task-perception_run-01_bold_preproc_10_10_10.nii"
-# file_name2 = "../processed_data/output.txt"
-# img = nib.load("../processed_data/sub-01_ses-perceptionTraining01_task-perception_run-01_bold_preproc_10_10_10.nii")
-# data = img.get_fdata()
-# print(data.shape)
-# new_data = dr._4D_to_2D(data)
-# print(new_data.shape)
-
-
-# print(synolitic.scalarization_3([file_name1, file_name1], file_name2, 5))
 
 
 
