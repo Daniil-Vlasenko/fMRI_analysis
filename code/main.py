@@ -7,7 +7,7 @@ import scipy.stats as stat
 import pearson_spearman as cor
 import igraph as ig
 import synolitic
-import data
+import preprocessed_data
 from pathlib import Path
 import nilearn.image as image
 
