@@ -43,7 +43,7 @@ sub_01_perceptionTest02 = [
     "../preprocessed_data/derivatives/preproc-spm/output/sub-01/ses-perceptionTest02/func/sub-01_ses-perceptionTest02_task-perception_run-07_bold_preproc.nii.gz",
     "../preprocessed_data/derivatives/preproc-spm/output/sub-01/ses-perceptionTest02/func/sub-01_ses-perceptionTest02_task-perception_run-08_bold_preproc.nii.gz",
     "../preprocessed_data/derivatives/preproc-spm/output/sub-01/ses-perceptionTest02/func/sub-01_ses-perceptionTest02_task-perception_run-09_bold_preproc.nii.gz",
-    "../preprocessed_data/derivatives/preproc-spm/output/sub-01/ses-perceptionTest03/func/sub-01_ses-perceptionTest02_task-perception_run-10_bold_preproc.nii.gz"]
+    "../preprocessed_data/derivatives/preproc-spm/output/sub-01/ses-perceptionTest02/func/sub-01_ses-perceptionTest02_task-perception_run-10_bold_preproc.nii.gz"]
 sub_01_perceptionTest03 = [
     "../preprocessed_data/derivatives/preproc-spm/output/sub-01/ses-perceptionTest03/func/sub-01_ses-perceptionTest03_task-perception_run-01_bold_preproc.nii.gz",
     "../preprocessed_data/derivatives/preproc-spm/output/sub-01/ses-perceptionTest03/func/sub-01_ses-perceptionTest03_task-perception_run-02_bold_preproc.nii.gz",
@@ -106,7 +106,7 @@ sub_02_perceptionTest02 = [
     "../preprocessed_data/derivatives/preproc-spm/output/sub-02/ses-perceptionTest02/func/sub-02_ses-perceptionTest02_task-perception_run-07_bold_preproc.nii.gz",
     "../preprocessed_data/derivatives/preproc-spm/output/sub-02/ses-perceptionTest02/func/sub-02_ses-perceptionTest02_task-perception_run-08_bold_preproc.nii.gz",
     "../preprocessed_data/derivatives/preproc-spm/output/sub-02/ses-perceptionTest02/func/sub-02_ses-perceptionTest02_task-perception_run-09_bold_preproc.nii.gz",
-    "../preprocessed_data/derivatives/preproc-spm/output/sub-02/ses-perceptionTest03/func/sub-02_ses-perceptionTest02_task-perception_run-10_bold_preproc.nii.gz"]
+    "../preprocessed_data/derivatives/preproc-spm/output/sub-02/ses-perceptionTest02/func/sub-02_ses-perceptionTest02_task-perception_run-10_bold_preproc.nii.gz"]
 sub_02_perceptionTest03 = [
     "../preprocessed_data/derivatives/preproc-spm/output/sub-02/ses-perceptionTest03/func/sub-02_ses-perceptionTest03_task-perception_run-01_bold_preproc.nii.gz",
     "../preprocessed_data/derivatives/preproc-spm/output/sub-02/ses-perceptionTest03/func/sub-02_ses-perceptionTest03_task-perception_run-02_bold_preproc.nii.gz",
@@ -306,7 +306,7 @@ sub_05_perceptionTest05 = [
     "../preprocessed_data/derivatives/preproc-spm/output/sub-05/ses-perceptionTest05/func/sub-05_ses-perceptionTest05_task-perception_run-04_bold_preproc.nii.gz",
     "../preprocessed_data/derivatives/preproc-spm/output/sub-05/ses-perceptionTest05/func/sub-05_ses-perceptionTest05_task-perception_run-05_bold_preproc.nii.gz"]
 sub_05_perceptionTest06 = [
-    "../preprocessed_data/derivatives/preproc-spm/output/sub-05/ses-perceptionTest06/func/sub-05_ses-perceptionTest02_task-perception_run-01_bold_preproc.nii.gz",
+    "../preprocessed_data/derivatives/preproc-spm/output/sub-05/ses-perceptionTest06/func/sub-05_ses-perceptionTest06_task-perception_run-01_bold_preproc.nii.gz",
     "../preprocessed_data/derivatives/preproc-spm/output/sub-05/ses-perceptionTest06/func/sub-05_ses-perceptionTest06_task-perception_run-02_bold_preproc.nii.gz",
     "../preprocessed_data/derivatives/preproc-spm/output/sub-05/ses-perceptionTest06/func/sub-05_ses-perceptionTest06_task-perception_run-03_bold_preproc.nii.gz",
     "../preprocessed_data/derivatives/preproc-spm/output/sub-05/ses-perceptionTest06/func/sub-05_ses-perceptionTest06_task-perception_run-04_bold_preproc.nii.gz",

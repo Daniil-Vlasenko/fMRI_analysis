@@ -8,6 +8,8 @@ import pearson_spearman as cor
 import igraph as ig
 import synolitic
 import data
+from pathlib import Path
+
 
 print(len(data.imagery))
 print(len(data.perception))
@@ -17,7 +19,11 @@ print(len(data.imagery_training))
 print(len(data.perception_training))
 
 for i in data.all_files:
-    open(i)
+    path = Path(i)
+    if not path.is_file():
+        print(i)
+
+
 
 
 
