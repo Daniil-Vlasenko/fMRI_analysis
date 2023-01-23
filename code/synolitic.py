@@ -16,6 +16,7 @@ def scalarization_1(data, regime, q_1=0.1, q_2=0.9):
     :return: ndarray, array of scalars.
     """
     if regime == 0:
+        tmp = mean(data)
         return mean(data)
     elif regime == 1:
         return median(data)
@@ -63,8 +64,8 @@ def scalarization_3(file_names, file_name, regime, q_1=0.1, q_2=0.9):
     data = scalarization_2(file_names[0], regime)
     size = len(file_names)
     for i in range(1, size):
-        data += np.add(scalarization_2(file_names[i], regime, q_1, q_2), data)
-    for i in range(size):
+        data = np.add(scalarization_2(file_names[i], regime, q_1, q_2), data)
+    for i in range(len(data)):
         data[i] /= size
 
     np.savetxt(file_name, data)
