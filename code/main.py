@@ -22,9 +22,26 @@ import synolitic as syn
 # print(len(processed_data.imagery_training))
 # print(len(processed_data.perception_training))
 
+
+
 syn.scalarization_3(processed_data.imagery_training,
                     "../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/scalars/imagery/mean.txt",
                     0)
+syn.scalarization_3(processed_data.imagery_training,
+                    "../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/scalars/imagery/median.txt",
+                    1)
+syn.scalarization_3(processed_data.imagery_training,
+                    "../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/scalars/imagery/std.txt",
+                    2)
+syn.scalarization_3(processed_data.imagery_training,
+                    "../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/scalars/imagery/var.txt",
+                    3)
+syn.scalarization_3(processed_data.imagery_training,
+                    "../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/scalars/imagery/min_max_dist.txt",
+                    4)
+syn.scalarization_3(processed_data.imagery_training,
+                    "../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/scalars/imagery/quant_dist.txt",
+                    5)
 
 
 

@@ -21,7 +21,7 @@ def scalarization_1(data, regime, q_1=0.1, q_2=0.9):
     elif regime == 1:
         return median(data)
     elif regime == 2:
-        return sd(data)
+        return std(data)
     elif regime == 3:
         return var(data)
     elif regime == 4:
@@ -64,10 +64,8 @@ def scalarization_3(file_names, file_name, regime, q_1=0.1, q_2=0.9):
     data = scalarization_2(file_names[0], regime)
     size = len(file_names)
     for i in range(1, size):
-        data = np.add(scalarization_2(file_names[i], regime, q_1, q_2), data)
-    for i in range(len(data)):
-        data[i] /= size
-
+        data = np.vstack((data, scalarization_2(file_names[i], regime, q_1, q_2)))
+    data = np.transpose(data)
     np.savetxt(file_name, data)
     return data
 
@@ -92,14 +90,14 @@ def median(data):
     return np.median(data, axis=1)
 
 
-def sd(data):
+def std(data):
     """
     Calculate standard derivation of voxels.
 
     :param data: ndarray, array of arrays that contain voxel's values at different time.
     :return: ndarray, array of standard derivation of voxels.
     """
-    return np.sd(data, axis=1)
+    return np.std(data, axis=1)
 
 
 def var(data):
