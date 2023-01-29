@@ -28,16 +28,12 @@ from sklearn.svm import SVC
 from sklearn.gaussian_process import GaussianProcessClassifier
 import sklearn.gaussian_process.kernels as kernels
 
-C = 10
-# kernel = 1.0 * RBF([1.0, 1.0])  # for GPC
-
+C = 25
 # Create different classifiers.
 classifiers = {
-    "GPC RBF": GaussianProcessClassifier(kernels.RBF(), random_state=0),
-    "SVC RBF": SVC(kernel="rbf", C=C, probability=True, random_state=0),
-    "SVC RBF": SVC(kernel="rbf", C=C, probability=True, random_state=0),
-    "L1 logistic": LogisticRegression(penalty="l1", C=C, solver="saga", max_iter=10000),
-    "L2 logistic": LogisticRegression(penalty="l2", C=C, solver="saga", max_iter=10000),
+    "GPC RBF": GaussianProcessClassifier(kernel=kernels.RBF(), random_state=0),
+    "SVC C=25": SVC(kernel="rbf", C=C, probability=True, random_state=0),
+    "L2 logistic": LogisticRegression(penalty="l2", C=C, max_iter=10000),
 }
 
 training_accuracy = [0 for i in range(len(classifiers))]
@@ -53,8 +49,10 @@ test_perception_lines = test_perception_file.readlines()
 test_imagery_lines = test_imagery_file.readlines()
 
 # voxels1 = [1000, 2000, 3000, 4000, 5000, 6000]
-voxels1 = [1000]
-voxels2 = [500, 1500, 2500, 3500, 4500, 5500]
+voxels1 = [1000, 2000, 3000, 4000]
+# voxels1 = [1000]
+# voxels2 = [500, 1500, 2500, 3500, 4500, 5500]
+voxels2 = [1001, 999, 2001, 1999, 3001, 2999, 4001, 3999]
 # voxels2 = [2500]
 
 count = 0
@@ -87,7 +85,7 @@ for voxel_id_1 in voxels1:
         training_y_pred = []
         test_y_pred = []
         for index, (name, classifier) in enumerate(classifiers.items()):
-            print(name)
+            # print(name)
             classifier.fit(training_X, training_y)
 
             training_y_pred = classifier.predict(training_X)
