@@ -16,7 +16,6 @@ def scalarization_1(data, regime, q_1=0.1, q_2=0.9):
     :return: ndarray, array of scalars.
     """
     if regime == 0:
-        tmp = mean(data)
         return mean(data)
     elif regime == 1:
         return median(data)
