@@ -27,6 +27,14 @@ def scalarization_1(data, regime, q_1=0.1, q_2=0.9):
         return max_min_distance(data)
     elif regime == 5:
         return quantiles_distance(data, q_1, q_2)
+    elif regime == 6:
+        return max_(data)
+    elif regime == 7:
+        return min_(data)
+    elif regime == 8:
+        return quantile_1(data, q_1)
+    elif regime == 9:
+        return quantile_2(data, q_2)
     else:
         raise Exception("Invalid regime.")
 
@@ -129,5 +137,46 @@ def quantiles_distance(data, q_1, q_2):
     :return: ndarray, difference between the quantiles of voxel's values.
     """
     return np.quantile(data, q_2, axis=1) - np.quantile(data, q_1, axis=1)
+
+
+def max_(data):
+    """
+    Calculate maximum of voxel's values.
+
+    :param data: ndarray, array of arrays that contain voxel's values at different time.
+    :return: ndarray, maximum voxel's values.
+    """
+    return np.max(data, axis=1)
+
+
+def min_(data):
+    """
+    Calculate minimum of voxel's values.
+
+    :param data: ndarray, array of arrays that contain voxel's values at different time.
+    :return: ndarray, minimum voxel's values.
+    """
+    return np.min(data, axis=1)
+
+
+def quantile_1(data, q_1):
+    """
+    Calculate quantile of voxel's values.
+
+    :param data: ndarray, array of arrays that contain voxel's values at different time.
+    :param q_1: numeric, level of quantile.
+    :return: ndarray, quantile voxel's values.
+    """
+    return np.quantile(data, q_1, axis=1)
+
+def quantile_2(data, q_2):
+    """
+    Calculate quantile of voxel's values.
+
+    :param data: ndarray, array of arrays that contain voxel's values at different time.
+    :param q_2: numeric, level of quantile.
+    :return: ndarray, quantile voxel's values.
+    """
+    return np.quantile(data, q_2, axis=1)
 
 
