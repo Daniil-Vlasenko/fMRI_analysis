@@ -6,107 +6,107 @@ from sklearn.svm import SVC
 from sklearn.gaussian_process import GaussianProcessClassifier
 from sklearn.gaussian_process.kernels import RBF
 
-C = 25
+
 # Create different classifiers.
 classifiers = {
     "GPC RBF": GaussianProcessClassifier(kernel=RBF(1), n_restarts_optimizer=0, random_state=0),
-    "SVC RBF C=25": SVC(kernel="rbf", C=C, probability=True, random_state=0),
-    "L2 logistic C=25": LogisticRegression(penalty="l2", C=C, max_iter=10000),
+    "SVC RBF C=25": SVC(kernel="rbf", C=25, probability=True, random_state=0),
+    "L2 logistic C=25": LogisticRegression(penalty="l2", C=25, max_iter=10000),
 }
 
 training_accuracy = [0 for i in range(len(classifiers))]
 test_accuracy = [0 for i in range(len(classifiers))]
 
 # mean
-training_perception_file = open(
-    "../correlations/training/dimensionality_reduction_1/20_20_20/synolitic_method_1/scalars/perception/mean.txt", "r")
-training_imagery_file = open(
-    "../correlations/training/dimensionality_reduction_1/20_20_20/synolitic_method_1/scalars/imagery/mean.txt", "r")
-test_perception_file = open(
-    "../correlations/test/dimensionality_reduction_1/20_20_20/synolitic_method_1/scalars/perception/mean.txt", "r")
-test_imagery_file = open(
-    "../correlations/test/dimensionality_reduction_1/20_20_20/synolitic_method_1/scalars/imagery/mean.txt", "r")
+# training_perception_file = open(
+#     "../correlations/training/dimensionality_reduction_1/15_15_15/synolitic_method_1/scalars/perception/mean.txt", "r")
+# training_imagery_file = open(
+#     "../correlations/training/dimensionality_reduction_1/15_15_15/synolitic_method_1/scalars/imagery/mean.txt", "r")
+# test_perception_file = open(
+#     "../correlations/test/dimensionality_reduction_1/15_15_15/synolitic_method_1/scalars/perception/mean.txt", "r")
+# test_imagery_file = open(
+#     "../correlations/test/dimensionality_reduction_1/15_15_15/synolitic_method_1/scalars/imagery/mean.txt", "r")
 # median
 # training_perception_file = open(
-#     "../correlations/training/dimensionality_reduction_1/20_20_20/synolitic_method_1/scalars/perception/median.txt", "r")
+#     "../correlations/training/dimensionality_reduction_1/15_15_15/synolitic_method_1/scalars/perception/median.txt", "r")
 # training_imagery_file = open(
-#     "../correlations/training/dimensionality_reduction_1/20_20_20/synolitic_method_1/scalars/imagery/median.txt", "r")
+#     "../correlations/training/dimensionality_reduction_1/15_15_15/synolitic_method_1/scalars/imagery/median.txt", "r")
 # test_perception_file = open(
-#     "../correlations/test/dimensionality_reduction_1/20_20_20/synolitic_method_1/scalars/perception/median.txt", "r")
+#     "../correlations/test/dimensionality_reduction_1/15_15_15/synolitic_method_1/scalars/perception/median.txt", "r")
 # test_imagery_file = open(
-#     "../correlations/test/dimensionality_reduction_1/20_20_20/synolitic_method_1/scalars/imagery/median.txt", "r")
+#     "../correlations/test/dimensionality_reduction_1/15_15_15/synolitic_method_1/scalars/imagery/median.txt", "r")
 # min_max_dist
 # training_perception_file = open(
-#     "../correlations/training/dimensionality_reduction_1/20_20_20/synolitic_method_1/scalars/perception/min_max_dist.txt", "r")
+#     "../correlations/training/dimensionality_reduction_1/15_15_15/synolitic_method_1/scalars/perception/max_min_distance.txt", "r")
 # training_imagery_file = open(
-#     "../correlations/training/dimensionality_reduction_1/20_20_20/synolitic_method_1/scalars/imagery/min_max_dist.txt", "r")
+#     "../correlations/training/dimensionality_reduction_1/15_15_15/synolitic_method_1/scalars/imagery/max_min_distance.txt", "r")
 # test_perception_file = open(
-#     "../correlations/test/dimensionality_reduction_1/20_20_20/synolitic_method_1/scalars/perception/min_max_dist.txt", "r")
+#     "../correlations/test/dimensionality_reduction_1/15_15_15/synolitic_method_1/scalars/perception/max_min_distance.txt", "r")
 # test_imagery_file = open(
-#     "../correlations/test/dimensionality_reduction_1/20_20_20/synolitic_method_1/scalars/imagery/min_max_dist.txt", "r")
+#     "../correlations/test/dimensionality_reduction_1/15_15_15/synolitic_method_1/scalars/imagery/max_min_distance.txt", "r")
 # quant_dist
 # training_perception_file = open(
-#     "../correlations/training/dimensionality_reduction_1/20_20_20/synolitic_method_1/scalars/perception/quant_dist.txt", "r")
+#     "../correlations/training/dimensionality_reduction_1/15_15_15/synolitic_method_1/scalars/perception/quantiles_distance.txt", "r")
 # training_imagery_file = open(
-#     "../correlations/training/dimensionality_reduction_1/20_20_20/synolitic_method_1/scalars/imagery/quant_dist.txt", "r")
+#     "../correlations/training/dimensionality_reduction_1/15_15_15/synolitic_method_1/scalars/imagery/quantiles_distance.txt", "r")
 # test_perception_file = open(
-#     "../correlations/test/dimensionality_reduction_1/20_20_20/synolitic_method_1/scalars/perception/quant_dist.txt", "r")
+#     "../correlations/test/dimensionality_reduction_1/15_15_15/synolitic_method_1/scalars/perception/quantiles_distance.txt", "r")
 # test_imagery_file = open(
-#     "../correlations/test/dimensionality_reduction_1/20_20_20/synolitic_method_1/scalars/imagery/quant_dist.txt", "r")
+#     "../correlations/test/dimensionality_reduction_1/15_15_15/synolitic_method_1/scalars/imagery/quantiles_distance.txt", "r")
 # std
 # training_perception_file = open(
-#     "../correlations/training/dimensionality_reduction_1/20_20_20/synolitic_method_1/scalars/perception/std.txt", "r")
+#     "../correlations/training/dimensionality_reduction_1/15_15_15/synolitic_method_1/scalars/perception/std.txt", "r")
 # training_imagery_file = open(
-#     "../correlations/training/dimensionality_reduction_1/20_20_20/synolitic_method_1/scalars/imagery/std.txt", "r")
+#     "../correlations/training/dimensionality_reduction_1/15_15_15/synolitic_method_1/scalars/imagery/std.txt", "r")
 # test_perception_file = open(
-#     "../correlations/test/dimensionality_reduction_1/20_20_20/synolitic_method_1/scalars/perception/std.txt", "r")
+#     "../correlations/test/dimensionality_reduction_1/15_15_15/synolitic_method_1/scalars/perception/std.txt", "r")
 # test_imagery_file = open(
-#     "../correlations/test/dimensionality_reduction_1/20_20_20/synolitic_method_1/scalars/imagery/std.txt", "r")
+#     "../correlations/test/dimensionality_reduction_1/15_15_15/synolitic_method_1/scalars/imagery/std.txt", "r")
 # var
 # training_perception_file = open(
-#     "../correlations/training/dimensionality_reduction_1/20_20_20/synolitic_method_1/scalars/perception/var.txt", "r")
+#     "../correlations/training/dimensionality_reduction_1/15_15_15/synolitic_method_1/scalars/perception/var.txt", "r")
 # training_imagery_file = open(
-#     "../correlations/training/dimensionality_reduction_1/20_20_20/synolitic_method_1/scalars/imagery/var.txt", "r")
+#     "../correlations/training/dimensionality_reduction_1/15_15_15/synolitic_method_1/scalars/imagery/var.txt", "r")
 # test_perception_file = open(
-#     "../correlations/test/dimensionality_reduction_1/20_20_20/synolitic_method_1/scalars/perception/var.txt", "r")
+#     "../correlations/test/dimensionality_reduction_1/15_15_15/synolitic_method_1/scalars/perception/var.txt", "r")
 # test_imagery_file = open(
-#     "../correlations/test/dimensionality_reduction_1/20_20_20/synolitic_method_1/scalars/imagery/var.txt", "r")
+#     "../correlations/test/dimensionality_reduction_1/15_15_15/synolitic_method_1/scalars/imagery/var.txt", "r")
 # min
 # training_perception_file = open(
-#     "../correlations/training/dimensionality_reduction_1/20_20_20/synolitic_method_1/scalars/perception/min.txt", "r")
+#     "../correlations/training/dimensionality_reduction_1/15_15_15/synolitic_method_1/scalars/perception/min.txt", "r")
 # training_imagery_file = open(
-#     "../correlations/training/dimensionality_reduction_1/20_20_20/synolitic_method_1/scalars/imagery/min.txt", "r")
+#     "../correlations/training/dimensionality_reduction_1/15_15_15/synolitic_method_1/scalars/imagery/min.txt", "r")
 # test_perception_file = open(
-#     "../correlations/test/dimensionality_reduction_1/20_20_20/synolitic_method_1/scalars/perception/min.txt", "r")
+#     "../correlations/test/dimensionality_reduction_1/15_15_15/synolitic_method_1/scalars/perception/min.txt", "r")
 # test_imagery_file = open(
-#     "../correlations/test/dimensionality_reduction_1/20_20_20/synolitic_method_1/scalars/imagery/min.txt", "r")
+#     "../correlations/test/dimensionality_reduction_1/15_15_15/synolitic_method_1/scalars/imagery/min.txt", "r")
 # max
 # training_perception_file = open(
-#     "../correlations/training/dimensionality_reduction_1/20_20_20/synolitic_method_1/scalars/perception/max.txt", "r")
+#     "../correlations/training/dimensionality_reduction_1/15_15_15/synolitic_method_1/scalars/perception/max.txt", "r")
 # training_imagery_file = open(
-#     "../correlations/training/dimensionality_reduction_1/20_20_20/synolitic_method_1/scalars/imagery/max.txt", "r")
+#     "../correlations/training/dimensionality_reduction_1/15_15_15/synolitic_method_1/scalars/imagery/max.txt", "r")
 # test_perception_file = open(
-#     "../correlations/test/dimensionality_reduction_1/20_20_20/synolitic_method_1/scalars/perception/max.txt", "r")
+#     "../correlations/test/dimensionality_reduction_1/15_15_15/synolitic_method_1/scalars/perception/max.txt", "r")
 # test_imagery_file = open(
-#     "../correlations/test/dimensionality_reduction_1/20_20_20/synolitic_method_1/scalars/imagery/max.txt", "r")
+#     "../correlations/test/dimensionality_reduction_1/15_15_15/synolitic_method_1/scalars/imagery/max.txt", "r")
 # quantile_1
 # training_perception_file = open(
-#     "../correlations/training/dimensionality_reduction_1/20_20_20/synolitic_method_1/scalars/perception/quantile_1.txt", "r")
+#     "../correlations/training/dimensionality_reduction_1/15_15_15/synolitic_method_1/scalars/perception/quantile_1.txt", "r")
 # training_imagery_file = open(
-#     "../correlations/training/dimensionality_reduction_1/20_20_20/synolitic_method_1/scalars/imagery/quantile_1.txt", "r")
+#     "../correlations/training/dimensionality_reduction_1/15_15_15/synolitic_method_1/scalars/imagery/quantile_1.txt", "r")
 # test_perception_file = open(
-#     "../correlations/test/dimensionality_reduction_1/20_20_20/synolitic_method_1/scalars/perception/quantile_1.txt", "r")
+#     "../correlations/test/dimensionality_reduction_1/15_15_15/synolitic_method_1/scalars/perception/quantile_1.txt", "r")
 # test_imagery_file = open(
-#     "../correlations/test/dimensionality_reduction_1/20_20_20/synolitic_method_1/scalars/imagery/quantile_1.txt", "r")
+#     "../correlations/test/dimensionality_reduction_1/15_15_15/synolitic_method_1/scalars/imagery/quantile_1.txt", "r")
 # quantile_2
-# training_perception_file = open(
-#     "../correlations/training/dimensionality_reduction_1/20_20_20/synolitic_method_1/scalars/perception/quantile_2.txt", "r")
-# training_imagery_file = open(
-#     "../correlations/training/dimensionality_reduction_1/20_20_20/synolitic_method_1/scalars/imagery/quantile_2.txt", "r")
-# test_perception_file = open(
-#     "../correlations/test/dimensionality_reduction_1/20_20_20/synolitic_method_1/scalars/perception/quantile_2.txt", "r")
-# test_imagery_file = open(
-#     "../correlations/test/dimensionality_reduction_1/20_20_20/synolitic_method_1/scalars/imagery/quantile_2.txt", "r")
+training_perception_file = open(
+    "../correlations/training/dimensionality_reduction_1/15_15_15/synolitic_method_1/scalars/perception/quantile_2.txt", "r")
+training_imagery_file = open(
+    "../correlations/training/dimensionality_reduction_1/15_15_15/synolitic_method_1/scalars/imagery/quantile_2.txt", "r")
+test_perception_file = open(
+    "../correlations/test/dimensionality_reduction_1/15_15_15/synolitic_method_1/scalars/perception/quantile_2.txt", "r")
+test_imagery_file = open(
+    "../correlations/test/dimensionality_reduction_1/15_15_15/synolitic_method_1/scalars/imagery/quantile_2.txt", "r")
 
 
 training_perception_lines = training_perception_file.readlines()
@@ -115,15 +115,15 @@ test_perception_lines = test_perception_file.readlines()
 test_imagery_lines = test_imagery_file.readlines()
 
 # not neighbors:
-voxels1 = [150, 550, 700]
-voxels2 = [50, 250, 650, 750]
+voxels1 = [200, 600, 1200, 1600]
+voxels2 = [400, 800, 1400, 1800]
 
 # neighbors:
-# voxels1 = [1000, 3000, 5000]
-# voxels2 = [[997, 998, 999, 1001, 1002, 1003], [2997, 2998, 2999, 3001, 3002, 3003], [4997, 4998, 4999, 5001, 5002, 5003]]
+# voxels1 = [200, 600, 1200, 1600]
+# voxels2 = [[199, 201, 202, 203], [597, 598, 599, 601, 602, 603], [1197, 1201, 1202, 1203], [1597, 1698, 1599, 1601, 1602, 1603]]
 
-for i in voxels1 + voxels2:
-    print(i, training_perception_lines[i])
+# for i in voxels1 + voxels2[0] + voxels2[1] + voxels2[2] + voxels2[3]:
+#     print(i, training_perception_lines[i])
 
 count = 0
 for voxel_id_1 in voxels1:

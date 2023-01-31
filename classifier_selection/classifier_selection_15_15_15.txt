@@ -1,39 +1,39 @@
 mean:
-	not neighbors: 
-	neighbors: 
+	not neighbors: GPC RBF: 63.57142857142856 %; SVC RBF C=25: 60.26785714285714 %; L2 logistic C=25: 57.321428571428555 %;
+	neighbors: GPC RBF: 63.21428571428571 %; SVC RBF C=25: 63.857142857142854 %; L2 logistic C=25: 58.85714285714285 %;
 
 median:
-	not neighbors: 
-	neighbors: 
+	not neighbors: GPC RBF: 63.928571428571416 %; SVC RBF C=25: 60.71428571428571 %; L2 logistic C=25: 57.589285714285694 %;
+	neighbors: GPC RBF: 63.64285714285713 %; SVC RBF C=25: 64.07142857142857 %; L2 logistic C=25: 58.92857142857142 %;
 
 min_max_dist:
-	not neighbors:
-	neighbors: 
+	not neighbors: GPC RBF: 59.82142857142857 %; SVC RBF C=25: 60.08928571428572 %; L2 logistic C=25: 59.19642857142857 %;
+	neighbors: GPC RBF: 59.7142857142857 %; SVC RBF C=25: 57.92857142857142 %; L2 logistic C=25: 57.92857142857141 %;
 
 quant_dist:
-	not neighbors: 
-	neighbors: 
+	not neighbors: GPC RBF: 57.49999999999999 %; SVC RBF C=25: 59.73214285714285 %; L2 logistic C=25: 57.85714285714285 %;
+	neighbors: GPC RBF: 58.142857142857125 %; SVC RBF C=25: 58.5 %; L2 logistic C=25: 58.07142857142858 %;
 
 std:
-	not neighbors: 
-	neighbors: 
+	not neighbors: GPC RBF: 57.76785714285714 %; SVC RBF C=25: 59.01785714285713 %; L2 logistic C=25: 57.67857142857142 %;
+	neighbors: GPC RBF: 58.07142857142858 %; SVC RBF C=25: 58.499999999999986 %; L2 logistic C=25: 58.071428571428555 %;
 
 var:
-	not neighbors: 
-	neighbors: 
+	not neighbors: GPC RBF: 57.32142857142857 %; SVC RBF C=25: 57.76785714285714 %; L2 logistic C=25: 58.839285714285715 %;
+	neighbors: GPC RBF: 57.499999999999986 %; SVC RBF C=25: 57.71428571428572 %; L2 logistic C=25: 57.92857142857141 %;
 	
 min:
-	not neighbors: 
-	neighbors: 
+	not neighbors: GPC RBF: 62.053571428571416 %; SVC RBF C=25: 63.03571428571428 %; L2 logistic C=25: 60.089285714285694 %;
+	neighbors: GPC RBF: 63.642857142857146 %; SVC RBF C=25: 61.71428571428569 %; L2 logistic C=25: 60.92857142857141 %;
 	
 max:
-	not neighbors: 
-	neighbors: 
+	not neighbors: GPC RBF: 61.42857142857142 %; SVC RBF C=25: 60.0892857142857 %; L2 logistic C=25: 57.142857142857125 %;
+	neighbors: GPC RBF: 59.7142857142857 %; SVC RBF C=25: 62.57142857142857 %; L2 logistic C=25: 57.7142857142857 %;
 	
 quantile_1:
-	not neighbors: 
-	neighbors: 
+	not neighbors: GPC RBF: 63.30357142857143 %; SVC RBF C=25: 61.785714285714285 %; L2 logistic C=25: 58.8392857142857 %;
+	neighbors: GPC RBF: 62.21428571428571 %; SVC RBF C=25: 62.07142857142857 %; L2 logistic C=25: 60.2142857142857 %;
 	
 quantile_2:
-	not neighbors: 
-	neighbors: 
+	not neighbors: GPC RBF: 63.125 %; SVC RBF C=25: 59.19642857142857 %; L2 logistic C=25: 56.964285714285694 %;
+	neighbors: GPC RBF: 64.0 %; SVC RBF C=25: 63.357142857142854 %; L2 logistic C=25: 57.64285714285713 %; 

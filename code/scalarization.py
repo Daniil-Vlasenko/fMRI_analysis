@@ -8,7 +8,7 @@ syn.scalarization_3(processed_data_25_25_25.imagery_training,
                     "../correlations/training/dimensionality_reduction_1/25_25_25/synolitic_method_1/scalars/imagery/mean.txt",
                     0)
 syn.scalarization_3(processed_data_25_25_25.imagery_training,
-                    "../correlations/training/dimensionality_reduction_1/25_25_25/synolitic_method_1/scalars/imagery/median.txt.txt",
+                    "../correlations/training/dimensionality_reduction_1/25_25_25/synolitic_method_1/scalars/imagery/median.txt",
                     1)
 syn.scalarization_3(processed_data_25_25_25.imagery_training,
                     "../correlations/training/dimensionality_reduction_1/25_25_25/synolitic_method_1/scalars/imagery/std.txt",
@@ -40,7 +40,7 @@ syn.scalarization_3(processed_data_25_25_25.imagery_test,
                     "../correlations/test/dimensionality_reduction_1/25_25_25/synolitic_method_1/scalars/imagery/mean.txt",
                     0)
 syn.scalarization_3(processed_data_25_25_25.imagery_test,
-                    "../correlations/test/dimensionality_reduction_1/25_25_25/synolitic_method_1/scalars/imagery/median.txt.txt",
+                    "../correlations/test/dimensionality_reduction_1/25_25_25/synolitic_method_1/scalars/imagery/median.txt",
                     1)
 syn.scalarization_3(processed_data_25_25_25.imagery_test,
                     "../correlations/test/dimensionality_reduction_1/25_25_25/synolitic_method_1/scalars/imagery/std.txt",
@@ -72,7 +72,7 @@ syn.scalarization_3(processed_data_25_25_25.perception_training,
                     "../correlations/training/dimensionality_reduction_1/25_25_25/synolitic_method_1/scalars/perception/mean.txt",
                     0)
 syn.scalarization_3(processed_data_25_25_25.perception_training,
-                    "../correlations/training/dimensionality_reduction_1/25_25_25/synolitic_method_1/scalars/perception/median.txt.txt",
+                    "../correlations/training/dimensionality_reduction_1/25_25_25/synolitic_method_1/scalars/perception/median.txt",
                     1)
 syn.scalarization_3(processed_data_25_25_25.perception_training,
                     "../correlations/training/dimensionality_reduction_1/25_25_25/synolitic_method_1/scalars/perception/std.txt",
@@ -104,7 +104,7 @@ syn.scalarization_3(processed_data_25_25_25.perception_test,
                     "../correlations/test/dimensionality_reduction_1/25_25_25/synolitic_method_1/scalars/perception/mean.txt",
                     0)
 syn.scalarization_3(processed_data_25_25_25.perception_test,
-                    "../correlations/test/dimensionality_reduction_1/25_25_25/synolitic_method_1/scalars/perception/median.txt.txt",
+                    "../correlations/test/dimensionality_reduction_1/25_25_25/synolitic_method_1/scalars/perception/median.txt",
                     1)
 syn.scalarization_3(processed_data_25_25_25.perception_test,
                     "../correlations/test/dimensionality_reduction_1/25_25_25/synolitic_method_1/scalars/perception/std.txt",
