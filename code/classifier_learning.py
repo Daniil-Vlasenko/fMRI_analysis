@@ -1,8 +1,11 @@
+import joblib
 import numpy as np
 import pandas as pd
 from sklearn.metrics import accuracy_score
 from sklearn.gaussian_process import GaussianProcessClassifier
 from sklearn.gaussian_process.kernels import RBF
+import pickle
+from sklearn.svm import SVC
 
 # mean
 training_perception_file = open(
@@ -13,8 +16,8 @@ training_imagery_file = open(
 training_perception_lines = training_perception_file.readlines()
 training_imagery_lines = training_imagery_file.readlines()
 
-number_of_voxels = len(training_perception_lines + training_imagery_lines)
-for voxel_id_1 in range(number_of_voxels - 1):
+number_of_voxels = len(training_perception_lines)
+for voxel_id_1 in range(600, number_of_voxels - 1):
     for voxel_id_2 in range(voxel_id_1 + 1, number_of_voxels):
         print("voxel_id_1:", voxel_id_1, "voxel_id_2:", voxel_id_2)
 
@@ -30,5 +33,15 @@ for voxel_id_1 in range(number_of_voxels - 1):
         training_y = [1 for i in range(len(training_perception_voxel1))] + \
                      [2 for j in range(len(training_imagery_voxel1))]
 
-        GPC = GaussianProcessClassifier(kernel=RBF(1), n_restarts_optimizer=0)
-        GPC.fit(training_X, training_y)
+        # GPC = GaussianProcessClassifier(kernel=RBF(1), n_restarts_optimizer=0)
+        # GPC.fit(training_X, training_y)
+        # filename = "../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/GPC/mean/GPC_voxel_" + \
+        #            str(voxel_id_1) + "_and_voxel_" + str(voxel_id_2) + ".sav"
+
+        svc = SVC(kernel="rbf", C=25, probability=True)
+        svc.fit(training_X, training_y)
+        filename = "../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/SVC/mean/SVC_voxel_" + \
+                   str(voxel_id_1) + "_and_voxel_" + str(voxel_id_2) + ".sav"
+
+        pickle.dump(svc, open(filename, 'wb'))
+        # joblib.dump(svc, filename)

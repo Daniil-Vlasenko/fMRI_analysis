@@ -1,0 +1,39 @@
+mean:
+	not neighbors: 
+	neighbors: 
+
+median:
+	not neighbors: 
+	neighbors: 
+
+min_max_dist:
+	not neighbors:
+	neighbors: 
+
+quant_dist:
+	not neighbors: 
+	neighbors: 
+
+std:
+	not neighbors: 
+	neighbors: 
+
+var:
+	not neighbors: 
+	neighbors: 
+	
+min:
+	not neighbors: 
+	neighbors: 
+	
+max:
+	not neighbors: 
+	neighbors: 
+	
+quantile_1:
+	not neighbors: 
+	neighbors: 
+	
+quantile_2:
+	not neighbors: 
+	neighbors: 

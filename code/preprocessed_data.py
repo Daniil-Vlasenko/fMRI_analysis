@@ -340,3 +340,7 @@ imagery_training = [i for i in imagery if i not in imagery_test]
 perception_training = [i for i in perception if i not in perception_test]
 
 all_files = imagery + perception
+
+
+# Для уменьшения размерности:
+# dimensionality_reduction_2(preprocessed_data.all_files, 15)

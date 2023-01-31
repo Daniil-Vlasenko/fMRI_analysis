@@ -34,8 +34,8 @@ def dimensionality_reduction_2(iput_files, n):
             affine[j][j] = n * np.sign(affine[j][j])
         new_img = image.resample_img(img, affine)
         path_array = i.split("/")
-        new_path = "../processed_data/dimensionality_reduction_1/" + path_array[5] + "/" + path_array[6] + "/" + \
-                   path_array[8]
+        new_path = "../processed_data/dimensionality_reduction_1/" + str(n) + "_" + str(n) + "_" + str(n) + "/" + \
+                   path_array[5] + "/" + path_array[6] + "/" + path_array[8]
         nib.save(new_img, new_path)
 
 

@@ -9,7 +9,10 @@ import igraph as ig
 from sklearn import svm
 import preprocessed_data
 import synolitic
-import processed_data
+import processed_data_10_10_10
+import processed_data_15_15_15
+import processed_data_20_20_20
+import processed_data_25_25_25
 from pathlib import Path
 import nilearn.image as image
 import synolitic as syn
@@ -20,6 +23,5 @@ import synolitic as syn
 # print(len(processed_data.perception_test))
 # print(len(processed_data.imagery_training))
 # print(len(processed_data.perception_training))
-
 
 import classifier_selection
