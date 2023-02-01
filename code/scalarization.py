@@ -1,5 +1,5 @@
 import processed_data_25_25_25
-import synolitic as syn
+import scalarization_lib as syn
 
 
 # imagery_training

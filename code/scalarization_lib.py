@@ -1,7 +1,7 @@
 import nibabel as nib
 import numpy as np
 import pandas as pd
-import dimensionality_reduction_1 as dr
+import dimensionality_reduction_1_lib as dr
 
 
 def scalarization_1(data, regime, q_1=0.1, q_2=0.9):
