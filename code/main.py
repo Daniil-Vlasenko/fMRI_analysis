@@ -25,11 +25,3 @@ from sklearn.gaussian_process import GaussianProcessClassifier
 from sklearn.gaussian_process.kernels import RBF
 import classifier_learning_lib as cl
 
-cl.classifier_learning_1(cl.mean_10_10_10[0], cl.mean_10_10_10[1], shape=cl.shape_10_10_10, regime="SVC")
-cl.classifier_learning_1(cl.median_10_10_10[0], cl.median_10_10_10[1], shape=cl.shape_10_10_10, regime="SVC")
-cl.classifier_learning_1(cl.max_min_distance_10_10_10[0], cl.max_min_distance_10_10_10[1], shape=cl.shape_10_10_10, regime="SVC")
-cl.classifier_learning_1(cl.quantiles_distance_10_10_10[0], cl.quantiles_distance_10_10_10[1], shape=cl.shape_10_10_10, regime="SVC")
-cl.classifier_learning_1(cl.max_10_10_10[0], cl.max_10_10_10[1], shape=cl.shape_10_10_10, regime="SVC")
-cl.classifier_learning_1(cl.min_10_10_10[0], cl.min_10_10_10[1], shape=cl.shape_10_10_10, regime="SVC")
-cl.classifier_learning_1(cl.quantile_1_10_10_10[0], cl.quantile_1_10_10_10[1], shape=cl.shape_10_10_10, regime="SVC")
-cl.classifier_learning_1(cl.quantile_2_10_10_10[0], cl.quantile_2_10_10_10[1], shape=cl.shape_10_10_10, regime="SVC")
