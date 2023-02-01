@@ -35,7 +35,7 @@ test_accuracy = [0 for i in range(len(classifiers))]
 #     "../correlations/test/dimensionality_reduction_1/20_20_20/synolitic_method_1/scalars/perception/median.txt", "r")
 # test_imagery_file = open(
 #     "../correlations/test/dimensionality_reduction_1/20_20_20/synolitic_method_1/scalars/imagery/median.txt", "r")
-# min_max_dist
+# max_min_distance
 # training_perception_file = open(
 #     "../correlations/training/dimensionality_reduction_1/20_20_20/synolitic_method_1/scalars/perception/max_min_distance.txt", "r")
 # training_imagery_file = open(
@@ -44,7 +44,7 @@ test_accuracy = [0 for i in range(len(classifiers))]
 #     "../correlations/test/dimensionality_reduction_1/20_20_20/synolitic_method_1/scalars/perception/max_min_distance.txt", "r")
 # test_imagery_file = open(
 #     "../correlations/test/dimensionality_reduction_1/20_20_20/synolitic_method_1/scalars/imagery/max_min_distance.txt", "r")
-# quant_dist
+# quantiles_distance
 # training_perception_file = open(
 #     "../correlations/training/dimensionality_reduction_1/20_20_20/synolitic_method_1/scalars/perception/quantiles_distance.txt", "r")
 # training_imagery_file = open(

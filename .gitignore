@@ -1,5 +1,6 @@
 processed_data
 preprocessed_data
+correlations
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
