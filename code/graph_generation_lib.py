@@ -12,6 +12,18 @@ def edges_calculation_1(voxel_1_value, voxel_2_value,  classifier):
 
 
 def edges_calculation_2(classifiers_folder, perception_file, imagery_file, shape, edges_per_file, edges_ig_file):
+    """
+    Calculate edge's weight for every two neighbour voxels of one scalar type for both perception and imagery regimes
+    for every run of fMRI.
+
+    :param classifiers_folder: string, path of folder where pre-calculated classifiers is.
+    :param perception_file: string, path to perception scalars file.
+    :param imagery_file: string, path to imagery scalars file.
+    :param shape: (x, y, z, t), shape of the fMRI data.
+    :param edges_per_file: string, path to new edge's weight dataframe for perception regime.
+    :param edges_ig_file: string, path to new edge's weight dataframe for imagery regime.
+    :return:
+    """
     training_perception = np.loadtxt(perception_file)
     training_imagery = np.loadtxt(imagery_file)
 
@@ -68,6 +80,51 @@ def edges_calculation_2(classifiers_folder, perception_file, imagery_file, shape
     column_per_names = ["sours", "target"] + [str(i) for i in range(number_of_per_runs)]
     column_im_names = ["sours", "target"] + [str(i) for i in range(number_of_im_runs)]
     edges_df_per = pd.DataFrame(data=edges_np_per, columns=column_per_names)
-    edges_df_per.to_csv(edges_per_file, index=False)
     edges_df_img = pd.DataFrame(data=edges_np_im, columns=column_im_names)
+    edges_df_per = edges_df_per.astype({"sours": "int", "target": "int"})
+    edges_df_img = edges_df_img.astype({"sours": "int", "target": "int"})
+    edges_df_per.to_csv(edges_per_file, index=False)
     edges_df_img.to_csv(edges_ig_file, index=False)
+
+
+def properties_of_voxels(perception_file, imagery_file):
+    training_perception = np.loadtxt(perception_file)
+    training_imagery = np.loadtxt(imagery_file)
+    # edges_df_per = pd.DataFrame(data=edges_np_per, columns=column_per_names)
+
+
+def graphs_generation(perception_file, imagery_file, edges_per_file, edges_ig_file, graph_per_folder, graph_im_folder):
+    df_per_edges = pd.read_csv(edges_per_file)
+    df_im_edges = pd.read_csv(edges_ig_file)
+    df_per_vertices = pd.read_csv(perception_file)
+    df_im_verteces = pd.read_csv(imagery_file)
+
+    number_of_per_runs = len(df_per_vertices[0])
+    number_of_im_runs = len(df_im_verteces[0])
+    number_of_voxels = len(df_per_vertices)
+
+    for i in range(number_of_per_runs):
+        dataframe_edges_i = df_per_edges[["sours", "target", str(i)]]
+        dataframe_vertices_i = df_per_vertices[:, i]
+        g = ig.Graph.DataFrame(dataframe_edges_i, directed=False, vertices=dataframe_vertices_i)
+        file_name = graph_per_folder + "/" + str(i) + ".gml"
+        g.write(file_name, format="gml")
+
+    for i in range(number_of_im_runs):
+        dataframe_edges_i = df_im_edges[["sours", "target", str(i)]]
+        dataframe_vertices_i = df_im_verteces[:, i]
+        g = ig.Graph.DataFrame(dataframe_edges_i, directed=False, vertices=dataframe_vertices_i)
+        file_name = graph_im_folder + "/" + str(i) + ".gml"
+        g.write(file_name, format="gml")
+
+
+
+# classifiers_folder = "../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/classifiers/SVC/max"
+# perception_file = "../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/scalars/perception/max.txt"
+# imagery_file = "../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/scalars/imagery/max.txt"
+# shape = (20, 20, 16, 201)
+# edges_per_file = "../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/edges/perception/max.txt"
+# edges_ig_file = "../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/edges/imagery/max.txt"
+# graph_generation_lib.edges_calculation_2(classifiers_folder=classifiers_folder,
+#                                          perception_file=perception_file, imagery_file=imagery_file, shape=shape,
+#                                          edges_per_file=edges_per_file, edges_ig_file=edges_ig_file)
