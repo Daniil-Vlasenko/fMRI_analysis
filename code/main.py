@@ -33,11 +33,15 @@ imagery_file = "../correlations/training/dimensionality_reduction_1/10_10_10/syn
 shape = (20, 20, 16, 201)
 edges_per_file = "../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/edges/perception/max.txt"
 edges_ig_file = "../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/edges/imagery/max.txt"
+graph_per_folder = "../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/graphs/perception"
+graph_im_folder =  "../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/graphs/imagery"
 # graph_generation_lib.edges_calculation_2(classifiers_folder=classifiers_folder,
 #                                          perception_file=perception_file, imagery_file=imagery_file, shape=shape,
 #                                          edges_per_file=edges_per_file, edges_ig_file=edges_ig_file)
 
-dataframe = pd.read_csv(edges_per_file)
-dataframe_0 = dataframe[["sours", "target", "0"]]
-g = ig.Graph.DataFrame(dataframe_0, directed=False)
-print(1)
+# dataframe = pd.read_csv(edges_per_file)
+# dataframe_0 = dataframe[["sours", "target", "0"]]
+# g = ig.Graph.DataFrame(dataframe_0, directed=False)
+# print(1)
+
+graph_generation_lib.graphs_generation(perception_file, imagery_file, edges_per_file, edges_ig_file, graph_per_folder, graph_im_folder)

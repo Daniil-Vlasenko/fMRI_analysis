@@ -96,26 +96,29 @@ def properties_of_voxels(perception_file, imagery_file):
 def graphs_generation(perception_file, imagery_file, edges_per_file, edges_ig_file, graph_per_folder, graph_im_folder):
     df_per_edges = pd.read_csv(edges_per_file)
     df_im_edges = pd.read_csv(edges_ig_file)
-    df_per_vertices = pd.read_csv(perception_file)
-    df_im_verteces = pd.read_csv(imagery_file)
+    np_per_vertices = np.loadtxt(perception_file)
+    np_im_vertices = np.loadtxt(imagery_file)
 
-    number_of_per_runs = len(df_per_vertices[0])
-    number_of_im_runs = len(df_im_verteces[0])
-    number_of_voxels = len(df_per_vertices)
+    number_of_per_runs = len(np_per_vertices[0])
+    number_of_im_runs = len(np_im_vertices[0])
+    number_of_voxels = len(np_per_vertices)
+    id_vertices = [i for i in range(number_of_voxels)]
 
     for i in range(number_of_per_runs):
         dataframe_edges_i = df_per_edges[["sours", "target", str(i)]]
-        dataframe_vertices_i = df_per_vertices[:, i]
+        dataframe_vertices_i = pd.DataFrame({'name': id_vertices, "value": np_per_vertices[:, i]})
         g = ig.Graph.DataFrame(dataframe_edges_i, directed=False, vertices=dataframe_vertices_i)
-        file_name = graph_per_folder + "/" + str(i) + ".gml"
+        file_name = graph_per_folder + "/run_" + str(i) + ".gml"
         g.write(file_name, format="gml")
+        print(i)
 
     for i in range(number_of_im_runs):
         dataframe_edges_i = df_im_edges[["sours", "target", str(i)]]
-        dataframe_vertices_i = df_im_verteces[:, i]
+        dataframe_vertices_i = pd.DataFrame({'name': id_vertices, "value": np_im_vertices[:, i]})
         g = ig.Graph.DataFrame(dataframe_edges_i, directed=False, vertices=dataframe_vertices_i)
         file_name = graph_im_folder + "/" + str(i) + ".gml"
         g.write(file_name, format="gml")
+        print(-i)
 
 
 
