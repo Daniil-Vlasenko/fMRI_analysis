@@ -18,9 +18,11 @@ def edges_calculation_2(classifiers_folder, perception_file, imagery_file, shape
     number_of_per_runs = len(training_perception[0])
     number_of_im_runs = len(training_imagery[0])
     number_of_voxels = len(training_perception)
+    number_of_strings = 7 * (shape[0] * shape[1] * shape[2] - (shape[0] * shape[1] + shape[1] * shape[2] +
+                             shape[0] * shape[2] - shape[0] - shape[1] - shape[2] + 1))
 
-    edges_np_per = np.zeros((number_of_voxels, number_of_per_runs + 2))
-    edges_np_im = np.zeros((number_of_voxels, number_of_im_runs + 2))
+    edges_np_per = np.zeros((number_of_strings, number_of_per_runs + 2))
+    edges_np_im = np.zeros((number_of_strings, number_of_im_runs + 2))
 
     count_of_rows = 0
     for voxel_1_id in range(number_of_voxels):
@@ -50,16 +52,18 @@ def edges_calculation_2(classifiers_folder, perception_file, imagery_file, shape
             edges_np_im[count_of_rows][0] = voxel_1_id
             edges_np_im[count_of_rows][1] = voxel_2_id
 
-            for i in range(number_of_per_runs):
-                tmp = pd.DataFrame(
-                    {'voxel1': [training_perception[voxel_1_id][i]], 'voxel2': [training_perception[voxel_2_id][i]]})
-                tmp_per = classifier.predict_proba(tmp)
-                edges_np_per[count_of_rows][i + 2] = tmp_per[0][1] - tmp_per[0][0]
-            for i in range(number_of_im_runs):
-                tmp = pd.DataFrame(
-                    {'voxel1': [training_imagery[voxel_1_id][i]], 'voxel2': [training_imagery[voxel_2_id][i]]})
-                tmp_img = classifier.predict_proba(tmp)
-                edges_np_im[count_of_rows][i + 2] = tmp_img[0][1] - tmp_img[0][0]
+
+            tmp = pd.DataFrame(
+                {'voxel1': training_perception[voxel_1_id], 'voxel2': training_perception[voxel_2_id]})
+            tmp_per = classifier.predict_proba(tmp)
+            edges_np_per[count_of_rows][2:] = tmp_per[:, 1] - tmp_per[:, 0]
+
+            tmp = pd.DataFrame(
+                {'voxel1': training_imagery[voxel_1_id], 'voxel2': training_imagery[voxel_2_id]})
+            tmp_img = classifier.predict_proba(tmp)
+            edges_np_im[count_of_rows][2:] = tmp_img[:, 1] - tmp_img[:, 0]
+
+            count_of_rows += 1
 
     column_per_names = ["sours", "target"] + [str(i) for i in range(number_of_per_runs)]
     column_im_names = ["sours", "target"] + [str(i) for i in range(number_of_im_runs)]
