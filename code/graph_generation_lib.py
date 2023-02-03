@@ -105,29 +105,35 @@ def graphs_generation(perception_file, imagery_file, edges_per_file, edges_ig_fi
     id_vertices = [i for i in range(number_of_voxels)]
 
     for i in range(number_of_per_runs):
-        dataframe_edges_i = df_per_edges[["sours", "target", str(i)]]
-        dataframe_vertices_i = pd.DataFrame({'name': id_vertices, "value": np_per_vertices[:, i]})
-        g = ig.Graph.DataFrame(dataframe_edges_i, directed=False, vertices=dataframe_vertices_i)
+        dataframe_edges_per = df_per_edges[["sours", "target", str(i)]]
+        dataframe_edges_per = dataframe_edges_per.rename(columns={"sours": "sours", "target": "target", str(i): "value"})
+        dataframe_vertices_per = pd.DataFrame({'id': id_vertices, 'voxelid': id_vertices, "value": np_per_vertices[:, i]})
+        g = ig.Graph.DataFrame(dataframe_edges_per, directed=False, vertices=dataframe_vertices_per)
         file_name = graph_per_folder + "/run_" + str(i) + ".gml"
         g.write(file_name, format="gml")
         print(i)
 
     for i in range(number_of_im_runs):
-        dataframe_edges_i = df_im_edges[["sours", "target", str(i)]]
-        dataframe_vertices_i = pd.DataFrame({'name': id_vertices, "value": np_im_vertices[:, i]})
-        g = ig.Graph.DataFrame(dataframe_edges_i, directed=False, vertices=dataframe_vertices_i)
+        dataframe_edges_im = df_im_edges[["sours", "target", str(i)]]
+        dataframe_edges_im = dataframe_edges_im.rename(columns={"sours": "sours", "target": "target", str(i): "value"})
+        dataframe_vertices_im = pd.DataFrame({'id': id_vertices, 'voxelid': id_vertices, "value": np_im_vertices[:, i]})
+        g = ig.Graph.DataFrame(dataframe_edges_im, directed=False, vertices=dataframe_vertices_im)
         file_name = graph_im_folder + "/" + str(i) + ".gml"
         g.write(file_name, format="gml")
         print(-i)
 
 
 
-# classifiers_folder = "../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/classifiers/SVC/max"
-# perception_file = "../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/scalars/perception/max.txt"
-# imagery_file = "../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/scalars/imagery/max.txt"
-# shape = (20, 20, 16, 201)
-# edges_per_file = "../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/edges/perception/max.txt"
-# edges_ig_file = "../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/edges/imagery/max.txt"
+classifiers_folder = "../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/classifiers/SVC/max"
+perception_file = "../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/scalars/perception/max.txt"
+imagery_file = "../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/scalars/imagery/max.txt"
+shape = (20, 20, 16, 201)
+edges_per_file = "../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/edges/perception/max.txt"
+edges_ig_file = "../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/edges/imagery/max.txt"
+graph_per_folder = "../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/graphs/perception"
+graph_im_folder =  "../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/graphs/imagery"
 # graph_generation_lib.edges_calculation_2(classifiers_folder=classifiers_folder,
 #                                          perception_file=perception_file, imagery_file=imagery_file, shape=shape,
 #                                          edges_per_file=edges_per_file, edges_ig_file=edges_ig_file)
+
+# graph_generation_lib.graphs_generation(perception_file, imagery_file, edges_per_file, edges_ig_file, graph_per_folder, graph_im_folder)

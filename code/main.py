@@ -45,3 +45,5 @@ graph_im_folder =  "../correlations/training/dimensionality_reduction_1/10_10_10
 # print(1)
 
 graph_generation_lib.graphs_generation(perception_file, imagery_file, edges_per_file, edges_ig_file, graph_per_folder, graph_im_folder)
+
+# g = ig.read("../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/graphs/perception/run_0.gml")
