@@ -30,52 +30,74 @@ def edges_calculation_2(classifiers_folder, perception_file, imagery_file, shape
     number_of_per_runs = len(training_perception[0])
     number_of_im_runs = len(training_imagery[0])
     number_of_voxels = len(training_perception)
-    number_of_strings = 7 * (shape[0] * shape[1] * shape[2] - (shape[0] * shape[1] + shape[1] * shape[2] +
-                             shape[0] * shape[2] - shape[0] - shape[1] - shape[2] + 1))
+    number_of_strings = 26 * ((shape[0] - 2) // 2) * ((shape[1] - 2) // 2) * ((shape[2] - 2) // 2)
 
     edges_np_per = np.zeros((number_of_strings, number_of_per_runs + 2))
     edges_np_im = np.zeros((number_of_strings, number_of_im_runs + 2))
 
     count_of_rows = 0
-    for voxel_1_id in range(number_of_voxels):
-        unravel_id = np.unravel_index(voxel_1_id, shape[:3])
-        if unravel_id[0] == 0 or unravel_id[1] == 0 or unravel_id[2] == 0:
-            continue
-        voxels_ids_2 = [np.ravel_multi_index((unravel_id[0], unravel_id[1], unravel_id[2] - 1), shape[:3]),
-                        np.ravel_multi_index((unravel_id[0], unravel_id[1] - 1, unravel_id[2]), shape[:3]),
-                        np.ravel_multi_index((unravel_id[0], unravel_id[1] - 1, unravel_id[2] - 1), shape[:3]),
-                        np.ravel_multi_index((unravel_id[0] - 1, unravel_id[1], unravel_id[2]), shape[:3]),
-                        np.ravel_multi_index((unravel_id[0] - 1, unravel_id[1], unravel_id[2] - 1), shape[:3]),
-                        np.ravel_multi_index((unravel_id[0] - 1, unravel_id[1] - 1, unravel_id[2]), shape[:3]),
-                        np.ravel_multi_index((unravel_id[0] - 1, unravel_id[1] - 1, unravel_id[2] - 1), shape[:3])]
-        for voxel_2_id in voxels_ids_2:
-            print("voxel_1_id:", voxel_1_id, "voxel_2_id:", voxel_2_id)
-            if "GPC" in classifiers_folder:
-                classifier_file = classifiers_folder + "/GPC_voxel_" + str(voxel_1_id) + "_and_voxel_" + \
-                                  str(voxel_2_id) + ".sav"
-                classifier = joblib.load(classifier_file)
-            else:
-                classifier_file = classifiers_folder + "/SVC_voxel_" + str(voxel_1_id) + "_and_voxel_" + \
-                                  str(voxel_2_id) + ".sav"
-                classifier = pickle.load(open(classifier_file, 'rb'))
+    for x in range(1, shape[0] - 1, 2):
+        for y in range(1, shape[1] - 1, 2):
+            for z in range(1, shape[2] - 1, 2):
+                voxel_1_id = np.ravel_multi_index((x, y, z), shape[:3])
+                voxels_ids_2 = [np.ravel_multi_index((x - 1, y - 1, z - 1), shape[:3]),
+                                np.ravel_multi_index((x - 1, y, z - 1), shape[:3]),
+                                np.ravel_multi_index((x - 1, y + 1, z - 1), shape[:3]),
+                                np.ravel_multi_index((x + 1, y - 1, z - 1), shape[:3]),
+                                np.ravel_multi_index((x + 1, y, z - 1), shape[:3]),
+                                np.ravel_multi_index((x + 1, y + 1, z - 1), shape[:3]),
+                                np.ravel_multi_index((x, y - 1, z - 1), shape[:3]),
+                                np.ravel_multi_index((x, y, z - 1), shape[:3]),
+                                np.ravel_multi_index((x, y + 1, z - 1), shape[:3]),
 
-            edges_np_per[count_of_rows][0] = voxel_1_id
-            edges_np_per[count_of_rows][1] = voxel_2_id
-            edges_np_im[count_of_rows][0] = voxel_1_id
-            edges_np_im[count_of_rows][1] = voxel_2_id
+                                np.ravel_multi_index((x - 1, y - 1, z + 1), shape[:3]),
+                                np.ravel_multi_index((x - 1, y, z + 1), shape[:3]),
+                                np.ravel_multi_index((x - 1, y + 1, z + 1), shape[:3]),
+                                np.ravel_multi_index((x + 1, y - 1, z + 1), shape[:3]),
+                                np.ravel_multi_index((x + 1, y, z + 1), shape[:3]),
+                                np.ravel_multi_index((x + 1, y + 1, z + 1), shape[:3]),
+                                np.ravel_multi_index((x, y - 1, z + 1), shape[:3]),
+                                np.ravel_multi_index((x, y, z + 1), shape[:3]),
+                                np.ravel_multi_index((x, y + 1, z + 1), shape[:3]),
+
+                                np.ravel_multi_index((x - 1, y - 1, z), shape[:3]),
+                                np.ravel_multi_index((x - 1, y, z), shape[:3]),
+                                np.ravel_multi_index((x - 1, y + 1, z), shape[:3]),
+
+                                np.ravel_multi_index((x + 1, y - 1, z), shape[:3]),
+                                np.ravel_multi_index((x + 1, y, z), shape[:3]),
+                                np.ravel_multi_index((x + 1, y + 1, z), shape[:3]),
+
+                                np.ravel_multi_index((x, y - 1, z), shape[:3]),
+                                np.ravel_multi_index((x, y + 1, z), shape[:3])]
+                for voxel_2_id in voxels_ids_2:
+                    print("count:", count_of_rows + 1, "voxel_1_id:", voxel_1_id, "voxel_2_id:", voxel_2_id)
+                    if "GPC" in classifiers_folder:
+                        classifier_file = classifiers_folder + "/GPC_voxel_" + str(voxel_1_id) + "_and_voxel_" + \
+                                          str(voxel_2_id) + ".sav"
+                        classifier = joblib.load(classifier_file)
+                    else:
+                        classifier_file = classifiers_folder + "/SVC_voxel_" + str(voxel_1_id) + "_and_voxel_" + \
+                                          str(voxel_2_id) + ".sav"
+                        classifier = pickle.load(open(classifier_file, 'rb'))
+
+                    edges_np_per[count_of_rows][0] = voxel_1_id
+                    edges_np_per[count_of_rows][1] = voxel_2_id
+                    edges_np_im[count_of_rows][0] = voxel_1_id
+                    edges_np_im[count_of_rows][1] = voxel_2_id
 
 
-            tmp = pd.DataFrame(
-                {'voxel1': training_perception[voxel_1_id], 'voxel2': training_perception[voxel_2_id]})
-            tmp_per = classifier.predict_proba(tmp)
-            edges_np_per[count_of_rows][2:] = tmp_per[:, 1] - tmp_per[:, 0]
+                    tmp = pd.DataFrame(
+                        {'voxel1': training_perception[voxel_1_id], 'voxel2': training_perception[voxel_2_id]})
+                    tmp_per = classifier.predict_proba(tmp)
+                    edges_np_per[count_of_rows][2:] = tmp_per[:, 1] - tmp_per[:, 0]
 
-            tmp = pd.DataFrame(
-                {'voxel1': training_imagery[voxel_1_id], 'voxel2': training_imagery[voxel_2_id]})
-            tmp_img = classifier.predict_proba(tmp)
-            edges_np_im[count_of_rows][2:] = tmp_img[:, 1] - tmp_img[:, 0]
+                    tmp = pd.DataFrame(
+                        {'voxel1': training_imagery[voxel_1_id], 'voxel2': training_imagery[voxel_2_id]})
+                    tmp_img = classifier.predict_proba(tmp)
+                    edges_np_im[count_of_rows][2:] = tmp_img[:, 1] - tmp_img[:, 0]
 
-            count_of_rows += 1
+                    count_of_rows += 1
 
     column_per_names = ["sours", "target"] + [str(i) for i in range(number_of_per_runs)]
     column_im_names = ["sours", "target"] + [str(i) for i in range(number_of_im_runs)]
@@ -85,12 +107,6 @@ def edges_calculation_2(classifiers_folder, perception_file, imagery_file, shape
     edges_df_img = edges_df_img.astype({"sours": "int", "target": "int"})
     edges_df_per.to_csv(edges_per_file, index=False)
     edges_df_img.to_csv(edges_ig_file, index=False)
-
-
-def properties_of_voxels(perception_file, imagery_file):
-    training_perception = np.loadtxt(perception_file)
-    training_imagery = np.loadtxt(imagery_file)
-    # edges_df_per = pd.DataFrame(data=edges_np_per, columns=column_per_names)
 
 
 def graphs_generation(perception_file, imagery_file, edges_per_file, edges_ig_file, graph_per_folder, graph_im_folder):
@@ -107,6 +123,9 @@ def graphs_generation(perception_file, imagery_file, edges_per_file, edges_ig_fi
     for i in range(number_of_per_runs):
         dataframe_edges_per = df_per_edges[["sours", "target", str(i)]]
         dataframe_edges_per = dataframe_edges_per.rename(columns={"sours": "sours", "target": "target", str(i): "value"})
+
+        # tmp = len(dataframe_edges_per.target == np.ravel_multi_index((10, 10, 0), shape[:3]))
+
         dataframe_vertices_per = pd.DataFrame({'id': id_vertices, 'voxelid': id_vertices, "value": np_per_vertices[:, i]})
         g = ig.Graph.DataFrame(dataframe_edges_per, directed=False, vertices=dataframe_vertices_per)
         file_name = graph_per_folder + "/run_" + str(i) + ".gml"
