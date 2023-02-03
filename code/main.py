@@ -25,6 +25,7 @@ from sklearn.gaussian_process import GaussianProcessClassifier
 from sklearn.gaussian_process.kernels import RBF
 import classifier_learning_lib as cl
 import graph_generation_lib
+import scalars_data
 
 
 classifiers_folder = "../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/classifiers/SVC/max"
@@ -44,6 +45,8 @@ graph_im_folder =  "../correlations/training/dimensionality_reduction_1/10_10_10
 # g = ig.Graph.DataFrame(dataframe_0, directed=False)
 # print(1)
 
-graph_generation_lib.graphs_generation(perception_file, imagery_file, edges_per_file, edges_ig_file, graph_per_folder, graph_im_folder)
+# graph_generation_lib.graphs_generation(perception_file, imagery_file, edges_per_file, edges_ig_file, graph_per_folder, graph_im_folder)
 
 # g = ig.read("../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/graphs/perception/run_0.gml")
+
+cl.classifier_learning_1(scalars_data.max_10_10_10[0], scalars_data.max_10_10_10[1], shape, "SVC")
