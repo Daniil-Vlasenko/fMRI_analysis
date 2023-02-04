@@ -8,6 +8,46 @@ import numpy as np
 import pandas as pd
 
 
+def get_set_of_neighbors(shape):
+    set_ = set()
+    for x in range(1, shape[0] - 1):
+        for y in range(1, shape[1] - 1):
+            for z in range(1, shape[2] - 1):
+                voxel_id = np.ravel_multi_index((x, y, z), shape)
+                neighbors = [sorted([np.ravel_multi_index((x - 1, y - 1, z - 1), shape), voxel_id]),
+                             sorted([np.ravel_multi_index((x - 1, y, z - 1), shape), voxel_id]),
+                             sorted([np.ravel_multi_index((x - 1, y + 1, z - 1), shape), voxel_id]),
+                             sorted([np.ravel_multi_index((x, y - 1, z - 1), shape), voxel_id]),
+                             sorted([np.ravel_multi_index((x, y, z - 1), shape), voxel_id]),
+                             sorted([np.ravel_multi_index((x, y + 1, z - 1), shape), voxel_id]),
+                             sorted([np.ravel_multi_index((x + 1, y - 1, z - 1), shape), voxel_id]),
+                             sorted([np.ravel_multi_index((x + 1, y, z - 1), shape), voxel_id]),
+                             sorted([np.ravel_multi_index((x + 1, y + 1, z - 1), shape), voxel_id]),
+
+                             sorted([np.ravel_multi_index((x - 1, y - 1, z + 1), shape), voxel_id]),
+                             sorted([np.ravel_multi_index((x - 1, y, z + 1), shape), voxel_id]),
+                             sorted([np.ravel_multi_index((x - 1, y + 1, z + 1), shape), voxel_id]),
+                             sorted([np.ravel_multi_index((x, y - 1, z + 1), shape), voxel_id]),
+                             sorted([np.ravel_multi_index((x, y, z + 1), shape), voxel_id]),
+                             sorted([np.ravel_multi_index((x, y + 1, z + 1), shape), voxel_id]),
+                             sorted([np.ravel_multi_index((x + 1, y - 1, z + 1), shape), voxel_id]),
+                             sorted([np.ravel_multi_index((x + 1, y, z + 1), shape), voxel_id]),
+                             sorted([np.ravel_multi_index((x + 1, y + 1, z + 1), shape), voxel_id]),
+
+                             sorted([np.ravel_multi_index((x - 1, y - 1, z), shape), voxel_id]),
+                             sorted([np.ravel_multi_index((x - 1, y, z), shape), voxel_id]),
+                             sorted([np.ravel_multi_index((x - 1, y + 1, z), shape), voxel_id]),
+
+                             sorted([np.ravel_multi_index((x + 1, y - 1, z), shape), voxel_id]),
+                             sorted([np.ravel_multi_index((x + 1, y, z), shape), voxel_id]),
+                             sorted([np.ravel_multi_index((x + 1, y + 1, z), shape), voxel_id]),
+
+                             sorted([np.ravel_multi_index((x, y - 1, z), shape), voxel_id]),
+                             sorted([np.ravel_multi_index((x, y + 1, z), shape), voxel_id])]
+                set_.update(neighbors)
+    return set_
+
+
 def classifier_learning_1(perception_file, imagery_file, shape, regime):
     training_perception_file = open(perception_file, "r")
     training_imagery_file = open(imagery_file, "r")
