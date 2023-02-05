@@ -13,37 +13,37 @@ def get_set_of_neighbors(shape):
     for x in range(1, shape[0] - 1):
         for y in range(1, shape[1] - 1):
             for z in range(1, shape[2] - 1):
-                voxel_id = np.ravel_multi_index((x, y, z), shape)
-                neighbors = [sorted([np.ravel_multi_index((x - 1, y - 1, z - 1), shape), voxel_id]),
-                             sorted([np.ravel_multi_index((x - 1, y, z - 1), shape), voxel_id]),
-                             sorted([np.ravel_multi_index((x - 1, y + 1, z - 1), shape), voxel_id]),
-                             sorted([np.ravel_multi_index((x, y - 1, z - 1), shape), voxel_id]),
-                             sorted([np.ravel_multi_index((x, y, z - 1), shape), voxel_id]),
-                             sorted([np.ravel_multi_index((x, y + 1, z - 1), shape), voxel_id]),
-                             sorted([np.ravel_multi_index((x + 1, y - 1, z - 1), shape), voxel_id]),
-                             sorted([np.ravel_multi_index((x + 1, y, z - 1), shape), voxel_id]),
-                             sorted([np.ravel_multi_index((x + 1, y + 1, z - 1), shape), voxel_id]),
+                voxel_id = np.ravel_multi_index((x, y, z), shape[:3])
+                neighbors = [tuple(sorted([np.ravel_multi_index((x - 1, y - 1, z - 1), shape[:3]), voxel_id])),
+                             tuple(sorted([np.ravel_multi_index((x - 1, y, z - 1), shape[:3]), voxel_id])),
+                             tuple(sorted([np.ravel_multi_index((x - 1, y + 1, z - 1), shape[:3]), voxel_id])),
+                             tuple(sorted([np.ravel_multi_index((x, y - 1, z - 1), shape[:3]), voxel_id])),
+                             tuple(sorted([np.ravel_multi_index((x, y, z - 1), shape[:3]), voxel_id])),
+                             tuple(sorted([np.ravel_multi_index((x, y + 1, z - 1), shape[:3]), voxel_id])),
+                             tuple(sorted([np.ravel_multi_index((x + 1, y - 1, z - 1), shape[:3]), voxel_id])),
+                             tuple(sorted([np.ravel_multi_index((x + 1, y, z - 1), shape[:3]), voxel_id])),
+                             tuple(sorted([np.ravel_multi_index((x + 1, y + 1, z - 1), shape[:3]), voxel_id])),
 
-                             sorted([np.ravel_multi_index((x - 1, y - 1, z + 1), shape), voxel_id]),
-                             sorted([np.ravel_multi_index((x - 1, y, z + 1), shape), voxel_id]),
-                             sorted([np.ravel_multi_index((x - 1, y + 1, z + 1), shape), voxel_id]),
-                             sorted([np.ravel_multi_index((x, y - 1, z + 1), shape), voxel_id]),
-                             sorted([np.ravel_multi_index((x, y, z + 1), shape), voxel_id]),
-                             sorted([np.ravel_multi_index((x, y + 1, z + 1), shape), voxel_id]),
-                             sorted([np.ravel_multi_index((x + 1, y - 1, z + 1), shape), voxel_id]),
-                             sorted([np.ravel_multi_index((x + 1, y, z + 1), shape), voxel_id]),
-                             sorted([np.ravel_multi_index((x + 1, y + 1, z + 1), shape), voxel_id]),
+                             tuple(sorted([np.ravel_multi_index((x - 1, y - 1, z + 1), shape[:3]), voxel_id])),
+                             tuple(sorted([np.ravel_multi_index((x - 1, y, z + 1), shape[:3]), voxel_id])),
+                             tuple(sorted([np.ravel_multi_index((x - 1, y + 1, z + 1), shape[:3]), voxel_id])),
+                             tuple(sorted([np.ravel_multi_index((x, y - 1, z + 1), shape[:3]), voxel_id])),
+                             tuple(sorted([np.ravel_multi_index((x, y, z + 1), shape[:3]), voxel_id])),
+                             tuple(sorted([np.ravel_multi_index((x, y + 1, z + 1), shape[:3]), voxel_id])),
+                             tuple(sorted([np.ravel_multi_index((x + 1, y - 1, z + 1), shape[:3]), voxel_id])),
+                             tuple(sorted([np.ravel_multi_index((x + 1, y, z + 1), shape[:3]), voxel_id])),
+                             tuple(sorted([np.ravel_multi_index((x + 1, y + 1, z + 1), shape[:3]), voxel_id])),
 
-                             sorted([np.ravel_multi_index((x - 1, y - 1, z), shape), voxel_id]),
-                             sorted([np.ravel_multi_index((x - 1, y, z), shape), voxel_id]),
-                             sorted([np.ravel_multi_index((x - 1, y + 1, z), shape), voxel_id]),
+                             tuple(sorted([np.ravel_multi_index((x - 1, y - 1, z), shape[:3]), voxel_id])),
+                             tuple(sorted([np.ravel_multi_index((x - 1, y, z), shape[:3]), voxel_id])),
+                             tuple(sorted([np.ravel_multi_index((x - 1, y + 1, z), shape[:3]), voxel_id])),
 
-                             sorted([np.ravel_multi_index((x + 1, y - 1, z), shape), voxel_id]),
-                             sorted([np.ravel_multi_index((x + 1, y, z), shape), voxel_id]),
-                             sorted([np.ravel_multi_index((x + 1, y + 1, z), shape), voxel_id]),
+                             tuple(sorted([np.ravel_multi_index((x + 1, y - 1, z), shape[:3]), voxel_id])),
+                             tuple(sorted([np.ravel_multi_index((x + 1, y, z), shape[:3]), voxel_id])),
+                             tuple(sorted([np.ravel_multi_index((x + 1, y + 1, z), shape[:3]), voxel_id])),
 
-                             sorted([np.ravel_multi_index((x, y - 1, z), shape), voxel_id]),
-                             sorted([np.ravel_multi_index((x, y + 1, z), shape), voxel_id])]
+                             tuple(sorted([np.ravel_multi_index((x, y - 1, z), shape[:3]), voxel_id])),
+                             tuple(sorted([np.ravel_multi_index((x, y + 1, z), shape[:3]), voxel_id]))]
                 set_.update(neighbors)
     return set_
 

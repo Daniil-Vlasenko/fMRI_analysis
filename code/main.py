@@ -52,8 +52,10 @@ graph_im_folder =  "../correlations/training/dimensionality_reduction_1/10_10_10
 
 # g = ig.read("../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/graphs/perception/run_0.gml")
 
-# set_ = classifier_learning_lib.get_set_of_neighbors(shape)
+# shape = (6, 6, 6, 201)
+set_ = classifier_learning_lib.get_set_of_neighbors(shape)
 print(sorted([47, 74]))
 print(sorted([74, 47]))
-print(sorted([(47, 74), (74, 47)]))
+print(sorted(((47, 74), (74, 47))))
 print(sorted([(74, 47), (47, 74)]))
+
