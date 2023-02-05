@@ -7,7 +7,6 @@ import scalars_data
 import classifier_learning_lib as cl
 
 
-
 def edges_calculation_1(classifiers_folder, perception_file, imagery_file, shape, edges_per_file, edges_ig_file):
     """
     Calculate edge's weight for every two neighbour voxels of one scalar type for both perception and imagery regimes
@@ -26,13 +25,13 @@ def edges_calculation_1(classifiers_folder, perception_file, imagery_file, shape
 
     number_of_per_runs = len(training_perception[0])
     number_of_im_runs = len(training_imagery[0])
-    number_of_strings = int((26 * (shape[0] - 2) * (shape[1] - 2) * (shape[2] - 2) + 8 * 19 +
+    number_of_edges = int((26 * (shape[0] - 2) * (shape[1] - 2) * (shape[2] - 2) + 8 * 19 +
                          4 * ((shape[0] - 2) + (shape[1] - 2) + (shape[2] - 2) - 6) * 15 +
                          2 * ((shape[0] - 2) * (shape[1] - 2) + (shape[0] - 2) * (shape[2] - 2) + (shape[1] - 2) * (shape[2] - 2) -
                               4 * (shape[0] - 2) - 4 * (shape[1] - 2) - 4 * (shape[2] - 2) + 12) * 9) / 2)
 
-    edges_np_per = np.zeros((number_of_strings, number_of_per_runs + 2))
-    edges_np_im = np.zeros((number_of_strings, number_of_im_runs + 2))
+    edges_np_per = np.zeros((number_of_edges, number_of_per_runs + 2))
+    edges_np_im = np.zeros((number_of_edges, number_of_im_runs + 2))
 
     count_of_rows = 0
     neighbors = cl.get_set_of_neighbors(shape)
@@ -78,7 +77,7 @@ def edges_calculation_1(classifiers_folder, perception_file, imagery_file, shape
     edges_df_img.to_csv(edges_ig_file, index=False)
 
 
-def graphs_generation(perception_file, imagery_file, edges_per_file, edges_ig_file, graph_per_folder, graph_im_folder):
+def graphs_generation(perception_file, imagery_file, shape, edges_per_file, edges_ig_file, graph_per_folder, graph_im_folder):
     df_per_edges = pd.read_csv(edges_per_file)
     df_im_edges = pd.read_csv(edges_ig_file)
     np_per_vertices = np.loadtxt(perception_file)
@@ -88,14 +87,15 @@ def graphs_generation(perception_file, imagery_file, edges_per_file, edges_ig_fi
     number_of_im_runs = len(np_im_vertices[0])
     number_of_voxels = len(np_per_vertices)
     id_vertices = [i for i in range(number_of_voxels)]
+    id_x_vertices = [np.ravel_multi_index(i, shape[:3])[0] for i in range(number_of_voxels)]
+    id_y_vertices = [np.ravel_multi_index(i, shape[:3])[1] for i in range(number_of_voxels)]
+    id_z_vertices = [np.ravel_multi_index(i, shape[:3])[2] for i in range(number_of_voxels)]
 
     for i in range(number_of_per_runs):
         dataframe_edges_per = df_per_edges[["sours", "target", str(i)]]
         dataframe_edges_per = dataframe_edges_per.rename(columns={"sours": "sours", "target": "target", str(i): "value"})
-
-        # tmp = len(dataframe_edges_per.target == np.ravel_multi_index((10, 10, 0), shape[:3]))
-
-        dataframe_vertices_per = pd.DataFrame({'id': id_vertices, 'voxelid': id_vertices, "value": np_per_vertices[:, i]})
+        dataframe_vertices_per = pd.DataFrame({'id': id_vertices, 'flat_id_voxel': id_vertices, "x_id": id_x_vertices,
+                                               "y_id": id_y_vertices, "z_id": id_z_vertices, "value": np_per_vertices[:, i]})
         g = ig.Graph.DataFrame(dataframe_edges_per, directed=False, vertices=dataframe_vertices_per)
         file_name = graph_per_folder + "/run_" + str(i) + ".gml"
         g.write(file_name, format="gml")
@@ -104,7 +104,8 @@ def graphs_generation(perception_file, imagery_file, edges_per_file, edges_ig_fi
     for i in range(number_of_im_runs):
         dataframe_edges_im = df_im_edges[["sours", "target", str(i)]]
         dataframe_edges_im = dataframe_edges_im.rename(columns={"sours": "sours", "target": "target", str(i): "value"})
-        dataframe_vertices_im = pd.DataFrame({'id': id_vertices, 'voxelid': id_vertices, "value": np_im_vertices[:, i]})
+        dataframe_vertices_im = pd.DataFrame({'id': id_vertices, 'flat_id_voxel': id_vertices, "x_id": id_x_vertices,
+                                               "y_id": id_y_vertices, "z_id": id_z_vertices, "value": np_im_vertices[:, i]})
         g = ig.Graph.DataFrame(dataframe_edges_im, directed=False, vertices=dataframe_vertices_im)
         file_name = graph_im_folder + "/" + str(i) + ".gml"
         g.write(file_name, format="gml")

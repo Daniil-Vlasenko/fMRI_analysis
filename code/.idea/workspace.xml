@@ -70,7 +70,7 @@
       <workItem from="1674637693600" duration="1304000" />
       <workItem from="1674889637856" duration="22396000" />
       <workItem from="1675056925053" duration="71638000" />
-      <workItem from="1675528977221" duration="10777000" />
+      <workItem from="1675528977221" duration="12175000" />
     </task>
     <servers />
   </component>
@@ -97,7 +97,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/graph_generation_lib.py</url>
-          <line>70</line>
+          <line>69</line>
           <option name="timeStamp" value="47" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -112,13 +112,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/graph_generation_lib.py</url>
-          <line>33</line>
+          <line>32</line>
           <option name="timeStamp" value="54" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="jupyter-line">
-          <url>notebook:///home/daniil/programming/python/fMRI_analysis/code/main.ipynb</url>
-          <line>20</line>
-          <option name="timeStamp" value="49" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
