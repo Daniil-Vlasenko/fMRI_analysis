@@ -39,10 +39,10 @@ graph_per_folder = "../correlations/training/dimensionality_reduction_1/10_10_10
 graph_im_folder =  "../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/graphs/imagery"
 
 # cl.classifier_learning_1(scalars_data.max_10_10_10[0], scalars_data.max_10_10_10[1], shape, "SVC")
-# graph_generation_lib.edges_calculation_2(classifiers_folder=classifiers_folder,
+# graph_generation_lib.edges_calculation_1(classifiers_folder=classifiers_folder,
 #                                          perception_file=perception_file, imagery_file=imagery_file, shape=shape,
 #                                          edges_per_file=edges_per_file, edges_ig_file=edges_ig_file)
-# graph_generation_lib.graphs_generation(perception_file, imagery_file, edges_per_file, edges_ig_file, graph_per_folder, graph_im_folder)
+graph_generation_lib.graphs_generation(perception_file, imagery_file, edges_per_file, edges_ig_file, graph_per_folder, graph_im_folder)
 
 # dataframe = pd.read_csv(edges_per_file)
 # dataframe_0 = dataframe[["sours", "target", "0"]]
@@ -53,7 +53,7 @@ graph_im_folder =  "../correlations/training/dimensionality_reduction_1/10_10_10
 # g = ig.read("../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/graphs/perception/run_0.gml")
 
 # shape = (6, 6, 6, 201)
-set_ = classifier_learning_lib.get_set_of_neighbors(shape)
+# set_ = classifier_learning_lib.get_set_of_neighbors(shape)
 print(sorted([47, 74]))
 print(sorted([74, 47]))
 print(sorted(((47, 74), (74, 47))))

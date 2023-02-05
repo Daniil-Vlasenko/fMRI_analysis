@@ -4,14 +4,11 @@ import numpy as np
 import pandas as pd
 import igraph as ig
 import scalars_data
+import classifier_learning_lib as cl
 
 
-def edges_calculation_1(voxel_1_value, voxel_2_value,  classifier):
-    predict = classifier.predict_proba([voxel_1_value, voxel_2_value])
-    return predict[1] - predict[0]
 
-
-def edges_calculation_2(classifiers_folder, perception_file, imagery_file, shape, edges_per_file, edges_ig_file):
+def edges_calculation_1(classifiers_folder, perception_file, imagery_file, shape, edges_per_file, edges_ig_file):
     """
     Calculate edge's weight for every two neighbour voxels of one scalar type for both perception and imagery regimes
     for every run of fMRI.
@@ -29,75 +26,47 @@ def edges_calculation_2(classifiers_folder, perception_file, imagery_file, shape
 
     number_of_per_runs = len(training_perception[0])
     number_of_im_runs = len(training_imagery[0])
-    number_of_voxels = len(training_perception)
-    number_of_strings = 26 * ((shape[0] - 2) // 2) * ((shape[1] - 2) // 2) * ((shape[2] - 2) // 2)
+    number_of_strings = int((26 * (shape[0] - 2) * (shape[1] - 2) * (shape[2] - 2) + 8 * 19 +
+                         4 * ((shape[0] - 2) + (shape[1] - 2) + (shape[2] - 2) - 6) * 15 +
+                         2 * ((shape[0] - 2) * (shape[1] - 2) + (shape[0] - 2) * (shape[2] - 2) + (shape[1] - 2) * (shape[2] - 2) -
+                              4 * (shape[0] - 2) - 4 * (shape[1] - 2) - 4 * (shape[2] - 2) + 12) * 9) / 2)
 
     edges_np_per = np.zeros((number_of_strings, number_of_per_runs + 2))
     edges_np_im = np.zeros((number_of_strings, number_of_im_runs + 2))
 
     count_of_rows = 0
-    for x in range(1, shape[0] - 1, 2):
-        for y in range(1, shape[1] - 1, 2):
-            for z in range(1, shape[2] - 1, 2):
-                voxel_1_id = np.ravel_multi_index((x, y, z), shape[:3])
-                voxels_ids_2 = [np.ravel_multi_index((x - 1, y - 1, z - 1), shape[:3]),
-                                np.ravel_multi_index((x - 1, y, z - 1), shape[:3]),
-                                np.ravel_multi_index((x - 1, y + 1, z - 1), shape[:3]),
-                                np.ravel_multi_index((x + 1, y - 1, z - 1), shape[:3]),
-                                np.ravel_multi_index((x + 1, y, z - 1), shape[:3]),
-                                np.ravel_multi_index((x + 1, y + 1, z - 1), shape[:3]),
-                                np.ravel_multi_index((x, y - 1, z - 1), shape[:3]),
-                                np.ravel_multi_index((x, y, z - 1), shape[:3]),
-                                np.ravel_multi_index((x, y + 1, z - 1), shape[:3]),
+    neighbors = cl.get_set_of_neighbors(shape)
+    for pair in neighbors:
+        voxel_1_id = pair[0]
+        voxel_2_id = pair[1]
 
-                                np.ravel_multi_index((x - 1, y - 1, z + 1), shape[:3]),
-                                np.ravel_multi_index((x - 1, y, z + 1), shape[:3]),
-                                np.ravel_multi_index((x - 1, y + 1, z + 1), shape[:3]),
-                                np.ravel_multi_index((x + 1, y - 1, z + 1), shape[:3]),
-                                np.ravel_multi_index((x + 1, y, z + 1), shape[:3]),
-                                np.ravel_multi_index((x + 1, y + 1, z + 1), shape[:3]),
-                                np.ravel_multi_index((x, y - 1, z + 1), shape[:3]),
-                                np.ravel_multi_index((x, y, z + 1), shape[:3]),
-                                np.ravel_multi_index((x, y + 1, z + 1), shape[:3]),
+        print("count:", count_of_rows + 1, "voxel_1_id:", voxel_1_id, "voxel_2_id:", voxel_2_id)
+        if "GPC" in classifiers_folder:
+            classifier_file = classifiers_folder + "/GPC_voxel_" + str(voxel_1_id) + "_and_voxel_" + \
+                              str(voxel_2_id) + ".sav"
+            classifier = joblib.load(classifier_file)
+        else:
+            classifier_file = classifiers_folder + "/SVC_voxel_" + str(voxel_1_id) + "_and_voxel_" + \
+                              str(voxel_2_id) + ".sav"
+            classifier = pickle.load(open(classifier_file, 'rb'))
 
-                                np.ravel_multi_index((x - 1, y - 1, z), shape[:3]),
-                                np.ravel_multi_index((x - 1, y, z), shape[:3]),
-                                np.ravel_multi_index((x - 1, y + 1, z), shape[:3]),
-
-                                np.ravel_multi_index((x + 1, y - 1, z), shape[:3]),
-                                np.ravel_multi_index((x + 1, y, z), shape[:3]),
-                                np.ravel_multi_index((x + 1, y + 1, z), shape[:3]),
-
-                                np.ravel_multi_index((x, y - 1, z), shape[:3]),
-                                np.ravel_multi_index((x, y + 1, z), shape[:3])]
-                for voxel_2_id in voxels_ids_2:
-                    print("count:", count_of_rows + 1, "voxel_1_id:", voxel_1_id, "voxel_2_id:", voxel_2_id)
-                    if "GPC" in classifiers_folder:
-                        classifier_file = classifiers_folder + "/GPC_voxel_" + str(voxel_1_id) + "_and_voxel_" + \
-                                          str(voxel_2_id) + ".sav"
-                        classifier = joblib.load(classifier_file)
-                    else:
-                        classifier_file = classifiers_folder + "/SVC_voxel_" + str(voxel_1_id) + "_and_voxel_" + \
-                                          str(voxel_2_id) + ".sav"
-                        classifier = pickle.load(open(classifier_file, 'rb'))
-
-                    edges_np_per[count_of_rows][0] = voxel_1_id
-                    edges_np_per[count_of_rows][1] = voxel_2_id
-                    edges_np_im[count_of_rows][0] = voxel_1_id
-                    edges_np_im[count_of_rows][1] = voxel_2_id
+        edges_np_per[count_of_rows][0] = voxel_1_id
+        edges_np_per[count_of_rows][1] = voxel_2_id
+        edges_np_im[count_of_rows][0] = voxel_1_id
+        edges_np_im[count_of_rows][1] = voxel_2_id
 
 
-                    tmp = pd.DataFrame(
-                        {'voxel1': training_perception[voxel_1_id], 'voxel2': training_perception[voxel_2_id]})
-                    tmp_per = classifier.predict_proba(tmp)
-                    edges_np_per[count_of_rows][2:] = tmp_per[:, 1] - tmp_per[:, 0]
+        tmp = pd.DataFrame(
+            {'voxel1': training_perception[voxel_1_id], 'voxel2': training_perception[voxel_2_id]})
+        tmp_per = classifier.predict_proba(tmp)
+        edges_np_per[count_of_rows][2:] = tmp_per[:, 1] - tmp_per[:, 0]
 
-                    tmp = pd.DataFrame(
-                        {'voxel1': training_imagery[voxel_1_id], 'voxel2': training_imagery[voxel_2_id]})
-                    tmp_img = classifier.predict_proba(tmp)
-                    edges_np_im[count_of_rows][2:] = tmp_img[:, 1] - tmp_img[:, 0]
+        tmp = pd.DataFrame(
+            {'voxel1': training_imagery[voxel_1_id], 'voxel2': training_imagery[voxel_2_id]})
+        tmp_img = classifier.predict_proba(tmp)
+        edges_np_im[count_of_rows][2:] = tmp_img[:, 1] - tmp_img[:, 0]
 
-                    count_of_rows += 1
+        count_of_rows += 1
 
     column_per_names = ["sours", "target"] + [str(i) for i in range(number_of_per_runs)]
     column_im_names = ["sours", "target"] + [str(i) for i in range(number_of_im_runs)]
