@@ -3,7 +3,7 @@ import joblib
 import numpy as np
 import pandas as pd
 import igraph as ig
-import scalars_data
+import scalars_data_10_10_10
 import classifier_learning_lib as cl
 
 

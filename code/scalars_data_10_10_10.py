@@ -14,3 +14,6 @@ quantile_1_10_10_10 = ("../correlations/training/dimensionality_reduction_1/10_1
                        "../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/scalars/imagery/quantile_1.txt")
 quantile_2_10_10_10 = ("../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/scalars/perception/quantile_2.txt",
                        "../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/scalars/imagery/quantile_2.txt")
+
+scalars = [mean_10_10_10, median_10_10_10, max_min_distance_10_10_10, quantiles_distance_10_10_10,
+           max_10_10_10, min_10_10_10, quantile_1_10_10_10, quantile_2_10_10_10]
