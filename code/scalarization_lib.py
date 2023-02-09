@@ -39,42 +39,49 @@ def scalarization_1(data, regime, q_1=0.1, q_2=0.9):
         raise Exception("Invalid regime.")
 
 
-def scalarization_2(file_name, regime, q_1=0.1, q_2=0.9):
+def scalarization_2(nifti_file, regime, q_1=0.1, q_2=0.9):
     """
     Convert time series for each voxel to scalar value.
 
-    :param file_name: string, name of input file.
+    :param nifti_file: string, name of input file.
     :param regime: numeric, regime of function; 0 - mean, 1 - median, 2 -standard derivation, 3 - variance,
     4 - difference between the maximum and minimum, 5 - difference between quantiles.
     :param q_1: numeric, level of quantile 1.
     :param q_2:numeric, level of quantile 2.
     :return: ndarray, array of scalars.
     """
-    img = nib.load(file_name)
+    img = nib.load(nifti_file)
     data = img.get_fdata()
     data = dr._4D_to_2D(data)
     return scalarization_1(data, regime, q_1, q_2)
 
 
-def scalarization_3(file_names, file_name, regime, q_1=0.1, q_2=0.9):
+def scalarization_3(nifti_files, scalars_file, regime, q_1=0.1, q_2=0.9):
     """
     Convert time series for each voxel to scalar value and save them to file.
 
-    :param file_names: list of strings, names of input files.
-    :param file_name: string, name of output file.
+    :param nifti_files: list of strings, names of input files.
+    :param scalars_file: string, name of output file.
     :param regime: numeric, regime of function; 0 - mean, 1 - median, 2 -standard derivation, 3 - variance,
     4 - difference between the maximum and minimum, 5 - difference between quantiles.
     :param q_1: numeric, level of quantile 1.
     :param q_2:numeric, level of quantile 2.
     :return: ndarray, array of scalars.
     """
-    data = scalarization_2(file_names[0], regime)
-    size = len(file_names)
+    data = scalarization_2(nifti_files[0], regime)
+    size = len(nifti_files)
     for i in range(1, size):
-        data = np.vstack((data, scalarization_2(file_names[i], regime, q_1, q_2)))
+        data = np.vstack((data, scalarization_2(nifti_files[i], regime, q_1, q_2)))
     data = np.transpose(data)
-    np.savetxt(file_name, data)
+    np.savetxt(scalars_file, data)
     return data
+
+
+# def scalarization_4(nifti_per_files, nifti_im_files, scalars_per_file, scalars_im_file, q_1=0.1, q_2=0.9):
+#     for i in range(10):
+#         scalarization_3(nifti_per_files, scalars_per_file[]
+#                         "../correlations/test/dimensionality_reduction_1/10_10_10/synolitic_method_1/scalars/imagery/mean.txt",
+#                         0)
 
 
 def mean(data):
