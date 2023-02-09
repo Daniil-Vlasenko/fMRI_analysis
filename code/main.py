@@ -14,7 +14,8 @@ import scalars_data_10_10_10 as scalars
 import edges_data_10_10_10 as edges
 import graphs_data_10_10_10 as graphs
 import classifiers_data_10_10_10 as classifiers
-
+import graph_analysis_lib as ga
+import features_data_10_10_10 as features
 
 shape = (20, 20, 16, 201)
 # import scalarization
@@ -24,11 +25,14 @@ shape = (20, 20, 16, 201)
 #                                  shape=shape, classifiers_folder=classifiers.classifiers[i])
 # print("classifier_learning_1_SVC end")
 # for i in range(8):
-    # graph_generation_lib.edges_calculation_1(classifiers_folder=classifiers.classifiers[i],
-    #                                          perception_file=scalars.scalars_test_10_10_10[i][0], imagery_file=scalars.scalars_test_10_10_10[i][1],
-    #                                          shape=shape, edges_per_file=edges.edges_test_10_10_10[i][0], edges_ig_file=edges.edges_test_10_10_10[i][1])
+#     graph_generation_lib.edges_calculation_1(classifiers_folder=classifiers.classifiers[i],
+#                                              perception_file=scalars.scalars_test_10_10_10[i][0], imagery_file=scalars.scalars_test_10_10_10[i][1],
+#                                              shape=shape, edges_per_file=edges.edges_test_10_10_10[i][0], edges_ig_file=edges.edges_test_10_10_10[i][1])
 # print("edges_calculation_1 end")
-for i in range(8):
-    graph_generation_lib.graphs_generation(perception_file=scalars.scalars_test_10_10_10[i][0], imagery_file=scalars.scalars_test_10_10_10[i][1],
-                                           shape=shape, edges_per_file=edges.edges_test_10_10_10[i][0], edges_ig_file=edges.edges_test_10_10_10[i][1],
-                                           graph_per_folder=graphs.graphs_test_10_10_10[i][0], graph_im_folder=graphs.graphs_test_10_10_10[i][1])
+# for i in range(8):
+#     graph_generation_lib.graphs_generation(perception_file=scalars.scalars_test_10_10_10[i][0], imagery_file=scalars.scalars_test_10_10_10[i][1],
+#                                            shape=shape, edges_per_file=edges.edges_test_10_10_10[i][0], edges_ig_file=edges.edges_test_10_10_10[i][1],
+#                                            graph_per_folder=graphs.graphs_test_10_10_10[i][0], graph_im_folder=graphs.graphs_test_10_10_10[i][1])
+
+ga.graphs_weight_features(graph_per_folder=graphs.graphs_tr_10_10_10[0][0], graph_im_folder=graphs.graphs_tr_10_10_10[0][1],
+                          features_per_file=features.features_tr_10_10_10[0][0], features_im_file=features.features_tr_10_10_10[0][1])

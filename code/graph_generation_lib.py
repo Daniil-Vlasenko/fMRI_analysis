@@ -101,15 +101,15 @@ def graphs_generation(perception_file, imagery_file, shape, edges_per_file, edge
         g.write(file_name, format="gml")
         print(i)
 
-    # for i in range(number_of_im_runs):
-    #     dataframe_edges_im = df_im_edges[["sours", "target", str(i)]]
-    #     dataframe_edges_im = dataframe_edges_im.rename(columns={"sours": "sours", "target": "target", str(i): "value"})
-    #     dataframe_vertices_im = pd.DataFrame({'flat_id_voxel': id_vertices, "x_id": id_x_vertices,
-    #                                            "y_id": id_y_vertices, "z_id": id_z_vertices, "value": np_im_vertices[:, i]})
-    #     g = ig.Graph.DataFrame(dataframe_edges_im, directed=False, vertices=dataframe_vertices_im)
-    #     file_name = graph_im_folder + "/run_" + str(i) + ".gml"
-    #     g.write(file_name, format="gml")
-    #     print(-i)
+    for i in range(number_of_im_runs):
+        dataframe_edges_im = df_im_edges[["sours", "target", str(i)]]
+        dataframe_edges_im = dataframe_edges_im.rename(columns={"sours": "sours", "target": "target", str(i): "value"})
+        dataframe_vertices_im = pd.DataFrame({'flat_id_voxel': id_vertices, "x_id": id_x_vertices,
+                                               "y_id": id_y_vertices, "z_id": id_z_vertices, "value": np_im_vertices[:, i]})
+        g = ig.Graph.DataFrame(dataframe_edges_im, directed=False, vertices=dataframe_vertices_im)
+        file_name = graph_im_folder + "/run_" + str(i) + ".gml"
+        g.write(file_name, format="gml")
+        print(-i)
 
 
 
