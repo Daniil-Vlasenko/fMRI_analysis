@@ -1,10 +1,10 @@
-mean_tr_10_10_10 = ("../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/features/perception/mean.txt.txt",
+mean_tr_10_10_10 = ("../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/features/perception/mean.txt",
                  "../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/features/imagery/mean.txt")
-median_tr_10_10_10 = ("../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/features/perception/median.txt.txt",
+median_tr_10_10_10 = ("../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/features/perception/median.txt",
                    "../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/features/imagery/median.txt")
-max_min_distance_tr_10_10_10 = ("../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/features/perception/max_min_distance.txt.txt",
+max_min_distance_tr_10_10_10 = ("../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/features/perception/max_min_distance.txt",
                              "../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/features/imagery/max_min_distance.txt")
-quantiles_distance_tr_10_10_10 = ("../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/features/perception/quantiles_distance.txt.txt",
+quantiles_distance_tr_10_10_10 = ("../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/features/perception/quantiles_distance.txt",
                                "../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/features/imagery/quantiles_distance.txt")
 max_tr_10_10_10 = ("../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/features/perception/max.txt",
                 "../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/features/imagery/max.txt")

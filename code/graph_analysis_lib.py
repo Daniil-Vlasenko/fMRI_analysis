@@ -15,14 +15,16 @@ def get_ids_of_edges_of_weak_voxels(graph, eps):
 
 def delete_edges_of_weak_voxels(graph, eps):
     edges_ids = get_ids_of_edges_of_weak_voxels(graph, eps)
-    return graph.delete_edges(edges_ids)
+    graph.delete_edges(edges_ids)
+    return graph
 
 
 def delete_wek_edges(graph, eps_1, eps_2):
     ideg = graph.es(value_ge=eps_1)
     idel = graph.es(value_le=eps_2)
     ide = np.intersect1d(idel, ideg)
-    return graph.delete_edges(ide)
+    graph.delete_edges(ide)
+    return graph
 
 
 def number_of_edges(graph):
@@ -87,6 +89,30 @@ def median_of_edges_lt_x(graph, x):
     return np.median([value for value in graph.es["value"] if value < x])
 
 
+def quantile_of_edges(graph, q):
+    return np.quantile(graph.es["value"], q)
+
+
+def quantile_of_edges_lt_x(graph, q, x):
+    return np.quantile([value for value in graph.es["value"] if value < x], q)
+
+
+def quantile_of_edges_gt_x(graph, q, x):
+    return np.quantile([value for value in graph.es["value"] if value > x], q)
+
+
+def std_of_edges(graph):
+    return np.std(graph.es["value"])
+
+
+def std_of_edges_lt_x(graph, x):
+    return np.std([value for value in graph.es["value"] if value < x])
+
+
+def std_of_edges_gt_x(graph, x):
+    return np.std([value for value in graph.es["value"] if value > x])
+
+
 def get_vids_with_edges_weight_lt_q1(graph, prob):
     q_1 = np.quantile([value for value in graph.es["value"] if value < 0], prob)
     ideq_1 = graph.es(value_le=q_1)
@@ -113,7 +139,13 @@ def graphs_weight_features(graph_per_folder, graph_im_folder, features_per_file,
 
     sum, sumlt, sumgt,  = [], [], []
     mean, meanlt, meangt = [], [], []
+    median, medianlt, mediangt = [], [], []
+    quantile_1, quantile_1lt, quantile_1gt = [], [], []
+    quantile_2, quantile_2lt, quantile_2gt = [], [], []
+    std, stdlt, stdgt = [], [], []
     for i in range(graph_per_number):
+        print("tr count:", i)
+
         graph = ig.read(graph_per_folder + "/run_" + str(i) + ".gml", format="gml")
         graph.vs["flatidvoxel"] = [int(i) for i in graph.vs["flatidvoxel"]]
         graph.vs["xid"] = [int(i) for i in graph.vs["xid"]]
@@ -129,14 +161,37 @@ def graphs_weight_features(graph_per_folder, graph_im_folder, features_per_file,
         mean.append(mean_of_edges(graph))
         meanlt.append(mean_of_edges_lt_x(graph, 0))
         meangt.append(mean_of_edges_gt_x(graph, 0))
+        median.append(median_of_edges(graph))
+        medianlt.append(median_of_edges_lt_x(graph, 0))
+        mediangt.append(median_of_edges_gt_x(graph, 0))
+        quantile_1.append(quantile_of_edges(graph, 0.1))
+        quantile_2.append(quantile_of_edges(graph, 0.9))
+        quantile_1lt.append(quantile_of_edges_lt_x(graph, 0.1, 0))
+        quantile_2lt.append(quantile_of_edges_lt_x(graph, 0.9, 0))
+        quantile_1gt.append(quantile_of_edges_gt_x(graph, 0.1, 0))
+        quantile_2gt.append(quantile_of_edges_gt_x(graph, 0.9, 0))
+        std.append(std_of_edges(graph))
+        stdlt.append(std_of_edges_lt_x(graph, 0))
+        stdgt.append(std_of_edges_gt_x(graph, 0))
 
     dataframe_per = pd.DataFrame({'sum': sum, "sumlt": sumlt, "sumgt": sumgt,
-                                  "mean": mean, "meanlt": meanlt, "meangt": meangt})
-    dataframe_per.to_csv(features_per_file)
+                                  "mean": mean, "meanlt": meanlt, "meangt": meangt,
+                                  "median": median, "medianlt": medianlt, "mediangt": mediangt,
+                                  "quantile_1": quantile_1, "quantile_2": quantile_2,
+                                  "quantile_1lt": quantile_1lt, "quantile_2lt": quantile_2lt,
+                                  "quantile_1gt": quantile_1gt, "quantile_2gt": quantile_2gt,
+                                  "std": std, "stdlt": stdlt, "stdgt": stdgt})
+    dataframe_per.to_csv(features_per_file, index=False)
 
     sum, sumlt, sumgt, = [], [], []
     mean, meanlt, meangt = [], [], []
+    median, medianlt, mediangt = [], [], []
+    quantile_1, quantile_1lt, quantile_1gt = [], [], []
+    quantile_2, quantile_2lt, quantile_2gt = [], [], []
+    std, stdlt, stdgt = [], [], []
     for i in range(graph_im_number):
+        print("test count:", -i)
+
         graph = ig.read(graph_im_folder + "/run_" + str(i) + ".gml", format="gml")
         graph.vs["flatidvoxel"] = [int(i) for i in graph.vs["flatidvoxel"]]
         graph.vs["xid"] = [int(i) for i in graph.vs["xid"]]
@@ -152,9 +207,26 @@ def graphs_weight_features(graph_per_folder, graph_im_folder, features_per_file,
         mean.append(mean_of_edges(graph))
         meanlt.append(mean_of_edges_lt_x(graph, 0))
         meangt.append(mean_of_edges_gt_x(graph, 0))
+        median.append(median_of_edges(graph))
+        medianlt.append(median_of_edges_lt_x(graph, 0))
+        mediangt.append(median_of_edges_gt_x(graph, 0))
+        quantile_1.append(quantile_of_edges(graph, 0.1))
+        quantile_2.append(quantile_of_edges(graph, 0.9))
+        quantile_1lt.append(quantile_of_edges_lt_x(graph, 0.1, 0))
+        quantile_2lt.append(quantile_of_edges_lt_x(graph, 0.9, 0))
+        quantile_1gt.append(quantile_of_edges_gt_x(graph, 0.1, 0))
+        quantile_2gt.append(quantile_of_edges_gt_x(graph, 0.9, 0))
+        std.append(std_of_edges(graph))
+        stdlt.append(std_of_edges_lt_x(graph, 0))
+        stdgt.append(std_of_edges_gt_x(graph, 0))
 
     dataframe_per = pd.DataFrame({'sum': sum, "sumlt": sumlt, "sumgt": sumgt,
-                                  "mean": mean, "meanlt": meanlt, "meangt": meangt})
-    dataframe_per.to_csv(features_im_file)
+                                  "mean": mean, "meanlt": meanlt, "meangt": meangt,
+                                  "median": median, "medianlt": medianlt, "mediangt": mediangt,
+                                  "quantile_1": quantile_1, "quantile_2": quantile_2,
+                                  "quantile_1lt": quantile_1lt, "quantile_2lt": quantile_2lt,
+                                  "quantile_1gt": quantile_1gt, "quantile_2gt": quantile_2gt,
+                                  "std": std, "stdlt": stdlt, "stdgt": stdgt})
+    dataframe_per.to_csv(features_im_file, index=False)
 
 
