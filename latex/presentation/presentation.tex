@@ -1,0 +1,95 @@
+% !TeX spellcheck = ru_RU
+\documentclass{beamer}
+\setbeamertemplate{navigation symbols}{}
+
+
+\usetheme{Frankfurt}
+
+\usepackage{amsmath,amssymb,amsthm,amscd,amsfonts}
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage{wrapfig}
+
+\newtheorem{definition_}{Определение}
+\newtheorem{target_}{Цель работы}
+\newtheorem{prob_}{Вероятностная постановка задачи классификации}
+\newtheorem{algo_}{Алгоритмическая постановка задачи классификации}
+
+
+\begin{document}
+	\title{Синолитические сети в классификации мозговой активности}  
+	\author{Власенко Даниил\\
+	{\footnotesize Научные руководители: Гудкин Борис, Заикин Алесей}}
+	\date{\today} 
+	
+	\begin{frame}
+		\titlepage
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Содержание}
+		\tableofcontents
+	\end{frame} 
+
+	\section{Введение} 
+	\begin{frame}
+		\frametitle{фМРТ} 
+							
+		\begin{definition_}
+			Функциональная магнитно-резонансная томография или фМРТ — разновидность магнитно-резонансной томографии (получения изображения), которая проводится с целью измерения нейронной активности головного или спинного мозга.
+		\end{definition_}
+	
+		\begin{figure}
+			\includegraphics[width=4cm]{../images/fmri_1.jpeg}
+			\caption{фМРТ сканер.} 
+			\label{fg:1}
+		\end{figure}		
+	\end{frame}
+
+	\begin{frame} 
+		\frametitle{фМРТ}
+		\begin{figure}
+			\includegraphics[width=10cm]{../images/fmri_2.png}
+			\caption{фМРТ скан.} 
+			\label{fg:2}
+		\end{figure}
+	\end{frame}
+
+	\begin{frame} 
+		\frametitle{Цель работы}
+		Пусть мозг может находиться в двух режимах когнитивной деятельности. 
+		
+		\begin{target_}
+			Реализация и тестирование нового метода классификации режимов когнитивной деятельности на основе фМРТ данных.
+		\end{target_}			
+	\end{frame}
+
+	\section{Классификация}
+	\begin{frame} 
+		\frametitle{Задачи классификации}
+		\begin{prob_}
+			Пусть есть с.в. $\xi: \Omega \rightarrow X$ и с.в. $\eta: \Omega \rightarrow Y$. Рассмотрим с.в. $(\xi, \eta): \Omega \rightarrow (X, Y)$ с распределением $p(x, y)$.
+			\vspace{0.5cm}
+			
+			Задача классификации сводится нахождению $p(y|x)$ по выборке $D = \{(x_{i}, y_{i}), i = 1, \dots N\}$
+		\end{prob_}
+	
+		\begin{algo_}
+			Пусть $X$ --- множество описаний объектов, $Y$ --- множество номеров классов. Существует функция $f: X \rightarrow Y$, значения которой известны только на объектах конечной выборки $X^{n} = \{(x_{1}, y_{1}), \dots, \{(x_{n}, y_{n})\}$. 
+			\vspace{0.5cm}
+			
+			Требуется построить алгоритм-оценку $\widehat{f}: X \rightarrow Y$.
+		\end{algo_}
+	\end{frame}
+	
+	\section{Сенолитические сети}
+	\begin{frame} 
+		\frametitle{Основная идея}
+		
+	\end{frame}
+		
+		
+
+
+\end{document}
+	
