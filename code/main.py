@@ -18,6 +18,7 @@ import graphs_data_10_10_10 as graphs
 import classifiers_data_10_10_10 as classifiers
 import graph_analysis_lib as ga
 import features_data_10_10_10 as features
+import test_lib as test
 
 shape = (20, 20, 16, 201)
 # import scalarization
@@ -35,15 +36,15 @@ shape = (20, 20, 16, 201)
 #     graph_generation_lib.graphs_generation(perception_file=scalars.scalars_test_10_10_10[i][0], imagery_file=scalars.scalars_test_10_10_10[i][1],
 #                                            shape=shape, edges_per_file=edges.edges_test_10_10_10[i][0], edges_ig_file=edges.edges_test_10_10_10[i][1],
 #                                            graph_per_folder=graphs.graphs_test_10_10_10[i][0], graph_im_folder=graphs.graphs_test_10_10_10[i][1])
+#
+# for i in range(8):
+#     ga.graphs_weight_features(graph_per_folder=graphs.graphs_tr_10_10_10[i][0], graph_im_folder=graphs.graphs_tr_10_10_10[i][1],
+#                               features_per_file=features.features_tr_10_10_10[i][0], features_im_file=features.features_tr_10_10_10[i][1])
+#
+# for i in range(8):
+#     ga.graphs_weight_features(graph_per_folder=graphs.graphs_test_10_10_10[i][0], graph_im_folder=graphs.graphs_test_10_10_10[i][1],
+#                               features_per_file=features.features_test_10_10_10[i][0], features_im_file=features.features_test_10_10_10[i][1])
 
-for i in range(8):
-    ga.graphs_weight_features(graph_per_folder=graphs.graphs_tr_10_10_10[i][0], graph_im_folder=graphs.graphs_tr_10_10_10[i][1],
-                              features_per_file=features.features_tr_10_10_10[i][0], features_im_file=features.features_tr_10_10_10[i][1])
-
-for i in range(8):
-    ga.graphs_weight_features(graph_per_folder=graphs.graphs_test_10_10_10[i][0], graph_im_folder=graphs.graphs_test_10_10_10[i][1],
-                              features_per_file=features.features_test_10_10_10[i][0], features_im_file=features.features_test_10_10_10[i][1])
-
-# perception = pd.read_csv("../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/features/perception/mean.txt")
-# imagery = pd.read_csv("../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/features/imagery/mean.txt")
-# print(1)
+# for i in range(8):
+#     print(i, test.accuracy_weight(features.features_tr_10_10_10[i][0], features.features_tr_10_10_10[i][1],
+#                                   features.features_test_10_10_10[i][0], features.features_test_10_10_10[i][1]))

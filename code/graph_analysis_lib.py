@@ -4,6 +4,7 @@ import igraph as ig
 import os
 import pandas as pd
 
+
 def get_ids_of_weak_voxels(graph, eps):
     return graph.vs(value_lt=eps)["flatidvoxel"]
 
@@ -53,11 +54,11 @@ def number_of_vertices_in_max_component(graph):
     return max(numbers)
 
 
-def sum_of_edges(graph):  # !
+def sum_of_edges(graph):
     return np.sum(graph.es["value"])
 
 
-def mean_of_edges(graph):   # !
+def mean_of_edges(graph):
     return np.mean(graph.es["value"])
 
 
@@ -148,9 +149,6 @@ def graphs_weight_features(graph_per_folder, graph_im_folder, features_per_file,
 
         graph = ig.read(graph_per_folder + "/run_" + str(i) + ".gml", format="gml")
         graph.vs["flatidvoxel"] = [int(i) for i in graph.vs["flatidvoxel"]]
-        graph.vs["xid"] = [int(i) for i in graph.vs["xid"]]
-        graph.vs["yid"] = [int(i) for i in graph.vs["yid"]]
-        graph.vs["zid"] = [int(i) for i in graph.vs["zid"]]
 
         graph = delete_edges_of_weak_voxels(graph, 1)
         graph = delete_wek_edges(graph, -0.2, 0.2)
@@ -194,9 +192,6 @@ def graphs_weight_features(graph_per_folder, graph_im_folder, features_per_file,
 
         graph = ig.read(graph_im_folder + "/run_" + str(i) + ".gml", format="gml")
         graph.vs["flatidvoxel"] = [int(i) for i in graph.vs["flatidvoxel"]]
-        graph.vs["xid"] = [int(i) for i in graph.vs["xid"]]
-        graph.vs["yid"] = [int(i) for i in graph.vs["yid"]]
-        graph.vs["zid"] = [int(i) for i in graph.vs["zid"]]
 
         graph = delete_edges_of_weak_voxels(graph, 1)
         graph = delete_wek_edges(graph, -0.2, 0.2)
