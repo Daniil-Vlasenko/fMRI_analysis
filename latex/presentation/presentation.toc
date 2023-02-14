@@ -3,3 +3,4 @@
 \beamer@sectionintoc {2}{Классификация}{6}{0}{2}
 \beamer@sectionintoc {3}{Сенолитические сети}{7}{0}{3}
 \beamer@sectionintoc {4}{Векторизация}{11}{0}{4}
+\beamer@sectionintoc {5}{Понижение размерности}{12}{0}{5}

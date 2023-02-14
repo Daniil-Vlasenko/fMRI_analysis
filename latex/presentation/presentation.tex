@@ -12,8 +12,8 @@
 
 \makeatletter
 \newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\newcommand\setItemnumber[1]{\setcounter{enum\romannumeral\@enumdepth}{\numexpr#1-1\relax}}
 \makeatother
-
 
 \newtheorem{definition_}{Определение}
 \newtheorem{target_}{Цель работы}
@@ -21,8 +21,6 @@
 \newtheorem{algo_task}{Алгоритмическая постановка задачи классификации}
 \newtheorem{prob_def}{Вероятностное определение $w_{ij}^k$}
 \newtheorem{algo_def}{Алгоритмическое определение $w_{ij}^k$}
-
-
 
 \begin{document}
 	\title{Синолитические сети в классификации мозговой активности}  
@@ -138,6 +136,8 @@
 	\end{frame}
 
 	\begin{frame} 
+		\vspace{0.4cm}
+		
 		\begin{figure}
 			\includegraphics[width=10cm]{../images/classification.png}
 			\caption{Плотность распределения $(r_i, r_j)$ для двух режимов, вычисленная по $\{(r_i^n, r_j^n)\}_n$} 
@@ -146,14 +146,66 @@
 	\end{frame}
 
 	\section{Векторизация}
-	\begin{frame} 
-		\frametitle{NiBabel}
+	\begin{frame} 		
+		NiBabel --- библиотека предоставляющая возможность читать различные форматы файлов нейровизуализации.
+		\vspace{0.8cm}
+		
 		\begin{figure}
-
 			\includegraphics[width=8cm]{../images/vectorization_2.pdf}
 			\caption{Векторизация фМРТ данных.} 
 			\label{fg:4}
 		\end{figure}
+	\end{frame}
+
+	\section{Понижение размерности}
+	\begin{frame} 
+		\frametitle{Методы понижения размерности}				
+			\begin{enumerate}				
+				\item Увеличение размеров вокселя.					
+			\end{enumerate}
+		
+			\begin{figure}
+				\begin{minipage}{3.5cm}
+					\includegraphics[width=3.5cm]{../images/downsampling2mm_1.png}
+					\caption{Воксель 2 мм$^3$}
+					\label{fg:5}
+				\end{minipage}\hfill
+				\begin{minipage}{3.5cm}
+					\includegraphics[width=3.5cm]{../images/downsampling4mm_2.png}
+					\caption{Воксель 4 мм$^3$}
+					\label{fg:6}
+				\end{minipage}\hfill
+				\begin{minipage}{3.5cm}
+					\includegraphics[width=3.5cm]{../images/downsampling10mm_3.png}
+					\caption{Воксель 10 мм$^3$}
+					\label{fg:7}
+				\end{minipage}
+			\end{figure}	
+	\end{frame}
+
+	\begin{frame} 
+		\frametitle{Методы понижения размерности}				
+		\begin{enumerate}				
+			\setItemnumber{2}
+			\item Построение не полного графа.					
+		\end{enumerate}
+		
+		\begin{figure}
+			
+		\end{figure}	
+	\end{frame}
+
+	\begin{frame} 
+		\frametitle{Методы понижения размерности}				
+		\begin{enumerate}				
+			\item Увеличение размеров вокселя.
+			\item Кластеризация векселей.
+			\item Построение не полного графа.					
+		\end{enumerate}
+		
+		\begin{figure}
+			
+		\end{figure}	
 	\end{frame}
 		
 		
