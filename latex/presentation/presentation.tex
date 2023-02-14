@@ -79,11 +79,11 @@
 			Пусть есть с.в. $\xi: \Omega \rightarrow X$ и с.в. $\eta: \Omega \rightarrow Y$. Рассмотрим с.в. $(\xi, \eta): \Omega \rightarrow (X, Y)$ с распределением $p(x, y)$.
 			\vspace{0.5cm}
 			
-			Задача классификации сводится оценке $p(y|x)$ по выборке $(\widetilde{X}, \widetilde{Y}) = \{(x_{k}, y_{k}), k = 1, \dots N\}$
+			Задача классификации сводится оценке $p(y|x)$ по выборке $(\widetilde{X}, \widetilde{Y}) = \{(x_{k}, y_{k}), k = 1, \dots, N\}$
 		\end{prob_task}
 	
 		\begin{algo_task}
-			Пусть $X$ --- множество описаний объектов, $Y$ --- множество номеров классов. Существует функция $f: X \rightarrow Y$, значения которой известны только на объектах выборки $(\widetilde{X}, \widetilde{Y}) =  \{(x_{k}, y_{k}), k = 1, \dots N\}$. 
+			Пусть $X$ --- множество описаний объектов, $Y$ --- множество номеров классов. Существует функция $f: X \rightarrow Y$, значения которой известны только на объектах выборки $(\widetilde{X}, \widetilde{Y}) =  \{(x_{k}, y_{k}), k = 1, \dots, N\}$. 
 			\vspace{0.5cm}
 			
 			Требуется построить алгоритм-оценку $\widehat{f}: X \rightarrow Y$.
@@ -105,7 +105,7 @@
 		Пусть $X = \{x_k\}_k$ --- множество фМРТ, а $Y = \{y_k\}_k$ --- режимы когнитивной активности $\{x_k\}_k$ со значениями $\rom{1}$ или  $\rom{2}$.
 		\vspace{0.5cm}
 		
-		На основе $x_k \in X$ строиться граф $G_k = (V_k, E_k, R_k W_k)$, где 
+		На основе $x_k \in X$ строиться граф $G_k = (V_k, E_k, R_k, W_k)$, где 
 		\begin{itemize}
 			\item $V_k = \{v_i^k\}_i$ --- множество вершин,
 			\item $E_k = \{e_{ij}^k\}_{ij}$ --- множество неориентированных ребер,
@@ -119,28 +119,39 @@
 	\end{frame}
 
 	\begin{frame} 
-		\frametitle{Подсчет весов ребер $w_{ij}^k$}		
-		$\{(r_i^n, r_j^n)\}_n$ --- множество пар значений вершин $v_i^n$, $v_j^n$ из выборки $(\widetilde{X}, \widetilde{Y})$.
-		
+		\frametitle{Подсчет весов ребер $w_{ij}^k$}						
 		\begin{prob_def}
-			$w_{ij}^k = P(y_k = \rom{2} | r_i^k, r_j^k, \{(r_i^n, r_j^n)\}_n) - P(y_k = \rom{1} | r_i^k, r_j^k, \{(r_i^n, r_j^n)\}_n)$
-		\end{prob_def}				
-		
-		Пусть $Cl: \{y_k |(r_i^k, r_j^k), \{(r_i^n, r_j^n)\}_n\}_k \rightarrow [0, 1]$ --- вероятностный классификатор.
+			\[
+				w_{ij}^k = P(y_k = \rom{2} | r_i^k, r_j^k) - P(y_k = \rom{1} | r_i^k, r_j^k)
+			\]			
+		\end{prob_def}								
+		Пусть $Cl: \{y_k |(r_i^k, r_j^k), \{(r_i^n, r_j^n)\}_n, \{y_n\}_n\}_k \rightarrow [0, 1]$ --- вероятностный классификатор.
 		
 		\begin{algo_def}			
 			\begin{equation*}
 				\begin{multlined}
-					w_{ij}^k = Cl(y_k = \rom{2} | (r_i^k, r_j^k), \{(r_i^n, r_j^n)\}_n) - \\ - Cl(y_k = \rom{1} | (r_i^k, r_j^k), \{(r_i^n, r_j^n)\}_n)
+					w_{ij}^k = Cl(y_k = \rom{2} | (r_i^k, r_j^k), \{(r_i^n, r_j^n)\}_n, \{y_n\}_n) - \\ - Cl(y_k = \rom{1} | (r_i^k, r_j^k), \{(r_i^n, r_j^n)\}_n, \{y_n\}_n),
 				\end{multlined}
 			\end{equation*}
+			где $\{(r_i^n, r_j^n)\}_n$ --- множество пар значений вершин $(v_i^n$, $v_j^n)$ из выборки $\widetilde{X}$.
 		\end{algo_def}	
 	\end{frame}
 
 	\begin{frame} 
 		\begin{figure}
 			\includegraphics[width=10cm]{../images/classification.png}
-			\caption{} 
+			\caption{Плотность распределения $(r_i, r_j)$ для двух режимов, вычисленная по $\{(r_i^n, r_j^n)\}_n$} 
+			\label{fg:4}
+		\end{figure}
+	\end{frame}
+
+	\section{Векторизация}
+	\begin{frame} 
+		\frametitle{NiBabel}
+		\begin{figure}
+
+			\includegraphics[width=8cm]{../images/vectorization_2.pdf}
+			\caption{Векторизация фМРТ данных.} 
 			\label{fg:4}
 		\end{figure}
 	\end{frame}
