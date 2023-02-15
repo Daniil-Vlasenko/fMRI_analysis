@@ -56,7 +56,7 @@
 		\frametitle{фМРТ}
 		\begin{figure}
 			\includegraphics[width=10cm]{../images/fmri_2.png}
-			\caption{фМРТ скан.} 
+			\caption{МРТ скан.} 
 			\label{fg:2}
 		\end{figure}
 	\end{frame}
@@ -70,9 +70,8 @@
 		\end{target_}			
 	\end{frame}
 
-	\section{Классификация}
 	\begin{frame} 
-		\frametitle{Задачи классификации}
+		\frametitle{Классификация}
 		\begin{prob_task}
 			Пусть есть с.в. $\xi: \Omega \rightarrow X$ и с.в. $\eta: \Omega \rightarrow Y$. Рассмотрим с.в. $(\xi, \eta): \Omega \rightarrow (X, Y)$ с распределением $p(x, y)$.
 			\vspace{0.5cm}
@@ -128,10 +127,9 @@
 		\begin{algo_def}			
 			\begin{equation*}
 				\begin{multlined}
-					w_{ij}^k = Cl(y_k = \rom{2} | (r_i^k, r_j^k), \{(r_i^n, r_j^n)\}_n, \{y_n\}_n) - \\ - Cl(y_k = \rom{1} | (r_i^k, r_j^k), \{(r_i^n, r_j^n)\}_n, \{y_n\}_n),
+					w_{ij}^k = Cl(y_k = \rom{2} | (r_i^k, r_j^k), \{(r_i^n, r_j^n)\}_n, \{y_n\}_n) - \\ - Cl(y_k = \rom{1} | (r_i^k, r_j^k), \{(r_i^n, r_j^n)\}_n, \{y_n\}_n)
 				\end{multlined}
-			\end{equation*}
-			где $\{(r_i^n, r_j^n)\}_n$ --- множество пар значений вершин $(v_i^n$, $v_j^n)$ из выборки $\widetilde{X}$.
+			\end{equation*}			
 		\end{algo_def}	
 	\end{frame}
 
@@ -140,7 +138,7 @@
 		
 		\begin{figure}
 			\includegraphics[width=10cm]{../images/classification.png}
-			\caption{Плотность распределения $(r_i, r_j)$ для двух режимов, вычисленная по $\{(r_i^n, r_j^n)\}_n$} 
+			\caption{Эмпирическая плотность распределения $(r_i, r_j)$ для двух режимов, вычисленная по $\{(r_i^n, r_j^n)\}_n$} 
 			\label{fg:4}
 		\end{figure}
 	\end{frame}
@@ -153,59 +151,84 @@
 		\begin{figure}
 			\includegraphics[width=8cm]{../images/vectorization_2.pdf}
 			\caption{Векторизация фМРТ данных.} 
-			\label{fg:4}
+			\label{fg:5}
 		\end{figure}
 	\end{frame}
 
 	\section{Понижение размерности}
 	\begin{frame} 
-		\frametitle{Методы понижения размерности}				
-			\begin{enumerate}				
-				\item Увеличение размеров вокселя.					
-			\end{enumerate}
+		\frametitle{Увеличение размеров вокселя}
 		
+		Увеличение размера вокселя в $n$ раз уменьшает число вокселей в $n^3$ раза.
+		\vspace{0.5cm}
+										
 			\begin{figure}
 				\begin{minipage}{3.5cm}
 					\includegraphics[width=3.5cm]{../images/downsampling2mm_1.png}
 					\caption{Воксель 2 мм$^3$}
-					\label{fg:5}
+					\label{fg:6}
 				\end{minipage}\hfill
 				\begin{minipage}{3.5cm}
 					\includegraphics[width=3.5cm]{../images/downsampling4mm_2.png}
 					\caption{Воксель 4 мм$^3$}
-					\label{fg:6}
+					\label{fg:7}
 				\end{minipage}\hfill
 				\begin{minipage}{3.5cm}
 					\includegraphics[width=3.5cm]{../images/downsampling10mm_3.png}
 					\caption{Воксель 10 мм$^3$}
-					\label{fg:7}
+					\label{fg:8}
 				\end{minipage}
 			\end{figure}	
 	\end{frame}
 
 	\begin{frame} 
-		\frametitle{Методы понижения размерности}				
-		\begin{enumerate}				
-			\setItemnumber{2}
-			\item Построение не полного графа.					
-		\end{enumerate}
+		\frametitle{Переход от полного графа к графу-решетке}
 		
+		Переход от полного графа к графу-решетке снижает время вычисления и требуемую память с $O(n^2)$ до $O(n)$, где $n$~---~число областей мозга.
+		
+		\vspace{0.5cm}
+						
 		\begin{figure}
+			\includegraphics[width=8cm]{../images/full_grid_graphs_1.pdf}
+			\caption{Смена структуры графа.} 
+			\label{fg:9}
+		\end{figure}
 			
+	\end{frame}
+
+	\begin{frame} 
+		\frametitle{Кластеризация вокселей}				
+				
+		\begin{figure}
+			\includegraphics[width=10cm]{../images/clusterization_1.png}
+			\caption{Объединение вокселей в кластеры.} 
+			\label{fg:10}
 		\end{figure}	
 	\end{frame}
 
 	\begin{frame} 
-		\frametitle{Методы понижения размерности}				
-		\begin{enumerate}				
-			\item Увеличение размеров вокселя.
-			\item Кластеризация векселей.
-			\item Построение не полного графа.					
-		\end{enumerate}
+		\frametitle{Понижение размерности по времени}				
 		
 		\begin{figure}
-			
+			\includegraphics[width=7cm]{../images/time_series.png}
+			\caption{Значения вокселя.} 
+			\label{fg:11}
 		\end{figure}	
+	\end{frame}	
+
+	\section{Результаты}
+	\begin{frame} 
+		\frametitle{Данные}
+		\begin{figure}
+			\includegraphics[width=5cm]{../images/data_1.png}
+			\caption{.} 
+			\label{fg:12}
+		\end{figure}
+	\end{frame}
+
+	\begin{frame} 
+		\frametitle{}
+		
 	\end{frame}
 		
 		
