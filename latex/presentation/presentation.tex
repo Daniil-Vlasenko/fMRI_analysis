@@ -25,7 +25,9 @@
 \begin{document}
 	\title{Синолитические сети в классификации мозговой активности}  
 	\author{Власенко Даниил\\
-	{\footnotesize Научные руководители: Гудкин Борис, Заикин Алесей}}
+	{\footnotesize Научные руководители: Заикин Алесей, Захаров Денис Геннадьевич}
+%	{\footnotesize Научные руководитель: Шпилёв Пётр Валерьевич}
+	}
 	\date{\today} 
 	
 	\begin{frame}
@@ -42,7 +44,7 @@
 		\frametitle{фМРТ} 
 							
 		\begin{definition_}
-			Функциональная магнитно-резонансная томография или фМРТ — разновидность магнитно-резонансной томографии (получения изображения), которая проводится с целью измерения нейронной активности головного или спинного мозга.
+			Функциональная магнитно-резонансная томография или фМРТ~--- разновидность магнитно-резонансной томографии, которая проводится с целью измерения изменений в токе крови, вызванных нейронной активностью головного или спинного мозга. 
 		\end{definition_}
 	
 		\begin{figure}
@@ -63,10 +65,10 @@
 
 	\begin{frame} 
 		\frametitle{Цель работы}
-		Пусть мозг может находиться в двух режимах когнитивной деятельности. 
+		Будем считать, что мозг может функционировать в двух режимах.
 		
 		\begin{target_}
-			Реализация и тестирование нового метода классификации режимов когнитивной деятельности на основе фМРТ данных.
+			Реализация и тестирование нового метода классификации режимов мозговой активности на основе фМРТ данных.
 		\end{target_}			
 	\end{frame}
 
@@ -86,10 +88,23 @@
 			Требуется построить алгоритм-оценку $\widehat{f}: X \rightarrow Y$.
 		\end{algo_task}
 	\end{frame}
+
+	\begin{frame} 	
+		\frametitle{Векторизация}	
+		
+		NiBabel --- библиотека предоставляющая возможность читать различные форматы файлов нейровизуализации.
+		\vspace{0.5cm}
+				
+		\begin{figure}
+			\includegraphics[width=7cm]{../images/vectorization_1.png}
+			\caption{Векторизация фМРТ данных.} 
+			\label{fg:5}
+		\end{figure}
+	\end{frame}
 	
-	\section{Сенолитические сети}
+	\section{Синолитические сети}
 	\begin{frame} 
-		\frametitle{Основная идея}
+		\frametitle{Основная идея (Zaikin Alexey 2022)}
 		\begin{figure}
 			\includegraphics[width=10cm]{../images/fmri_graph_ml_1.pdf}
 			\caption{Классификация на основе построения графов отражающих входные данные.} 
@@ -102,7 +117,7 @@
 		Пусть $X = \{x_k\}_k$ --- множество фМРТ, а $Y = \{y_k\}_k$ --- режимы когнитивной активности $\{x_k\}_k$ со значениями $\rom{1}$ или  $\rom{2}$.
 		\vspace{0.5cm}
 		
-		На основе $x_k \in X$ строиться граф $G_k = (V_k, E_k, R_k, W_k)$, где 
+		$x_k \in X$ конвертируется в массив $a^k$, на основе которого строиться граф $g_k = (V_k, E_k, R_k, W_k)$, где 
 		\begin{itemize}
 			\item $V_k = \{v_i^k\}_i$ --- множество вершин,
 			\item $E_k = \{e_{ij}^k\}_{ij}$ --- множество неориентированных ребер,
@@ -122,12 +137,12 @@
 				w_{ij}^k = P(y_k = \rom{2} | r_i^k, r_j^k) - P(y_k = \rom{1} | r_i^k, r_j^k)
 			\]			
 		\end{prob_def}								
-		Пусть $Cl: \{y_k |(r_i^k, r_j^k), \{(r_i^n, r_j^n)\}_n, \{y_n\}_n\}_k \rightarrow [0, 1]$ --- вероятностный классификатор.
+		Пусть $Cl_{ij}: \{y_k |(r_i^k, r_j^k), \{(r_i^n, r_j^n)\}_n, \{y_n\}_n\}_k \rightarrow [0, 1]$ --- вероятностный классификатор.
 		
 		\begin{algo_def}			
 			\begin{equation*}
 				\begin{multlined}
-					w_{ij}^k = Cl(y_k = \rom{2} | (r_i^k, r_j^k), \{(r_i^n, r_j^n)\}_n, \{y_n\}_n) - \\ - Cl(y_k = \rom{1} | (r_i^k, r_j^k), \{(r_i^n, r_j^n)\}_n, \{y_n\}_n)
+					w_{ij}^k = Cl_{ij}(y_k = \rom{2} | (r_i^k, r_j^k), \{(r_i^n, r_j^n)\}_n, \{y_n\}_n) - \\ - Cl_{ij}(y_k = \rom{1} | (r_i^k, r_j^k), \{(r_i^n, r_j^n)\}_n, \{y_n\}_n)
 				\end{multlined}
 			\end{equation*}			
 		\end{algo_def}	
@@ -141,25 +156,13 @@
 			\caption{Эмпирическая плотность распределения $(r_i, r_j)$ для двух режимов, вычисленная по $\{(r_i^n, r_j^n)\}_n$} 
 			\label{fg:4}
 		\end{figure}
-	\end{frame}
-
-	\section{Векторизация}
-	\begin{frame} 		
-		NiBabel --- библиотека предоставляющая возможность читать различные форматы файлов нейровизуализации.
-		\vspace{0.8cm}
-		
-		\begin{figure}
-			\includegraphics[width=8cm]{../images/vectorization_2.pdf}
-			\caption{Векторизация фМРТ данных.} 
-			\label{fg:5}
-		\end{figure}
-	\end{frame}
+	\end{frame}	
 
 	\section{Понижение размерности}
 	\begin{frame} 
 		\frametitle{Увеличение размеров вокселя}
 		
-		Увеличение размера вокселя в $n$ раз уменьшает число вокселей в $n^3$ раза.
+		Увеличение размера шага решетки фМРТ в $n$ раз уменьшает число вокселей в $n^3$ раза.
 		\vspace{0.5cm}
 										
 			\begin{figure}
@@ -180,41 +183,64 @@
 				\end{minipage}
 			\end{figure}	
 	\end{frame}
+	
+	\begin{frame} 
+		\frametitle{Понижение размерности по времени}
+		Пусть $T$ --- некоторая статистика,
+		\[
+		a^{kT} = T(a^k),
+		\]
+		т.е. для $\forall x, y, z$
+		\[
+		a^{kT}_{xyz} = T(\{a_{xyzt}^k : \forall t\}).
+		\]
+		
+		\begin{figure}
+			\includegraphics[width=6cm]{../images/time_series.png}
+			\caption{Значения вокселя.} 
+			\label{fg:11}
+		\end{figure}	
+	\end{frame}	
 
 	\begin{frame} 
-		\frametitle{Переход от полного графа к графу-решетке}
+		\frametitle{Смена структуры графа}
 		
-		Переход от полного графа к графу-решетке снижает время вычисления и требуемую память с $O(n^2)$ до $O(n)$, где $n$~---~число областей мозга.
+		Переход от полного графа к графу-решетке снижает время вычисления и требуемую память с $O(n^2)$ до $O(n)$, где $n$~--- число вершин графа.
 		
 		\vspace{0.5cm}
 						
 		\begin{figure}
 			\includegraphics[width=8cm]{../images/full_grid_graphs_1.pdf}
-			\caption{Смена структуры графа.} 
+			\caption{Переход от полного графа к графу-решетке.} 
 			\label{fg:9}
-		\end{figure}
-			
-	\end{frame}
-
-	\begin{frame} 
-		\frametitle{Кластеризация вокселей}				
-				
-		\begin{figure}
-			\includegraphics[width=10cm]{../images/clusterization_1.png}
-			\caption{Объединение вокселей в кластеры.} 
-			\label{fg:10}
-		\end{figure}	
-	\end{frame}
-
-	\begin{frame} 
-		\frametitle{Понижение размерности по времени}				
-		
-		\begin{figure}
-			\includegraphics[width=7cm]{../images/time_series.png}
-			\caption{Значения вокселя.} 
-			\label{fg:11}
-		\end{figure}	
+		\end{figure}			
 	\end{frame}	
+
+	\section{Алгоритм}
+	\begin{frame} 
+		\frametitle{Обучение модели}
+		Входные данные:
+		\begin{itemize}
+			\item выборка $(\widetilde{X}, \widetilde{Y})$,
+			\item новый размер шага решетки фМРТ $s$,
+			\item статистики вокселей $\{T_r\}_r$,
+			\item минимальное абсолютное значение ребра $w$ для которого ребро не удаляется из графа,
+			\item статистики графов $\{P_u\}_u$, на которых будет учиться модель.
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame} 
+		\frametitle{Обучение модели}
+		Алгоритм: 
+		\begin{enumerate}
+			\item изменение шага решетки фМРТ для $\forall x_k \in \widetilde{X}$;
+			\item построение $\{a^k\}_k$;
+			\item подсчет $\{a^{kT_p}\}_{kp}$;
+			\item обучение  $\{Cl_{ij}\}$ на выборке $(\{a^{kT_p}\}_{kp}, \widetilde{Y})$;
+			\item подсчет $W_k = \{w_{ij}^k\}_{ij}$ с помощью $\{Cl_{ij}\}_{ij}$;
+			\item построение графов $g_k$ с помощью $a^{kT_p}$ и $\{w_{ij}^k\}$
+		\end{enumerate}
+	\end{frame}
 
 	\section{Результаты}
 	\begin{frame} 
@@ -234,8 +260,26 @@
 	\end{frame}
 
 	\begin{frame} 
-		\frametitle{}
+		\frametitle{Точность классификации, \%}
+		\vspace{1cm}
 		
+		\begin{table}
+			\begin{tabular}{ccccc}
+				$mean$ & $median$ & $max$ & $min$ & $max - min$ \\ \hline
+				100 & 100 & 95.7 & 97.1 & 90
+			\end{tabular}
+		\end{table}
+	
+		\begin{table}
+			\begin{tabular}{ccc}
+				$q_{0.9}$ & $q_{0.1}$ & $q_{0.9} - q_{0.1}$ \\ \hline
+				98.6 & 100 & 88.6
+			\end{tabular}
+		\end{table}
+	
+	
+		
+
 	\end{frame}
 		
 		

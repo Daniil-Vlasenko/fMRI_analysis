@@ -1,6 +1,6 @@
 \babel@toc {russian}{}\relax 
 \beamer@sectionintoc {1}{Введение}{3}{0}{1}
-\beamer@sectionintoc {2}{Сенолитические сети}{7}{0}{2}
-\beamer@sectionintoc {3}{Векторизация}{11}{0}{3}
-\beamer@sectionintoc {4}{Понижение размерности}{12}{0}{4}
-\beamer@sectionintoc {5}{Результаты}{16}{0}{5}
+\beamer@sectionintoc {2}{Синолитические сети}{8}{0}{2}
+\beamer@sectionintoc {3}{Понижение размерности}{12}{0}{3}
+\beamer@sectionintoc {4}{Алгоритм}{15}{0}{4}
+\beamer@sectionintoc {5}{Результаты}{17}{0}{5}
