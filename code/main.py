@@ -48,3 +48,6 @@ shape = (20, 20, 16, 201)
 # for i in range(8):
 #     print(i, test.accuracy_weight(features.features_tr_10_10_10[i][0], features.features_tr_10_10_10[i][1],
 #                                   features.features_test_10_10_10[i][0], features.features_test_10_10_10[i][1]))
+
+dr.dimensionality_reduction_2(preprocessed_data.perception_training, 10)
+

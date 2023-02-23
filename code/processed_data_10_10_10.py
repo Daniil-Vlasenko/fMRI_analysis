@@ -1,4 +1,31 @@
 # sub_01
+sub_01_perceptionTraining01 = [
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-01/ses-perceptionTraining01/sub-01_ses-perceptionTraining01_task-perception_run-01_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-01/ses-perceptionTraining01/sub-01_ses-perceptionTraining01_task-perception_run-02_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-01/ses-perceptionTraining01/sub-01_ses-perceptionTraining01_task-perception_run-03_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-01/ses-perceptionTraining01/sub-01_ses-perceptionTraining01_task-perception_run-04_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-01/ses-perceptionTraining01/sub-01_ses-perceptionTraining01_task-perception_run-05_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-01/ses-perceptionTraining01/sub-01_ses-perceptionTraining01_task-perception_run-06_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-01/ses-perceptionTraining01/sub-01_ses-perceptionTraining01_task-perception_run-07_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-01/ses-perceptionTraining01/sub-01_ses-perceptionTraining01_task-perception_run-08_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-01/ses-perceptionTraining01/sub-01_ses-perceptionTraining01_task-perception_run-09_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-01/ses-perceptionTraining01/sub-01_ses-perceptionTraining01_task-perception_run-10_bold_preproc.nii.gz"]
+sub_01_perceptionTraining02 = [
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-01/ses-perceptionTraining02/sub-01_ses-perceptionTraining02_task-perception_run-01_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-01/ses-perceptionTraining02/sub-01_ses-perceptionTraining02_task-perception_run-02_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-01/ses-perceptionTraining02/sub-01_ses-perceptionTraining02_task-perception_run-03_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-01/ses-perceptionTraining02/sub-01_ses-perceptionTraining02_task-perception_run-04_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-01/ses-perceptionTraining02/sub-01_ses-perceptionTraining02_task-perception_run-05_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-01/ses-perceptionTraining02/sub-01_ses-perceptionTraining02_task-perception_run-06_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-01/ses-perceptionTraining02/sub-01_ses-perceptionTraining02_task-perception_run-07_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-01/ses-perceptionTraining02/sub-01_ses-perceptionTraining02_task-perception_run-08_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-01/ses-perceptionTraining02/sub-01_ses-perceptionTraining02_task-perception_run-09_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-01/ses-perceptionTraining02/sub-01_ses-perceptionTraining02_task-perception_run-10_bold_preproc.nii.gz"]
+sub_01_perceptionTraining03 = [
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-01/ses-perceptionTraining03/sub-01_ses-perceptionTraining03_task-perception_run-01_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-01/ses-perceptionTraining03/sub-01_ses-perceptionTraining03_task-perception_run-02_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-01/ses-perceptionTraining03/sub-01_ses-perceptionTraining03_task-perception_run-03_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-01/ses-perceptionTraining03/sub-01_ses-perceptionTraining03_task-perception_run-04_bold_preproc.nii.gz"]
 sub_01_imageryTest01 = [
     "../processed_data/dimensionality_reduction_1/10_10_10/sub-01/ses-imageryTest01/sub-01_ses-imageryTest01_task-imagery_run-01_bold_preproc.nii.gz",
     "../processed_data/dimensionality_reduction_1/10_10_10/sub-01/ses-imageryTest01/sub-01_ses-imageryTest01_task-imagery_run-02_bold_preproc.nii.gz",
@@ -62,6 +89,33 @@ sub_01_perceptionTest04 = [
     "../processed_data/dimensionality_reduction_1/10_10_10/sub-01/ses-perceptionTest04/sub-01_ses-perceptionTest04_task-perception_run-09_bold_preproc.nii.gz",
     "../processed_data/dimensionality_reduction_1/10_10_10/sub-01/ses-perceptionTest04/sub-01_ses-perceptionTest04_task-perception_run-10_bold_preproc.nii.gz"]
 # sub_02
+sub_02_perceptionTraining01 = [
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-02/ses-perceptionTraining01/sub-02_ses-perceptionTraining01_task-perception_run-01_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-02/ses-perceptionTraining01/sub-02_ses-perceptionTraining01_task-perception_run-02_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-02/ses-perceptionTraining01/sub-02_ses-perceptionTraining01_task-perception_run-03_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-02/ses-perceptionTraining01/sub-02_ses-perceptionTraining01_task-perception_run-04_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-02/ses-perceptionTraining01/sub-02_ses-perceptionTraining01_task-perception_run-05_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-02/ses-perceptionTraining01/sub-02_ses-perceptionTraining01_task-perception_run-06_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-02/ses-perceptionTraining01/sub-02_ses-perceptionTraining01_task-perception_run-07_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-02/ses-perceptionTraining01/sub-02_ses-perceptionTraining01_task-perception_run-08_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-02/ses-perceptionTraining01/sub-02_ses-perceptionTraining01_task-perception_run-09_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-02/ses-perceptionTraining01/sub-02_ses-perceptionTraining01_task-perception_run-10_bold_preproc.nii.gz"]
+sub_02_perceptionTraining02 = [
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-02/ses-perceptionTraining02/sub-02_ses-perceptionTraining02_task-perception_run-01_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-02/ses-perceptionTraining02/sub-02_ses-perceptionTraining02_task-perception_run-02_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-02/ses-perceptionTraining02/sub-02_ses-perceptionTraining02_task-perception_run-03_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-02/ses-perceptionTraining02/sub-02_ses-perceptionTraining02_task-perception_run-04_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-02/ses-perceptionTraining02/sub-02_ses-perceptionTraining02_task-perception_run-05_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-02/ses-perceptionTraining02/sub-02_ses-perceptionTraining02_task-perception_run-06_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-02/ses-perceptionTraining02/sub-02_ses-perceptionTraining02_task-perception_run-07_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-02/ses-perceptionTraining02/sub-02_ses-perceptionTraining02_task-perception_run-08_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-02/ses-perceptionTraining02/sub-02_ses-perceptionTraining02_task-perception_run-09_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-02/ses-perceptionTraining02/sub-02_ses-perceptionTraining02_task-perception_run-10_bold_preproc.nii.gz"]
+sub_02_perceptionTraining03 = [
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-02/ses-perceptionTraining03/sub-02_ses-perceptionTraining03_task-perception_run-01_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-02/ses-perceptionTraining03/sub-02_ses-perceptionTraining03_task-perception_run-02_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-02/ses-perceptionTraining03/sub-02_ses-perceptionTraining03_task-perception_run-03_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-02/ses-perceptionTraining03/sub-02_ses-perceptionTraining03_task-perception_run-04_bold_preproc.nii.gz"]
 sub_02_imageryTest01 = [
     "../processed_data/dimensionality_reduction_1/10_10_10/sub-02/ses-imageryTest01/sub-02_ses-imageryTest01_task-imagery_run-01_bold_preproc.nii.gz",
     "../processed_data/dimensionality_reduction_1/10_10_10/sub-02/ses-imageryTest01/sub-02_ses-imageryTest01_task-imagery_run-02_bold_preproc.nii.gz",
@@ -125,6 +179,33 @@ sub_02_perceptionTest04 = [
     "../processed_data/dimensionality_reduction_1/10_10_10/sub-02/ses-perceptionTest04/sub-02_ses-perceptionTest04_task-perception_run-04_bold_preproc.nii.gz",
     "../processed_data/dimensionality_reduction_1/10_10_10/sub-02/ses-perceptionTest04/sub-02_ses-perceptionTest04_task-perception_run-05_bold_preproc.nii.gz"]
 # sub_03
+sub_03_perceptionTraining01 = [
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-03/ses-perceptionTraining01/sub-03_ses-perceptionTraining01_task-perception_run-01_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-03/ses-perceptionTraining01/sub-03_ses-perceptionTraining01_task-perception_run-02_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-03/ses-perceptionTraining01/sub-03_ses-perceptionTraining01_task-perception_run-03_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-03/ses-perceptionTraining01/sub-03_ses-perceptionTraining01_task-perception_run-04_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-03/ses-perceptionTraining01/sub-03_ses-perceptionTraining01_task-perception_run-05_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-03/ses-perceptionTraining01/sub-03_ses-perceptionTraining01_task-perception_run-06_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-03/ses-perceptionTraining01/sub-03_ses-perceptionTraining01_task-perception_run-07_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-03/ses-perceptionTraining01/sub-03_ses-perceptionTraining01_task-perception_run-08_bold_preproc.nii.gz"]
+sub_03_perceptionTraining02 = [
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-03/ses-perceptionTraining02/sub-03_ses-perceptionTraining02_task-perception_run-01_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-03/ses-perceptionTraining02/sub-03_ses-perceptionTraining02_task-perception_run-02_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-03/ses-perceptionTraining02/sub-03_ses-perceptionTraining02_task-perception_run-03_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-03/ses-perceptionTraining02/sub-03_ses-perceptionTraining02_task-perception_run-04_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-03/ses-perceptionTraining02/sub-03_ses-perceptionTraining02_task-perception_run-05_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-03/ses-perceptionTraining02/sub-03_ses-perceptionTraining02_task-perception_run-06_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-03/ses-perceptionTraining02/sub-03_ses-perceptionTraining02_task-perception_run-07_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-03/ses-perceptionTraining02/sub-03_ses-perceptionTraining02_task-perception_run-08_bold_preproc.nii.gz"]
+sub_03_perceptionTraining03 = [
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-03/ses-perceptionTraining03/sub-03_ses-perceptionTraining03_task-perception_run-01_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-03/ses-perceptionTraining03/sub-03_ses-perceptionTraining03_task-perception_run-02_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-03/ses-perceptionTraining03/sub-03_ses-perceptionTraining03_task-perception_run-03_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-03/ses-perceptionTraining03/sub-03_ses-perceptionTraining03_task-perception_run-04_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-03/ses-perceptionTraining03/sub-03_ses-perceptionTraining03_task-perception_run-05_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-03/ses-perceptionTraining03/sub-03_ses-perceptionTraining03_task-perception_run-06_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-03/ses-perceptionTraining03/sub-03_ses-perceptionTraining03_task-perception_run-07_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-03/ses-perceptionTraining03/sub-03_ses-perceptionTraining03_task-perception_run-08_bold_preproc.nii.gz"]
 sub_03_imageryTest01 = [
     "../processed_data/dimensionality_reduction_1/10_10_10/sub-03/ses-imageryTest01/sub-03_ses-imageryTest01_task-imagery_run-01_bold_preproc.nii.gz",
     "../processed_data/dimensionality_reduction_1/10_10_10/sub-03/ses-imageryTest01/sub-03_ses-imageryTest01_task-imagery_run-02_bold_preproc.nii.gz",
@@ -183,7 +264,39 @@ sub_03_perceptionTest04 = [
     "../processed_data/dimensionality_reduction_1/10_10_10/sub-03/ses-perceptionTest04/sub-03_ses-perceptionTest04_task-perception_run-04_bold_preproc.nii.gz",
     "../processed_data/dimensionality_reduction_1/10_10_10/sub-03/ses-perceptionTest04/sub-03_ses-perceptionTest04_task-perception_run-05_bold_preproc.nii.gz",
     "../processed_data/dimensionality_reduction_1/10_10_10/sub-03/ses-perceptionTest04/sub-03_ses-perceptionTest04_task-perception_run-06_bold_preproc.nii.gz"]
+sub_03_perceptionTest05 = [
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-03/ses-perceptionTest05/sub-03_ses-perceptionTest05_task-perception_run-01_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-03/ses-perceptionTest05/sub-03_ses-perceptionTest05_task-perception_run-02_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-03/ses-perceptionTest05/sub-03_ses-perceptionTest05_task-perception_run-03_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-03/ses-perceptionTest05/sub-03_ses-perceptionTest05_task-perception_run-04_bold_preproc.nii.gz"]
 # sub_04
+sub_04_perceptionTraining01 = [
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-04/ses-perceptionTraining01/sub-04_ses-perceptionTraining01_task-perception_run-01_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-04/ses-perceptionTraining01/sub-04_ses-perceptionTraining01_task-perception_run-02_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-04/ses-perceptionTraining01/sub-04_ses-perceptionTraining01_task-perception_run-03_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-04/ses-perceptionTraining01/sub-04_ses-perceptionTraining01_task-perception_run-04_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-04/ses-perceptionTraining01/sub-04_ses-perceptionTraining01_task-perception_run-05_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-04/ses-perceptionTraining01/sub-04_ses-perceptionTraining01_task-perception_run-06_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-04/ses-perceptionTraining01/sub-04_ses-perceptionTraining01_task-perception_run-07_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-04/ses-perceptionTraining01/sub-04_ses-perceptionTraining01_task-perception_run-08_bold_preproc.nii.gz"]
+sub_04_perceptionTraining02 = [
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-04/ses-perceptionTraining02/sub-04_ses-perceptionTraining02_task-perception_run-01_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-04/ses-perceptionTraining02/sub-04_ses-perceptionTraining02_task-perception_run-02_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-04/ses-perceptionTraining02/sub-04_ses-perceptionTraining02_task-perception_run-03_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-04/ses-perceptionTraining02/sub-04_ses-perceptionTraining02_task-perception_run-04_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-04/ses-perceptionTraining02/sub-04_ses-perceptionTraining02_task-perception_run-05_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-04/ses-perceptionTraining02/sub-04_ses-perceptionTraining02_task-perception_run-06_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-04/ses-perceptionTraining02/sub-04_ses-perceptionTraining02_task-perception_run-07_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-04/ses-perceptionTraining02/sub-04_ses-perceptionTraining02_task-perception_run-08_bold_preproc.nii.gz"]
+sub_04_perceptionTraining03 = [
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-04/ses-perceptionTraining03/sub-04_ses-perceptionTraining03_task-perception_run-01_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-04/ses-perceptionTraining03/sub-04_ses-perceptionTraining03_task-perception_run-02_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-04/ses-perceptionTraining03/sub-04_ses-perceptionTraining03_task-perception_run-03_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-04/ses-perceptionTraining03/sub-04_ses-perceptionTraining03_task-perception_run-04_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-04/ses-perceptionTraining03/sub-04_ses-perceptionTraining03_task-perception_run-05_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-04/ses-perceptionTraining03/sub-04_ses-perceptionTraining03_task-perception_run-06_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-04/ses-perceptionTraining03/sub-04_ses-perceptionTraining03_task-perception_run-07_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-04/ses-perceptionTraining03/sub-04_ses-perceptionTraining03_task-perception_run-08_bold_preproc.nii.gz"]
 sub_04_imageryTest01 = [
     "../processed_data/dimensionality_reduction_1/10_10_10/sub-04/ses-imageryTest01/sub-04_ses-imageryTest01_task-imagery_run-01_bold_preproc.nii.gz",
     "../processed_data/dimensionality_reduction_1/10_10_10/sub-04/ses-imageryTest01/sub-04_ses-imageryTest01_task-imagery_run-02_bold_preproc.nii.gz",
@@ -247,6 +360,35 @@ sub_04_perceptionTest04 = [
     "../processed_data/dimensionality_reduction_1/10_10_10/sub-04/ses-perceptionTest04/sub-04_ses-perceptionTest04_task-perception_run-07_bold_preproc.nii.gz",
     "../processed_data/dimensionality_reduction_1/10_10_10/sub-04/ses-perceptionTest04/sub-04_ses-perceptionTest04_task-perception_run-08_bold_preproc.nii.gz"]
 # sub_05
+sub_05_perceptionTraining01 = [
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-05/ses-perceptionTraining01/sub-05_ses-perceptionTraining01_task-perception_run-01_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-05/ses-perceptionTraining01/sub-05_ses-perceptionTraining01_task-perception_run-02_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-05/ses-perceptionTraining01/sub-05_ses-perceptionTraining01_task-perception_run-03_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-05/ses-perceptionTraining01/sub-05_ses-perceptionTraining01_task-perception_run-04_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-05/ses-perceptionTraining01/sub-05_ses-perceptionTraining01_task-perception_run-05_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-05/ses-perceptionTraining01/sub-05_ses-perceptionTraining01_task-perception_run-06_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-05/ses-perceptionTraining01/sub-05_ses-perceptionTraining01_task-perception_run-07_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-05/ses-perceptionTraining01/sub-05_ses-perceptionTraining01_task-perception_run-08_bold_preproc.nii.gz"]
+sub_05_perceptionTraining02 = [
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-05/ses-perceptionTraining02/sub-05_ses-perceptionTraining02_task-perception_run-01_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-05/ses-perceptionTraining02/sub-05_ses-perceptionTraining02_task-perception_run-02_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-05/ses-perceptionTraining02/sub-05_ses-perceptionTraining02_task-perception_run-03_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-05/ses-perceptionTraining02/sub-05_ses-perceptionTraining02_task-perception_run-04_bold_preproc.nii.gz"]
+sub_05_perceptionTraining03 = [
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-05/ses-perceptionTraining03/sub-05_ses-perceptionTraining03_task-perception_run-01_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-05/ses-perceptionTraining03/sub-05_ses-perceptionTraining03_task-perception_run-02_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-05/ses-perceptionTraining03/sub-05_ses-perceptionTraining03_task-perception_run-03_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-05/ses-perceptionTraining03/sub-05_ses-perceptionTraining03_task-perception_run-04_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-05/ses-perceptionTraining03/sub-05_ses-perceptionTraining03_task-perception_run-05_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-05/ses-perceptionTraining03/sub-05_ses-perceptionTraining03_task-perception_run-06_bold_preproc.nii.gz"]
+sub_05_perceptionTraining04 = [
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-05/ses-perceptionTraining04/sub-05_ses-perceptionTraining04_task-perception_run-01_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-05/ses-perceptionTraining04/sub-05_ses-perceptionTraining04_task-perception_run-02_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-05/ses-perceptionTraining04/sub-05_ses-perceptionTraining04_task-perception_run-03_bold_preproc.nii.gz"]
+sub_05_perceptionTraining05 = [
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-05/ses-perceptionTraining05/sub-05_ses-perceptionTraining05_task-perception_run-01_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-05/ses-perceptionTraining05/sub-05_ses-perceptionTraining05_task-perception_run-02_bold_preproc.nii.gz",
+    "../processed_data/dimensionality_reduction_1/10_10_10/sub-05/ses-perceptionTraining05/sub-05_ses-perceptionTraining05_task-perception_run-03_bold_preproc.nii.gz"]
 sub_05_imageryTest01 = [
     "../processed_data/dimensionality_reduction_1/10_10_10/sub-05/ses-imageryTest01/sub-05_ses-imageryTest01_task-imagery_run-01_bold_preproc.nii.gz",
     "../processed_data/dimensionality_reduction_1/10_10_10/sub-05/ses-imageryTest01/sub-05_ses-imageryTest01_task-imagery_run-02_bold_preproc.nii.gz",
