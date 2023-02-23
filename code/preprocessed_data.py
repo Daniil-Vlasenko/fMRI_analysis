@@ -183,6 +183,11 @@ sub_03_perceptionTest04 = [
     "../preprocessed_data/derivatives/preproc-spm/output/sub-03/ses-perceptionTest04/func/sub-03_ses-perceptionTest04_task-perception_run-04_bold_preproc.nii.gz",
     "../preprocessed_data/derivatives/preproc-spm/output/sub-03/ses-perceptionTest04/func/sub-03_ses-perceptionTest04_task-perception_run-05_bold_preproc.nii.gz",
     "../preprocessed_data/derivatives/preproc-spm/output/sub-03/ses-perceptionTest04/func/sub-03_ses-perceptionTest04_task-perception_run-06_bold_preproc.nii.gz"]
+sub_03_perceptionTest05 = [
+    "../preprocessed_data/derivatives/preproc-spm/output/sub-03/ses-perceptionTest05/func/sub-03_ses-perceptionTest05_task-perception_run-01_bold_preproc.nii.gz",
+    "../preprocessed_data/derivatives/preproc-spm/output/sub-03/ses-perceptionTest05/func/sub-03_ses-perceptionTest05_task-perception_run-02_bold_preproc.nii.gz",
+    "../preprocessed_data/derivatives/preproc-spm/output/sub-03/ses-perceptionTest05/func/sub-03_ses-perceptionTest05_task-perception_run-03_bold_preproc.nii.gz",
+    "../preprocessed_data/derivatives/preproc-spm/output/sub-03/ses-perceptionTest05/func/sub-03_ses-perceptionTest05_task-perception_run-04_bold_preproc.nii.gz"]
 # sub_04
 sub_04_imageryTest01 = [
     "../preprocessed_data/derivatives/preproc-spm/output/sub-04/ses-imageryTest01/func/sub-04_ses-imageryTest01_task-imagery_run-01_bold_preproc.nii.gz",
@@ -317,7 +322,7 @@ sub_05_perceptionTest06 = [
 imagery = sub_01_imageryTest01 + sub_01_imageryTest02 + sub_01_imageryTest03 + \
           sub_02_imageryTest01 + sub_02_imageryTest02 + sub_02_imageryTest03 + \
           sub_03_imageryTest01 + sub_03_imageryTest02 + sub_03_imageryTest03 + \
-          sub_04_imageryTest01 + sub_04_imageryTest02 + sub_04_imageryTest03 + \
+          sub_04_imageryTest01 + sub_04_imageryTest02 + sub_04_imageryTest03 + sub_03_perceptionTest05 + \
           sub_05_imageryTest01 + sub_05_imageryTest02 + sub_05_imageryTest03 + sub_05_imageryTest04 + sub_05_imageryTest05
 perception = sub_01_perceptionTest01 + sub_01_perceptionTest02 + sub_01_perceptionTest03 + sub_01_perceptionTest04 + \
              sub_02_perceptionTest01 + sub_02_perceptionTest02 + sub_02_perceptionTest03 + sub_02_perceptionTest04 + \
