@@ -456,29 +456,37 @@ sub_05_perceptionTest06 = [
     "../processed_data/dimensionality_reduction_1/10_10_10/sub-05/ses-perceptionTest06/sub-05_ses-perceptionTest06_task-perception_run-06_bold_preproc.nii.gz",
     "../processed_data/dimensionality_reduction_1/10_10_10/sub-05/ses-perceptionTest06/sub-05_ses-perceptionTest06_task-perception_run-07_bold_preproc.nii.gz"]
 
-imagery = sub_01_imageryTest01 + sub_01_imageryTest02 + sub_01_imageryTest03 + \
+data_imagery = sub_01_imageryTest01 + sub_01_imageryTest02 + sub_01_imageryTest03 + \
           sub_02_imageryTest01 + sub_02_imageryTest02 + sub_02_imageryTest03 + \
           sub_03_imageryTest01 + sub_03_imageryTest02 + sub_03_imageryTest03 + \
           sub_04_imageryTest01 + sub_04_imageryTest02 + sub_04_imageryTest03 + \
           sub_05_imageryTest01 + sub_05_imageryTest02 + sub_05_imageryTest03 + sub_05_imageryTest04 + sub_05_imageryTest05
-perception = sub_01_perceptionTest01 + sub_01_perceptionTest02 + sub_01_perceptionTest03 + sub_01_perceptionTest04 + \
-             sub_02_perceptionTest01 + sub_02_perceptionTest02 + sub_02_perceptionTest03 + sub_02_perceptionTest04 + \
-             sub_03_perceptionTest01 + sub_03_perceptionTest02 + sub_03_perceptionTest03 + sub_03_perceptionTest04 + \
-             sub_04_perceptionTest01 + sub_04_perceptionTest02 + sub_04_perceptionTest03 + sub_04_perceptionTest04 + \
-             sub_05_perceptionTest01 + sub_05_perceptionTest02 + sub_05_perceptionTest03 + sub_05_perceptionTest04 + sub_05_perceptionTest05 + sub_05_perceptionTest06
+
+data_perception_test = sub_01_perceptionTest01 + sub_01_perceptionTest02 + sub_01_perceptionTest03 + sub_01_perceptionTest04 + \
+                  sub_02_perceptionTest01 + sub_02_perceptionTest02 + sub_02_perceptionTest03 + sub_02_perceptionTest04 + \
+                  sub_03_perceptionTest01 + sub_03_perceptionTest02 + sub_03_perceptionTest03 + sub_03_perceptionTest04 + sub_03_perceptionTest05 + \
+                  sub_04_perceptionTest01 + sub_04_perceptionTest02 + sub_04_perceptionTest03 + sub_04_perceptionTest04 + \
+                  sub_05_perceptionTest01 + sub_05_perceptionTest02 + sub_05_perceptionTest03 + sub_05_perceptionTest04 + sub_05_perceptionTest05 + sub_05_perceptionTest06
+
+data_perception_training = sub_01_perceptionTraining01 + sub_01_perceptionTraining02 + sub_01_perceptionTraining03 + \
+                      sub_02_perceptionTraining01 + sub_02_perceptionTraining02 + sub_02_perceptionTraining03 + \
+                      sub_03_perceptionTraining01 + sub_03_perceptionTraining02 + sub_03_perceptionTraining03 + \
+                      sub_04_perceptionTraining01 + sub_04_perceptionTraining02 + sub_04_perceptionTraining03 + \
+                      sub_05_perceptionTraining01 + sub_05_perceptionTraining02 + sub_05_perceptionTraining03 + sub_05_perceptionTraining04 + sub_05_perceptionTraining05
 
 imagery_test = sub_01_imageryTest01[:2] + sub_01_imageryTest02[:2] + sub_01_imageryTest03[:2] + \
                sub_02_imageryTest01[:2] + sub_02_imageryTest02[:2] + sub_02_imageryTest03[:2] + \
                sub_03_imageryTest01[:2] + sub_03_imageryTest02[:2] + sub_03_imageryTest03[:2] + \
                sub_04_imageryTest01[:2] + sub_04_imageryTest02[:2] + sub_04_imageryTest03[:2] + \
                sub_05_imageryTest01[:2] + sub_05_imageryTest02[:2] + sub_05_imageryTest03[:2]
-perception_test = sub_01_perceptionTest01[:2] + sub_01_perceptionTest02[:2] + sub_01_perceptionTest03[:2] + sub_01_perceptionTest04[:2] + \
-                  sub_02_perceptionTest01[:2] + sub_02_perceptionTest02[:2] + sub_02_perceptionTest03[:2] + sub_02_perceptionTest04[:2] + \
-                  sub_03_perceptionTest01[:2] + sub_03_perceptionTest02[:2] + sub_03_perceptionTest03[:2] + sub_03_perceptionTest04[:2] + \
-                  sub_04_perceptionTest01[:2] + sub_04_perceptionTest02[:2] + sub_04_perceptionTest03[:2] + sub_04_perceptionTest04[:2] + \
-                  sub_05_perceptionTest01[:2] + sub_05_perceptionTest02[:2] + sub_05_perceptionTest03[:2] + sub_05_perceptionTest04[:2]
 
-imagery_training = [i for i in imagery if i not in imagery_test]
-perception_training = [i for i in perception if i not in perception_test]
+perception_test = sub_01_perceptionTraining01[:3] + sub_01_perceptionTraining02[:2] + sub_01_perceptionTraining03[:2] + \
+                  sub_02_perceptionTraining01[:3] + sub_02_perceptionTraining02[:2] + sub_02_perceptionTraining03[:2] + \
+                  sub_03_perceptionTraining01[:2] + sub_03_perceptionTraining02[:2] + sub_03_perceptionTraining03[:2] + \
+                  sub_04_perceptionTraining01[:2] + sub_04_perceptionTraining02[:2] + sub_04_perceptionTraining03[:2] + \
+                  sub_05_perceptionTraining01[:2] + sub_05_perceptionTraining02[:2] + sub_05_perceptionTraining03[:2] + sub_05_perceptionTraining04[:2] + sub_05_perceptionTraining05[:2]
 
-all_files = imagery + perception
+imagery_training = [i for i in data_imagery if i not in imagery_test]
+perception_training = [i for i in data_perception_training if i not in perception_test]
+
+all_files = data_imagery + data_perception_training
