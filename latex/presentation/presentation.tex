@@ -9,6 +9,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[english, russian]{babel}
 \usepackage{wrapfig}
+\usepackage{multirow}
 
 \makeatletter
 \newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
@@ -282,6 +283,28 @@
 		\end{figure}
 	\end{frame}
 
+	\section{Результаты}
+	\begin{frame} 
+		\frametitle{Данные}
+		
+		% Please add the following required packages to your document preamble:
+		% \usepackage{multirow}
+		\begin{table}[]
+			\begin{tabular}{c|cc|cc|c}
+				& \multicolumn{2}{c|}{seen}            & \multicolumn{2}{c|}{imagined}        &                      \\ \cline{2-5}
+				& \multicolumn{1}{c|}{training} & test & \multicolumn{1}{c|}{training} & test &                      \\ \hline
+				sub-01 & \multicolumn{1}{c|}{17}       & 7    & \multicolumn{1}{c|}{14}       & 6    & 44                   \\
+				sub-02 & \multicolumn{1}{c|}{17}       & 7    & \multicolumn{1}{c|}{14}       & 6    & 44                   \\
+				sub-03 & \multicolumn{1}{c|}{17}       & 7    & \multicolumn{1}{c|}{14}       & 6    & 44                   \\
+				sub-04 & \multicolumn{1}{c|}{17}       & 7    & \multicolumn{1}{c|}{14}       & 6    & 44                   \\
+				sub-05 & \multicolumn{1}{c|}{16}       & 8    & \multicolumn{1}{c|}{14}       & 6    & 44                   \\ \hline
+				& \multicolumn{1}{c|}{84}       & 36   & \multicolumn{1}{c|}{70}       & 30   & \multirow{2}{*}{220} \\ \cline{2-5}
+				& \multicolumn{2}{c|}{120}             & \multicolumn{2}{c|}{100}             &                     
+			\end{tabular}
+		\end{table}
+	\end{frame}
+
+
 	\begin{frame} 
 		\frametitle{Точность классификации, \%}
 		\vspace{1cm}
@@ -298,11 +321,7 @@
 				$q_{0.9}$ & $q_{0.1}$ & $q_{0.9} - q_{0.1}$ \\ \hline
 				98.6 & 100 & 88.6
 			\end{tabular}
-		\end{table}
-	
-	
-		
-
+		\end{table}				
 	\end{frame}
 		
 		
