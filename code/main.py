@@ -57,7 +57,10 @@ shape = (20, 20, 16, 201)
 # print("graphs_weight_features end")
 # for i in range(8):
 #     print(i, test.accuracy_weight(features.features_tr_10_10_10[i][0], features.features_tr_10_10_10[i][1],
+#
 #                                   features.features_test_10_10_10[i][0], features.features_test_10_10_10[i][1]))
-
+for i in range(8):
+    print(i, test.tf_table(features.features_tr_10_10_10[i][0], features.features_tr_10_10_10[i][1],
+                            features.features_test_10_10_10[i][0], features.features_test_10_10_10[i][1]))
 
 
