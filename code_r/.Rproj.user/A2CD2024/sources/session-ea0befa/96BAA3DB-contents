@@ -1,0 +1,95 @@
+---
+title: "graphs_properties_analysis"
+output: html_document
+date: "2023-02-25"
+---
+
+```{r}
+install.packages("GGally")
+```
+
+```{r}
+library(dplyr)
+library(ggplot2)
+library(GGally)
+```
+
+```{r}
+mean_tr = c("../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/features/perception/mean.txt",
+                 "../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/features/imagery/mean.txt")
+median_tr = c("../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/features/perception/median.txt",
+                   "../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/features/imagery/median.txt")
+max_min_distance_tr = c("../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/features/perception/max_min_distance.txt",
+                             "../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/features/imagery/max_min_distance.txt")
+quantiles_distance_tr = c("../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/features/perception/quantiles_distance.txt",
+                               "../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/features/imagery/quantiles_distance.txt")
+max_tr = c("../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/features/perception/max.txt",
+                "../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/features/imagery/max.txt")
+min_tr = c("../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/features/perception/min.txt",
+                "../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/features/imagery/min.txt")
+quantile_1_tr = c("../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/features/perception/quantile_1.txt",
+                       "../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/features/imagery/quantile_1.txt")
+quantile_2_tr = c("../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/features/perception/quantile_2.txt",
+                       "../correlations/training/dimensionality_reduction_1/10_10_10/synolitic_method_1/features/imagery/quantile_2.txt")
+
+mean_test = c("../correlations/test/dimensionality_reduction_1/10_10_10/synolitic_method_1/features/perception/mean.txt",
+                 "../correlations/test/dimensionality_reduction_1/10_10_10/synolitic_method_1/features/imagery/mean.txt")
+median_test = c("../correlations/test/dimensionality_reduction_1/10_10_10/synolitic_method_1/features/perception/median.txt",
+                   "../correlations/test/dimensionality_reduction_1/10_10_10/synolitic_method_1/features/imagery/median.txt")
+max_min_distance_test = c("../correlations/test/dimensionality_reduction_1/10_10_10/synolitic_method_1/features/perception/max_min_distance.txt",
+                             "../correlations/test/dimensionality_reduction_1/10_10_10/synolitic_method_1/features/imagery/max_min_distance.txt")
+quantiles_distance_test = c("../correlations/test/dimensionality_reduction_1/10_10_10/synolitic_method_1/features/perception/quantiles_distance.txt",
+                               "../correlations/test/dimensionality_reduction_1/10_10_10/synolitic_method_1/features/imagery/quantiles_distance.txt")
+max_test = c("../correlations/test/dimensionality_reduction_1/10_10_10/synolitic_method_1/features/perception/max.txt",
+                "../correlations/test/dimensionality_reduction_1/10_10_10/synolitic_method_1/features/imagery/max.txt")
+min_test = c("../correlations/test/dimensionality_reduction_1/10_10_10/synolitic_method_1/features/perception/min.txt",
+                "../correlations/test/dimensionality_reduction_1/10_10_10/synolitic_method_1/features/imagery/min.txt")
+quantile_1_test = c("../correlations/test/dimensionality_reduction_1/10_10_10/synolitic_method_1/features/perception/quantile_1.txt",
+                       "../correlations/test/dimensionality_reduction_1/10_10_10/synolitic_method_1/features/imagery/quantile_1.txt")
+quantile_2_test = c("../correlations/test/dimensionality_reduction_1/10_10_10/synolitic_method_1/features/perception/quantile_2.txt",
+                       "../correlations/test/dimensionality_reduction_1/10_10_10/synolitic_method_1/features/imagery/quantile_2.txt")
+```
+
+```{r}
+colnames(data_per)
+```
+
+```{r}
+plot.1 <- function(mean_tr, mean_test) {
+  data_tr_per <- read.csv(file=mean_tr[1], sep=",")
+  data_tr_im <- read.csv(file=mean_tr[2], sep=",")
+  data_test_per <- read.csv(file=mean_test[1], sep=",")
+  data_test_im <- read.csv(file=mean_test[2], sep=",")
+  
+  data_per = rbind(data_tr_per, data_test_per) %>% mutate(mode = "seen")
+  data_im = rbind(data_tr_im, data_test_im) %>% mutate(mode = "imagined")
+  
+  data = rbind(data_per, data_im)
+  
+  data %>%
+  ggpairs(diag=list(continuous = wrap("barDiag", alpha=0.7)), 
+          upper=list(continuous = wrap("box_no_facet", alpha=0.7)),
+          lower=list(continuous = wrap("smooth", alpha=0.7)),
+          aes(colour=mode), legend=1, columns = c("sum", "mean", "std"),
+          columnLabels=c("sum of edge weights","mean of edge weights","std of edge weights"))
+}
+```
+
+
+```{r, message=FALSE, warning=FALSE}
+plot.1(mean_tr, mean_test)
+plot.1(min_tr, min_test)
+plot.1(quantiles_distance_tr, quantiles_distance_test)
+```
+
+
+
+```{r}
+read.csv(file=mean_tr[1], sep=",")
+```
+
+
+
+
+
+

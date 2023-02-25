@@ -296,6 +296,16 @@
 			\caption{Разделение выборки.} 
 		\end{table}
 	\end{frame}
+
+	\begin{frame} 
+		\frametitle{Характеристики графов}
+		\vspace{-0.75cm}
+		\begin{figure}
+			\includegraphics[width=11cm]{../images/graph_feachers_1.png}
+			\caption{Распределения некоторых характеристик графов при $\{T_i\}_i = T_1$, где $T_1$ --- среднее значение вокселя.} 
+			\label{fg:13}
+		\end{figure}
+	\end{frame}
 	
 	\begin{frame} 
 		\frametitle{Матрицы ошибок}
@@ -308,7 +318,7 @@
 					seen     & 32                        & 4        \\ \cline{1-1}
 					imagined & 0                         & 30      
 				\end{tabular}
-				\caption{Среднее вокселя.}
+				\caption{Среднее значение вокселя, точность $93.9\%$.}
 			\end{minipage}%
 			\begin{minipage}{.5\linewidth}				
 				\begin{tabular}{c|cc}
@@ -316,7 +326,7 @@
 					seen     & 32                        & 4        \\ \cline{1-1}
 					imagined & 1                         & 29      
 				\end{tabular}
-				\caption{Минимум вокселя.}
+				\caption{Минимум вокселя, точность $90.9\%$.}
 			\end{minipage} 
 		\end{table}
 	
@@ -326,27 +336,8 @@
 				seen     & 34                        & 2        \\ \cline{1-1}
 				imagined & 1                         & 29      
 			\end{tabular}
-			\caption{Разница квантилей вокселя уровней $0.9$ и $0.1$.}
+			\caption{Разница квантилей вокселя уровней $0.9$ и $0.1$, точность $95.5\%$.}
 		\end{table}
-	\end{frame}
-
-	\begin{frame} 
-		\frametitle{Точность классификации, \%}
-		\vspace{1cm}
-		
-		\begin{table}
-			\begin{tabular}{ccccc}
-				$mean$ & $median$ & $max$ & $min$ & $max - min$ \\ \hline
-				100 & 100 & 95.7 & 97.1 & 90
-			\end{tabular}
-		\end{table}
-	
-		\begin{table}
-			\begin{tabular}{ccc}
-				$q_{0.9}$ & $q_{0.1}$ & $q_{0.9} - q_{0.1}$ \\ \hline
-				98.6 & 100 & 88.6
-			\end{tabular}
-		\end{table}				
 	\end{frame}
 		
 		
