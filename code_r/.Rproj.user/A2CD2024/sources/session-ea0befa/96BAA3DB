@@ -3,9 +3,9 @@
     "path": "~/programming/python/fMRI_analysis/code_r/graphs_properties_analysis.Rmd",
     "project_path": "graphs_properties_analysis.Rmd",
     "type": "r_markdown",
-    "hash": "0",
+    "hash": "1078395503",
     "contents": "",
-    "dirty": true,
+    "dirty": false,
     "created": 1677316689254.0,
     "source_on_save": false,
     "relative_order": 1,
@@ -17,11 +17,11 @@
         "scrollLine": "55"
     },
     "folds": "",
-    "lastKnownWriteTime": 1677334200,
+    "lastKnownWriteTime": 1677387396,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1677342794003,
+    "last_content_update": 1677387397003,
     "read_only": false,
     "read_only_alternatives": []
 }

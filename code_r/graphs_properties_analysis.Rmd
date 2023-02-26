@@ -61,8 +61,8 @@ plot.1 <- function(mean_tr, mean_test) {
   data_test_per <- read.csv(file=mean_test[1], sep=",")
   data_test_im <- read.csv(file=mean_test[2], sep=",")
   
-  data_per = rbind(data_tr_per, data_test_per) %>% mutate(regime = "perception")
-  data_im = rbind(data_tr_im, data_test_im) %>% mutate(regime = "imagiry")
+  data_per = rbind(data_tr_per, data_test_per) %>% mutate(mode = "seen")
+  data_im = rbind(data_tr_im, data_test_im) %>% mutate(mode = "imagined")
   
   data = rbind(data_per, data_im)
   
@@ -70,7 +70,7 @@ plot.1 <- function(mean_tr, mean_test) {
   ggpairs(diag=list(continuous = wrap("barDiag", alpha=0.7)), 
           upper=list(continuous = wrap("box_no_facet", alpha=0.7)),
           lower=list(continuous = wrap("smooth", alpha=0.7)),
-          aes(colour=regime), legend=1, columns = c("sum", "mean", "std"),
+          aes(colour=mode), legend=1, columns = c("sum", "mean", "std"),
           columnLabels=c("sum of edge weights","mean of edge weights","std of edge weights"))
 }
 ```
