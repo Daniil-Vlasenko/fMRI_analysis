@@ -5,13 +5,17 @@ date: "2023-02-25"
 ---
 
 ```{r}
-install.packages("GGally")
+install.packages("gridExtra")
 ```
 
 ```{r}
 library(dplyr)
 library(ggplot2)
 library(GGally)
+library(viridis)
+library(gridExtra)
+# library(tidyverse)
+
 ```
 
 ```{r}
@@ -51,15 +55,16 @@ quantile_2_test = c("../correlations/test/dimensionality_reduction_1/10_10_10/sy
 ```
 
 ```{r}
-colnames(data_per)
+data_tr_per <- read.csv(file=mean_tr[1], sep=",")
+colnames(data_tr_per)
 ```
 
 ```{r}
-plot.1 <- function(mean_tr, mean_test) {
-  data_tr_per <- read.csv(file=mean_tr[1], sep=",")
-  data_tr_im <- read.csv(file=mean_tr[2], sep=",")
-  data_test_per <- read.csv(file=mean_test[1], sep=",")
-  data_test_im <- read.csv(file=mean_test[2], sep=",")
+plot.1 <- function(tr, test) {
+  data_tr_per <- read.csv(file=tr[1], sep=",")
+  data_tr_im <- read.csv(file=tr[2], sep=",")
+  data_test_per <- read.csv(file=test[1], sep=",")
+  data_test_im <- read.csv(file=test[2], sep=",")
   
   data_per = rbind(data_tr_per, data_test_per) %>% mutate(mode = "seen")
   data_im = rbind(data_tr_im, data_test_im) %>% mutate(mode = "imagined")
@@ -68,26 +73,59 @@ plot.1 <- function(mean_tr, mean_test) {
   
   data %>%
   ggpairs(diag=list(continuous = wrap("barDiag", alpha=0.7)), 
-          upper=list(continuous = wrap("box_no_facet", alpha=0.7)),
-          lower=list(continuous = wrap("smooth", alpha=0.7)),
-          aes(colour=mode), legend=1, columns = c("sum", "mean", "std"),
-          columnLabels=c("sum of edge weights","mean of edge weights","std of edge weights"))
+          upper=list(continuous = wrap("blank", alpha=0.7)),
+          lower=list(continuous = wrap("points", alpha=0.7)),
+          aes(colour=mode), legend=1, columns = c("mean", "quantile_2", "std"), 
+          columnLabels=c("mean of edge weights","quantile(0.9) of edge weights","std of edge weights")
+          )
 }
 ```
 
 
 ```{r, message=FALSE, warning=FALSE}
 plot.1(mean_tr, mean_test)
-plot.1(min_tr, min_test)
-plot.1(quantiles_distance_tr, quantiles_distance_test)
+# plot.1(min_tr, min_test)
+# plot.1(quantiles_distance_tr, quantiles_distance_test)
 ```
 
+```{r}
+plot.2 <- function(tr, test) {
+  data_tr_per <- read.csv(file=tr[1], sep=",")
+  data_tr_im <- read.csv(file=tr[2], sep=",")
+  data_test_per <- read.csv(file=test[1], sep=",")
+  data_test_im <- read.csv(file=test[2], sep=",")
+  
+  data_per = rbind(data_tr_per, data_test_per) %>% mutate(mode = "seen")
+  data_im = rbind(data_tr_im, data_test_im) %>% mutate(mode = "imagined")
+  
+  data = rbind(data_per, data_im)
+  
+p1 <- data %>%
+        ggplot(aes(x=mode, y=mean, fill=mode)) +
+        geom_boxplot(outlier.shape = NA, alpha=0.7) + 
+        geom_jitter(color="black", size=0.4, alpha=0.9) + 
+        theme(legend.position = "none") +
+        ylab("mean of edge weights")
+p2 <- data %>%
+        ggplot(aes(x=mode, y=quantile_2, fill=mode)) +
+        geom_boxplot(outlier.shape = NA, alpha=0.7) + 
+        geom_jitter(color="black", size=0.4, alpha=0.9) + 
+        theme(legend.position = "none") +
+        ylab("quantile(0.9) of edge weights")
+p3 <- data %>%
+        ggplot(aes(x=mode, y=std, fill=mode)) +
+        geom_boxplot(outlier.shape = NA, alpha=0.7) + 
+        geom_jitter(color="black", size=0.4, alpha=0.9) + 
+        theme(legend.position = "none") +
+        ylab("std of edge weights")
+grid.arrange(p1, p2, p3, ncol = 3, nrow = 1)
+}
+```
 
 
 ```{r}
-read.csv(file=mean_tr[1], sep=",")
+plot.2(mean_tr, mean_test)
 ```
-
 
 
 

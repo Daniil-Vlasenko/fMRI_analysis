@@ -1,0 +1,8 @@
+@Article{DemichevV2022,
+  author  = {Demichev, V and Tober-Lau, P and Nazarenko, T and Lemke, O and Kaur Aulakh S, Whitwell, HJ et al.},
+  journal = {PLOS Digit Health},
+  title   = {A proteomic survival predictor for COVID-19 patients in intensive care},
+  year    = {2022},
+}
+
+@Comment{jabref-meta: databaseType:bibtex;}

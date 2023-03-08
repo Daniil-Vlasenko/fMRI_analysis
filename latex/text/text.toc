@@ -1,0 +1,9 @@
+\babel@toc {russian}{}\relax 
+\contentsline {chapter}{\cyrillictext \CYRV \cyrv \cyre \cyrd \cyre \cyrn \cyri \cyre }{3}{chapter*.2}%
+\contentsline {section}{\numberline {1.\hskip 1em}Функциональная магнитно-резонансная томография}{3}{section.0.1}%
+\contentsline {section}{\numberline {2.\hskip 1em}Векторизация данных фМРТ}{3}{section.0.2}%
+\contentsline {section}{\numberline {3.\hskip 1em}Представление мозга как сети}{4}{section.0.3}%
+\contentsline {section}{\numberline {4.\hskip 1em}Классификация}{4}{section.0.4}%
+\contentsline {chapter}{\chaptername ~1.\hskip 1em Модель}{5}{chapter.1}%
+\contentsline {section}{\numberline {1.1.\hskip 1em}Построение графа на основе фМРТ}{5}{section.1.1}%
+\contentsline {chapter}{\cyrillictext \CYRS \cyrp \cyri \cyrs \cyro \cyrk \ \cyrl \cyri \cyrt \cyre \cyrr \cyra \cyrt \cyru \cyrr \cyrery }{6}{chapter*.4}%
