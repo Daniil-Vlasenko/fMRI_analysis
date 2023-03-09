@@ -1,3 +1,7 @@
 \babel@toc {russian}{}\relax 
 \beamer@sectionintoc {1}{Введение}{2}{0}{1}
-\beamer@subsectionintoc {1}{1}{фМРТ}{2}{0}{1}
+\beamer@subsectionintoc {1}{1}{фМРТ, векторизация данных}{2}{0}{1}
+\beamer@subsectionintoc {1}{2}{Классификация, представление мозга как сети}{3}{0}{1}
+\beamer@subsectionintoc {1}{3}{Цель работы}{4}{0}{1}
+\beamer@sectionintoc {2}{Модель}{5}{0}{2}
+\beamer@subsectionintoc {2}{1}{Построение графа на основе фМРТ}{5}{0}{2}
