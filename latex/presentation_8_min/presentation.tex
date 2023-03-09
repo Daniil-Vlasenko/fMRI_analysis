@@ -126,11 +126,70 @@
 					\item Строиться граф-сетка $g$, т.е. граф, в котором каждый внутренний воксель связан с 26 соседними вокселями.
 					\item Вычисляются характеристики графа $\{f_u\}_u = \{F_u(g)\}_u$.
 					\item С помощью классификатора $Cl: \{\{f_u\}_u | \{\{f^n_u\}_u\}_n,$\\$ \{y_n\}_n\} \rightarrow \{0, 1\}$, обученных на выборке $(\widetilde{\Omega}, \widetilde{\Sigma})$, происходит итоговая классификация фМРТ данных $x$.
-				\end{enumerate}	
-					
+				\end{enumerate}						
 			\end{frame}
-
+		
+	\section{Тестирование модели}
+		\subsection{Данные}
+			\begin{frame}		
+				\begin{figure}
+					\centering
+					\includegraphics[width=10cm]{../images/data_3.png}
+					\caption{Наблюдение или воображение объекта.} 
+				\end{figure}
+			\end{frame}
+		
+		\subsection{Разделение выборки на обучающую и тестовую часть}
+			\begin{frame}		
+				\vspace{1cm}
+				
+				\begin{table}
+					\begin{tabular}{c|cc|cc|c}
+						& \multicolumn{2}{c|}{seen}            & \multicolumn{2}{c|}{imagined}        &                      \\ \cline{2-5}
+						& \multicolumn{1}{c|}{training} & test & \multicolumn{1}{c|}{training} & test &                      \\ \hline
+						sub-01 & \multicolumn{1}{c|}{17}       & 7    & \multicolumn{1}{c|}{14}       & 6    & 44                   \\
+						sub-02 & \multicolumn{1}{c|}{17}       & 7    & \multicolumn{1}{c|}{14}       & 6    & 44                   \\
+						sub-03 & \multicolumn{1}{c|}{17}       & 7    & \multicolumn{1}{c|}{14}       & 6    & 44                   \\
+						sub-04 & \multicolumn{1}{c|}{17}       & 7    & \multicolumn{1}{c|}{14}       & 6    & 44                   \\
+						sub-05 & \multicolumn{1}{c|}{16}       & 8    & \multicolumn{1}{c|}{14}       & 6    & 44                   \\ \hline
+						& \multicolumn{1}{c|}{84}       & 36   & \multicolumn{1}{c|}{70}       & 30   & \multirow{2}{*}{220} \\ \cline{2-5}
+						& \multicolumn{2}{c|}{120}             & \multicolumn{2}{c|}{100}             &                     		
+					\end{tabular}				
+					\caption{Разделение выборки.} 
+				\end{table}
+			\end{frame}
 			
-
+		\subsection{Результаты}
+			\begin{frame} 
+				\vspace{0.5cm}	
+				
+				\begin{table}
+					\begin{minipage}{.5\linewidth}				
+						\begin{tabular}{c|cc}
+							& \multicolumn{1}{c|}{seen} & imagined \\ \hline
+							seen     & 32                        & 4        \\ \cline{1-1}
+							imagined & 0                         & 30      
+						\end{tabular}
+						\caption{$T = mean$, точность $93.9\%$.}
+					\end{minipage}%
+					\begin{minipage}{.5\linewidth}				
+						\begin{tabular}{c|cc}
+							& \multicolumn{1}{c|}{seen} & imagined \\ \hline
+							seen     & 32                        & 4        \\ \cline{1-1}
+							imagined & 1                         & 29      
+						\end{tabular}
+						\caption{$T = min$, точность $90.9\%$.}
+					\end{minipage} 
+				\end{table}
+				
+				\begin{table}[]
+					\begin{tabular}{c|cc}
+						& \multicolumn{1}{c|}{seen} & imagined \\ \hline
+						seen     & 34                        & 2        \\ \cline{1-1}
+						imagined & 1                         & 29      
+					\end{tabular}
+					\caption{$T = quantile(0.9) - quantile(0.1)$, точность $95.5\%$.}
+				\end{table}
+			\end{frame}
 
 \end{document}

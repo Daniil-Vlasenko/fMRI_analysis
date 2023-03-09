@@ -24,8 +24,23 @@
 \headcommand {\beamer@framepages {5}{5}}
 \headcommand {\slideentry {2}{1}{2}{6/6}{Построение графа на основе фМРТ}{0}}
 \headcommand {\beamer@framepages {6}{6}}
-\headcommand {\beamer@partpages {1}{6}}
-\headcommand {\beamer@subsectionpages {5}{6}}
 \headcommand {\beamer@sectionpages {5}{6}}
-\headcommand {\beamer@documentpages {6}}
-\headcommand {\gdef \inserttotalframenumber {6}}
+\headcommand {\beamer@subsectionpages {5}{6}}
+\headcommand {\sectionentry {3}{Тестирование модели}{7}{Тестирование модели}{0}}
+\headcommand {\beamer@subsectionpages {7}{6}}
+\headcommand {\beamer@subsectionentry {0}{3}{1}{7}{Данные}}
+\headcommand {\slideentry {3}{1}{1}{7/7}{Данные}{0}}
+\headcommand {\beamer@framepages {7}{7}}
+\headcommand {\beamer@subsectionpages {7}{7}}
+\headcommand {\beamer@subsectionentry {0}{3}{2}{8}{Разделение выборки на обучающую и тестовую часть}}
+\headcommand {\slideentry {3}{2}{1}{8/8}{Разделение выборки на обучающую и тестовую часть}{0}}
+\headcommand {\beamer@framepages {8}{8}}
+\headcommand {\beamer@subsectionpages {8}{8}}
+\headcommand {\beamer@subsectionentry {0}{3}{3}{9}{Результаты}}
+\headcommand {\slideentry {3}{3}{1}{9/9}{Результаты}{0}}
+\headcommand {\beamer@framepages {9}{9}}
+\headcommand {\beamer@partpages {1}{9}}
+\headcommand {\beamer@subsectionpages {9}{9}}
+\headcommand {\beamer@sectionpages {7}{9}}
+\headcommand {\beamer@documentpages {9}}
+\headcommand {\gdef \inserttotalframenumber {9}}
