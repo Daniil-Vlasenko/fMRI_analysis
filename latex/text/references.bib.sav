@@ -1,8 +1,51 @@
 @Article{DemichevV2022,
-  author  = {Demichev, V and Tober-Lau, P and Nazarenko, T and Lemke, O and Kaur Aulakh S, Whitwell, HJ et al.},
+  author  = {Demichev, Vadim and Tober-Lau, P and Nazarenko, T and Lemke, O and Kaur Aulakh S, Whitwell, HJ et al.},
   journal = {PLOS Digit Health},
   title   = {A proteomic survival predictor for COVID-19 patients in intensive care},
   year    = {2022},
+}
+
+@Misc{BrettMatthew2023,
+  author = {Brett, Matthew and Markiewicz, Christopher J. and Hanke, Michael and Côté, Marc-Alexandre and Cipollini, Ben and McCarthy, Paul and Jarecka, Dorota and Cheng, Christopher P. and Halchenko, Yaroslav O. and Cottaar, Michiel and Larson, Eric and Ghosh, Satrajit and Wassermann, Demian and Gerhard, Stephan and Lee, Gregory R. Deptartment of Radiology, University of Cincinnati College of Medicine, Cincinnati, OH and Wang, Hao-Ting and Kastman, Erik and Kaczmarzyk, Jakub and Guidotti, Roberto and Daniel, Jonathan and Duek, Or and Rokem, Ariel and Madison, Cindee and Papadopoulos Orfanos, Dimitri and Sólon, Anibal and Moloney, Brendan and Morency, Félix C. and Goncalves, Mathias and Baratz, Zvi and Markello, Ross and Riddell, Cameron and Burns, Christopher and Millman, Jarrod and Gramfort, Alexandre and Leppäkangas, Jaakko and van den Bosch, Jasper J.F. and Vincent, Robert D. and Braun, Henry and Subramaniam, Krish and Van, Andrew and Gorgolewski, Krzysztof J. and Raamana, Pradeep Reddy and Klug, Julian and Nichols, B. Nolan and Baker, Eric M. and Hayashi, Soichi and Pinsard, Basile and Haselgrove, Christian and Hymers, Mark and Esteban, Oscar and Koudoro, Serge and Pérez-García, Fernando and Dockès, Jérôme and Oosterhof, Nikolaas N. and Amirbekian, Bago and Nimmo-Smith, Ian and Nguyen, Ly and Reddigari, Samir and St-Jean, Samuel and Panfilov, Egor and Garyfallidis, Eleftherios and Varoquaux, Gael and Legarreta, Jon Haitz and Hahn, Kevin S. and Waller, Lea and Hinds, Oliver P. and Fauber, Bennet and Roberts, Jacob and Poline, Jean-Baptiste and Stutters, Jon and Jordan, Kesshi and Cieslak, Matthew and Moreno, Miguel Estevan and Hrnčiar, Tomáš and Haenel, Valentin and Schwartz, Yannick and Darwin, Benjamin C and Thirion, Bertrand and Gauthier, Carl and Solovey, Igor and Gonzalez, Ivan and Palasubramaniam, Jath and Lecher, Justin and Leinweber, Katrin and Raktivan, Konstantinos and Calábková, Markéta and Fischer, Peter and Gervais, Philippe and Gadde, Syam and Ballinger, Thomas and Roos, Thomas and Reddam, Venkateswara Reddy and freec84},
+  title  = {nipy/nibabel: 5.0.1},
+  year   = {2023},
+  doi    = {10.5281/zenodo.7633628},
+}
+
+@Article{Krivonosov2020,
+  author  = {M. Krivonosov, T. Nazarenko, M.G. Bacalini, M.V. Vedunova, C. Franceschi, A. Zaikin, M. Ivanchenko},
+  journal = {bioRxiv},
+  title   = {Age-related trajectories of DNA methylation network markers: a parenclitic network approach to a family-based cohort of patients with Down Syndrome},
+  year    = {2020},
+}
+
+@Misc{,
+  author = {Csárdi, Gábor and Nepusz, Tamás and Horvát, Szabolcs and Traag, Vincent and Zanini, Fabio and Noom, Daniel},
+  title  = {igraph},
+  doi    = {10.5281/zenodo.7573267},
+}
+
+@Article{Gabor2006,
+  author  = {Gabor, Csardi and Tamas, Nepusz},
+  journal = {InterJournal},
+  title   = {The igraph software package for complex network research},
+  year    = {2006},
+  url     = {https://igraph.org},
+}
+
+@Article{Platt1999,
+  author  = {Platt J.},
+  journal = {Advances in Large Margin Classifiers.},
+  title   = {Probabilistic outputs for support vector machines and comparisons to regularized likelihood methods},
+  year    = {1999},
+}
+
+@Misc{Horikawa2019,
+  author  = {Tomoyasu Horikawa and Yukiyasu Kamitani},
+  title   = {Generic Object Decoding (fMRI on ImageNet)},
+  year    = {2019},
+  doi     = {doi:10.18112/openneuro.ds001246.v1.2.1},
+  printed = {OpenNeuro},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}

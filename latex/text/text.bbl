@@ -14,10 +14,55 @@
 \providecommand*{\BibDash}{\ifdim\lastskip>0pt\unskip\nobreak\hskip.2em\fi
 \cyrdash\hskip.2em\ignorespaces}
 
+\bibitem{BrettMatthew2023}
+\selectlanguageifdefined{english}
+\href{http://dx.doi.org/10.5281/zenodo.7633628}{\BibEmph{Brett~Matthew,
+  Markiewicz~Christopher~J., Hanke~Michael [et~al.]}}.
+  \href{http://dx.doi.org/10.5281/zenodo.7633628}{nipy/nibabel: 5.0.1}.
+  \BibDash
+\newblock 2023. \BibDOI{10.5281/zenodo.7633628}.
+
 \bibitem{DemichevV2022}
 \selectlanguageifdefined{english}
 A proteomic survival predictor for COVID-19 patients in intensive care~/
   Vadim~Demichev [et~al.]~// \BibEmphi{PLOS Digit Health}. \BibDash
 \newblock 2022.
+
+\bibitem{Krivonosov2020}
+\selectlanguageifdefined{english}
+\BibEmph{M.~Krivonosov~T.~Nazarenko~M.G. Bacalini M.V. Vedunova C. Franceschi
+  A. Zaikin M.~Ivanchenko}. Age-related trajectories of DNA methylation network
+  markers: a parenclitic network approach to a family-based cohort of patients
+  with Down Syndrome~// \BibEmphi{bioRxiv}. \BibDash
+\newblock 2020.
+
+\bibitem{Gabor2006}
+\selectlanguageifdefined{english}
+\BibEmph{Gabor~Csardi, Tamas~Nepusz}. The igraph software package for complex
+  network research~// \BibEmphi{InterJournal}. \BibDash
+\newblock 2006. \BibDash
+\newblock URL: \BibUrl{https://igraph.org}.
+
+\bibitem{Platt1999}
+\selectlanguageifdefined{english}
+\BibEmph{J.~Platt}. Probabilistic outputs for support vector machines and
+  comparisons to regularized likelihood methods~// \BibEmphi{Advances in Large
+  Margin Classifiers.} \BibDash
+\newblock 1999.
+
+\bibitem{Horikawa2019}
+\selectlanguageifdefined{english}
+\href{http://dx.doi.org/doi:10.18112/openneuro.ds001246.v1.2.1}{\BibEmph{Horikawa~Tomoyasu,
+  Kamitani~Yukiyasu}}.
+  \href{http://dx.doi.org/doi:10.18112/openneuro.ds001246.v1.2.1}{Generic
+  Object Decoding (fMRI on ImageNet)}. \BibDash
+\newblock 2019. \BibDOI{doi:10.18112/openneuro.ds001246.v1.2.1}.
+
+\bibitem{Vlasrnko2023}
+\selectlanguageifdefined{english}
+\BibEmph{Vlasrnko~Daniil}. Classification of brain activity using Synolitic
+  networks. \BibDash
+\newblock 2023. \BibDash
+\newblock URL: \BibUrl{https://github.com/Daniil-Vlasenko/fMRI_analysis}.
 
 \end{thebibliography}
