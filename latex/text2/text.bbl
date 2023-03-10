@@ -26,45 +26,45 @@
 
 \bibitem{DemichevV2022}
 \selectlanguageifdefined{english}
-A proteomic survival predictor for COVID-19 patients in intensive care~/
-  V~Demichev [et~al.]~// \BibEmphi{PLOS Digit Health}. \BibDash
-\newblock 2022.
+\href{http://dx.doi.org/10.1371/journal.pdig.0000007}{A proteomic survival
+  predictor for COVID-19 patients in intensive care}~/ V.~Demichev [et~al.]~//
+  \href{http://dx.doi.org/10.1371/journal.pdig.0000007}{\BibEmphi{PLOS Digit
+  Health}}. \BibDash
+\newblock 2022. \BibDOI{10.1371/journal.pdig.0000007}.
 
 \bibitem{Krivonosov2020}
 \selectlanguageifdefined{english}
-\BibEmph{M.~Krivonosov~T.~Nazarenko~M.G. Bacalini M.V. Vedunova C. Franceschi
-  A. Zaikin M.~Ivanchenko}. Age-related trajectories of DNA methylation network
-  markers: a parenclitic network approach to a family-based cohort of patients
-  with Down Syndrome~// \BibEmphi{bioRxiv}. \BibDash
-\newblock 2020.
-
-\bibitem{Gabor2006}
-\selectlanguageifdefined{english}
-\BibEmph{Gabor~Csardi, Tamas~Nepusz}. The igraph software package for complex
-  network research~// \BibEmphi{InterJournal}. \BibDash
-\newblock 2006. \BibDash
-\newblock URL: \BibUrl{https://igraph.org}.
+\href{http://dx.doi.org/10.1101/2020.03.10.986505}{Age-related trajectories of
+  DNA methylation network markers: a parenclitic network approach to a
+  family-based cohort of patients with Down Syndrome}~/ M.~Krivonosov
+  [et~al.]~//
+  \href{http://dx.doi.org/10.1101/2020.03.10.986505}{\BibEmphi{bioRxiv}}.
+  \BibDash
+\newblock 2020. \BibDOI{10.1101/2020.03.10.986505}.
 
 \bibitem{Platt1999}
 \selectlanguageifdefined{english}
-\BibEmph{J.~Platt}. Probabilistic outputs for support vector machines and
+\BibEmph{Platt~John~C.} Probabilistic outputs for support vector machines and
   comparisons to regularized likelihood methods~// \BibEmphi{Advances in Large
-  Margin Classifiers.} \BibDash
+  Margin Classifiers}. \BibDash
 \newblock 1999.
 
 \bibitem{Horikawa2019}
 \selectlanguageifdefined{english}
-\href{http://dx.doi.org/doi:10.18112/openneuro.ds001246.v1.2.1}{\BibEmph{Horikawa~Tomoyasu,
-  Kamitani~Yukiyasu}}.
-  \href{http://dx.doi.org/doi:10.18112/openneuro.ds001246.v1.2.1}{Generic
-  Object Decoding (fMRI on ImageNet)}. \BibDash
-\newblock 2019. \BibDOI{doi:10.18112/openneuro.ds001246.v1.2.1}.
+\href{http://dx.doi.org/10.1038/ncomms15037}{\BibEmph{Horikawa~T.,
+  Kamitani~Y.}} \href{http://dx.doi.org/10.1038/ncomms15037}{Generic decoding
+  of seen and imagined objects using hierarchical visual features}~//
+  \href{http://dx.doi.org/10.1038/ncomms15037}{\BibEmphi{Nature
+  Communications}}. \BibDash
+\newblock 2017. \BibDOI{10.1038/ncomms15037}.
 
-\bibitem{Vlasrnko2023}
+\bibitem{Vlasenko2023}
 \selectlanguageifdefined{english}
-\BibEmph{Vlasrnko~Daniil}. Classification of brain activity using Synolitic
+\BibEmph{Vlasenko~Daniil}. Classification of brain activity using Synolitic
   networks. \BibDash
+\newblock GitHub. \BibDash
 \newblock 2023. \BibDash
-\newblock URL: \BibUrl{https://github.com/Daniil-Vlasenko/fMRI_analysis}.
+\newblock URL: \BibUrl{https://github.com/Daniil-Vlasenko/fMRI\_analysis}
+  (online; accessed: 10.03.2023).
 
 \end{thebibliography}
