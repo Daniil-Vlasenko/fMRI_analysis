@@ -21,14 +21,14 @@
   \href{http://dx.doi.org/10.5281/zenodo.7633628}{nipy/nibabel: 5.0.1}.
   \BibDash
 \newblock Zenodo. \BibDash
-\newblock 2023. \BibDash \bblfeb{}. \BibDash
+\newblock 2023. \BibDash
 \newblock 12. \BibDOI{10.5281/zenodo.7633628}.
 
 \bibitem{DemichevV2022}
 \selectlanguageifdefined{english}
 A proteomic survival predictor for COVID-19 patients in intensive care~/
   V~Demichev [et~al.]~// \BibEmphi{PLOS Digit Health}. \BibDash
-\newblock 2022. \BibDash \bbljan{}.
+\newblock 2022.
 
 \bibitem{Krivonosov2020}
 \selectlanguageifdefined{english}

@@ -16,13 +16,13 @@ while executing---line 1982 of file ugost2008mod.bst
 You've used 7 entries,
             4056 wiz_defined-function locations,
             1155 strings with 12222 characters,
-and the built_in function-call counts, 1775 in all, are:
+and the built_in function-call counts, 1771 in all, are:
 = -- 188
 > -- 56
 < -- 4
 + -- 20
 - -- 13
-* -- 124
+* -- 120
 := -- 199
 add.period$ -- 26
 call.type$ -- 7

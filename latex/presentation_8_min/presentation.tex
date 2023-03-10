@@ -72,27 +72,28 @@
 				\end{figure}	
 			\end{frame}
 	
-		\subsection{Классификация, представление мозга как сети}
-			\begin{frame}
+		\subsection{Представление мозга как сети, цель работы}
+			\begin{frame}									
+				\begin{figure}
+					\includegraphics[width=10cm]{../images/fmri_graph_ml_1.pdf}
+					\caption{Классификация на основе характеристик графов, содержащих информацию о работе мозга.} 
+					\label{fg:3}
+				\end{figure}
+			
+				\begin{purpose*}
+					Реализация и тестирование метода классификации режимов мозговой активности на основе фМРТ данных, в основе которого будут лежать синолитические сети (Demichev V.  2022).
+				\end{purpose*}						
+			\end{frame}
+		
+	\section{Классификация}
+		\subsection{}
+			\begin{frame}		
 				\begin{classification*}
 					Пусть $\Omega$ --- множество объектов, $\Sigma$ --- множество классов. Существует неизвестная функция $f: \Omega \rightarrow \Sigma$, значения которой известны только на объектах выборки $(\widetilde{\Omega}, \widetilde{\Sigma}) =  \{(\omega_{n}, \sigma_{n})\}_n$. 
 					\vspace{0.35cm}
 					
 					Требуется построить алгоритм $\widehat{f}: \Omega \rightarrow \Sigma$, способный классифицировать произвольный объект $\omega \in \Omega$, то есть правильно сопоставить ему соответствующий класс $\sigma \in \Sigma$.
-				\end{classification*}
-					
-				\begin{figure}
-					\includegraphics[width=10cm]{../images/fmri_graph_ml_1.pdf}
-					\caption{Классификация на основе характеристик графов, содержащих информацию о работе мозга.} 
-					\label{fg:3}
-				\end{figure}						
-			\end{frame}
-		
-		\subsection{Цель работы}
-			\begin{frame}		
-				\begin{purpose*}
-					Реализация и тестирование метода классификации режимов мозговой активности на основе фМРТ данных, в основе которого будут лежать синолитические сети (Zaikin Alexey 2022).
-				\end{purpose*}
+				\end{classification*}				
 			\end{frame}
 		
 	\section{Модель}
@@ -109,10 +110,11 @@
 				
 				\begin{enumerate}
 					\setcounter{enumi}{1}
-					\item С помощью статистики $T$ вычисляется $a^{T} = T(a)$, т.е для $\forall x, y, z$ $a^{T}_{xyz} = T(a_{xyz})$. Значения массива $a^{T}$ будут использоваться в качестве значений вершин $R$.					
+					\item С помощью статистики $T$ вычисляется $a^{T} = T(a)$, т.е. для $\forall x, y, z$ $a^{T}_{xyz} = T(a_{xyz})$. Значения массива $a^{T}$ будут использоваться в качестве значений вершин $R$.					
 				\end{enumerate}														
 			\end{frame}
 		
+		\subsection{Построение графа на основе фМРТ, классификация}
 			\begin{frame}		
 				\begin{prob_def*}
 					\begin{equation*}
@@ -122,15 +124,16 @@
 				
 				\begin{enumerate}
 					\setcounter{enumi}{2}
-					\item С помощью классификаторов $Cl_{ij}: \{y |(r_i, r_j), \{(r_i^n, r_j^n)\}_n,$\\$ \{y_n\}_n\} \rightarrow [0, 1]$, обученных на выборке $(\widetilde{\Omega}, \widetilde{\Sigma})$, вычисляется $W$.
-					\item Строиться граф-сетка $g$, т.е. граф, в котором каждый внутренний воксель связан с 26 соседними вокселями.
+					\item С помощью классификаторов $Cl_{ij}: \{y |(r_i, r_j), \{(r_i^n, r_j^n)\}_n,$\\$ \{y_n\}_n\} \rightarrow [0, 1]$, обученных на выборке $(\widetilde{\Omega}, \widetilde{\Sigma})$, вычисляется $W$ (Platt J. 1999).
+					\item Строится граф-сетка $g$, т.е. граф, в котором каждый внутренний воксель связан с 26 соседними вокселями.
+					\item Из $g$ удаляются ребер $\{e_{ij} : r_i < r | r_j < r | w_{ij} < w\}_{ij}$.
 					\item Вычисляются характеристики графа $\{f_u\}_u = \{F_u(g)\}_u$.
-					\item С помощью классификатора $Cl: \{\{f_u\}_u | \{\{f^n_u\}_u\}_n,$\\$ \{y_n\}_n\} \rightarrow \{0, 1\}$, обученных на выборке $(\widetilde{\Omega}, \widetilde{\Sigma})$, происходит итоговая классификация фМРТ данных $x$.
+					\item С помощью классификатора $Cl: \{\{f_u\}_u | \{\{f^n_u\}_u\}_n,$\\$ \{y_n\}_n\} \rightarrow \{0, 1\}$, обученного на выборке $(\widetilde{\Omega}, \widetilde{\Sigma})$, происходит итоговая классификация фМРТ данных $\omega$.
 				\end{enumerate}						
 			\end{frame}
 		
 	\section{Тестирование модели}
-		\subsection{Данные}
+		\subsection{Данные (Horikawa T., Kamitani Y. 2019)}
 			\begin{frame}		
 				\begin{figure}
 					\centering
@@ -170,7 +173,7 @@
 							seen     & 32                        & 4        \\ \cline{1-1}
 							imagined & 0                         & 30      
 						\end{tabular}
-						\caption{$T = mean$, точность $93.9\%$.}
+						\caption{$T$ --- среднее значение вокселя, точность $93.9\%$.}
 					\end{minipage}%
 					\begin{minipage}{.5\linewidth}				
 						\begin{tabular}{c|cc}
@@ -178,7 +181,7 @@
 							seen     & 32                        & 4        \\ \cline{1-1}
 							imagined & 1                         & 29      
 						\end{tabular}
-						\caption{$T = min$, точность $90.9\%$.}
+						\caption{$T$ --- минимум значений вокселя, точность $90.9\%$.}
 					\end{minipage} 
 				\end{table}
 				
@@ -188,7 +191,7 @@
 						seen     & 34                        & 2        \\ \cline{1-1}
 						imagined & 1                         & 29      
 					\end{tabular}
-					\caption{$T = quantile(0.9) - quantile(0.1)$, точность $95.5\%$.}
+					\caption{$T$ --- разница квантилей уровня 0.9 и 0.1 значений вокселя, точность $95.5\%$.}
 				\end{table}
 			\end{frame}
 

@@ -1,0 +1,3 @@
+\babel@toc {russian}{}\relax 
+\contentsline {chapter}{\chaptername ~1.\hskip 1em Модель}{3}{chapter.1}%
+\contentsline {section}{\numberline {1.1.\hskip 1em}Построение графа на основе фМРТ}{3}{section.1.1}%
